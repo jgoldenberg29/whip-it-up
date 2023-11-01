@@ -9,7 +9,7 @@ class Instruction(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')))
-    text = db.Column(db.text, nullable=False)
+    text = db.Column(db.Text, nullable=False)
     step = db.Column(db.Integer, nullable=False)
 
     instructions_for = db.relationship('Recipe', back_populates = 'recipe_instructions')

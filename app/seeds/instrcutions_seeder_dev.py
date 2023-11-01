@@ -1,4 +1,4 @@
-from app.models import db, Ingredient, environment, SCHEMA
+from app.models import db, Instruction, environment, SCHEMA
 from sqlalchemy.sql import text
 from .instructions_seeds_dev import instructions
 
@@ -7,10 +7,10 @@ from .instructions_seeds_dev import instructions
 def seed_instructions():
 
     for instruction in instructions:
-        new_instruction = Ingredient(
-            recipe_id=ingredient['recipe_id'],
-            text=ingredient['text'],
-            step=ingredient['step'],
+        new_instruction = Instruction(
+            recipe_id=instruction['recipe_id'],
+            text=instruction['text'],
+            step=instruction['step'],
         )
         db.session.add(new_instruction)
 

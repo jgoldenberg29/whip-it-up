@@ -17,8 +17,8 @@ def seed_recipes():
             description=recipe['description'],
             prep_time=recipe['prep_time'],
             cook_time=recipe['cook_time'],
-            servings=recipe['servings'],
-            instructions=recipe['instructions']
+            servings=recipe['servings']
+            # instructions=recipe['instructions']
         )
         db.session.add(new_recipe)
 
