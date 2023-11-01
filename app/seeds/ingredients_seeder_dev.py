@@ -7,7 +7,13 @@ from .ingredients_seeds_dev import ingredients
 def seed_ingredients():
 
     for ingredient in ingredients:
-        new_ingredient = Ingredient(ingredient)
+        new_ingredient = Ingredient(
+            recipe_id=ingredient['recipe_id'],
+            item=ingredient['item'],
+            refrigerated=ingredient['refrigerated'],
+            measurement=ingredient['measurement'],
+            quantity=ingredient['quantity']
+        )
         db.session.add(new_ingredient)
 
     db.session.commit()
