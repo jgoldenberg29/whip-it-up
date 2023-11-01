@@ -38,6 +38,6 @@ class User(db.Model, UserMixin):
             'lastName': self.last_name,
             'username': self.username,
             'email': self.email,
-            'sharedRecipes': self.shared_recipes.to_dict(),
-            'savedRecipes': self.saved_recipes.to_dict()
+            'sharedRecipes': [recipe.id for recipe in self.shared_recipes],
+            'savedRecipes': [recipe.id for recipe in self.saved_recipes]
         }
