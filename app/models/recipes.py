@@ -17,11 +17,12 @@ class Recipe(db.Model):
     prep_time = db.Column(db.Integer, nullable=False)
     cook_time = db.Column(db.Integer, nullable=False)
     servings = db.Column(db.Integer, nullable=False)
-    instructions = db.Column(db.Text, nullable=False)
+    # instructions = db.Column(db.Text, nullable=False)
 
     author = db.relationship('User', back_populates = 'shared_recipes')
     saved_by = db.relationship('User', secondary=saves, back_populates='saved_recipes')
     recipe_ingredients = db.relationship('Ingredient', back_populates='used_in')
+    recipe_instructions = db.relationship('Instruction', back_populates = 'instructions_for')
 
     def to_dict(self):
         return {
@@ -34,5 +35,7 @@ class Recipe(db.Model):
             'prep-time': self.prep_time,
             'cook-time': self.cook-time,
             'servings': self.servings,
-            'instructions': self.instructions
+            'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
+            'instructions': [isntruction.to_dict() for instruction in self.recipe_instructions]
+
         }
