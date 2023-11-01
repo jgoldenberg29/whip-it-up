@@ -32,7 +32,7 @@ recipes = [
         'instructions': "In a large bowl, beat butter and sugars until blended. Beat in eggs and vanilla. In a small bowl, whisk flour, baking soda and salt; gradually beat into butter mixture. Stir in chocolate chips and walnuts. Shape 1/4 cupfuls of dough into balls. Flatten each to 3/4-in. thickness (2-1/2-in. diameter), smoothing edges as necessary. Place in an airtight container, separating layers with waxed paper or parchment; refrigerate, covered, overnight. To bake, place dough portions 2 in. apart on parchment-lined baking sheets; let stand at room temperature 30 minutes before baking. Preheat oven to 400°. Bake until edges are golden brown (centers will be light), 10-12 minutes. Cool on pans 2 minutes. Remove to wire racks to cool."
     },
     {
-        'user_id': 1,
+        'user_id': 2,
         'title':'Good Old-Fashioned Pancakes',
         'recipe_url': 'https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/',
         'image': 'https://www.allrecipes.com/thmb/kvvETNZfOtAptH69gUsK6FaKRKA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg',
@@ -43,7 +43,7 @@ recipes = [
         'instructions': "Sift flour, baking powder, sugar, and salt together in a large bowl. Make a well in the center and add milk, melted butter, and egg; mix until smooth. Heat a lightly oiled griddle or pan over medium-high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake; cook until bubbles form and the edges are dry, about 2 to 3 minutes. Flip and cook until browned on the other side. Repeat with remaining batter."
     },
     {
-        'user_id': 1,
+        'user_id': 2,
         'title':'Baked Garlic Parmesan Chicken',
         'recipe_url': 'https://www.allrecipes.com/recipe/55860/baked-garlic-parmesan-chicken/',
         'image': 'https://www.allrecipes.com/thmb/wnbE0q3ZBbV3oaR-eYYbJdDQI_4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/55860-baked-garlic-parmesan-chicken-AlbertaRose-4x3-6f15fbf00fb2457db3cf484dacec92b4.jpg',

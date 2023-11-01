@@ -74,13 +74,6 @@ def upgrade():
         op.execute(f"ALTER TABLE ingredients SET SCHEMA {SCHEMA};")
     if environment == "production":
         op.execute(f"ALTER TABLE saves SET SCHEMA {SCHEMA};")
-    # ### end Alembic commands ###qqqqqqqqq
-
-    # ### end Alembic commands ###qqqqqqqqq
-
-    # ### end Alembic commands ###qqqqqqqqq
-
-    # ### end Alembic commands ###qqqqqqqqq
 
     # ### end Alembic commands ###
 
