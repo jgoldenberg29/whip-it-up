@@ -9,6 +9,8 @@ function SignupFormModal() {
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
@@ -16,9 +18,9 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(firstName, lastName, username, email, password));
 			if (data) {
-				setErrors(data);
+				setErrors(data?.errors);
 			} else {
 				closeModal();
 			}
@@ -28,16 +30,37 @@ function SignupFormModal() {
 			]);
 		}
 	};
-
 	return (
-		<>
+		<div className='form-modal-container'>
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit}>
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
+				<p>
+					{errors?.message ? errors?.message : ''}
+				</p>
+				<label>
+					First Name
+					<input
+						type="text"
+						value={firstName}
+						onChange={(e) => setFirstName(e.target.value)}
+						required
+					/>
+				</label>
+				<p>
+					{errors?.first_name ? errors?.first_name : ''}
+				</p>
+				<label>
+					Last Name
+					<input
+						type="text"
+						value={lastName}
+						onChange={(e) => setLastName(e.target.value)}
+						required
+					/>
+				</label>
+				<p>
+					{errors?.last_name ? errors?.last_name : ''}
+				</p>
 				<label>
 					Email
 					<input
@@ -47,6 +70,9 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				<p>
+					{errors?.email ? errors?.email : ''}
+				</p>
 				<label>
 					Username
 					<input
@@ -56,6 +82,9 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				<p>
+					{errors?.username ? errors?.username : ''}
+				</p>
 				<label>
 					Password
 					<input
@@ -65,6 +94,9 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				<p>
+					{errors?.password ? errors?.password : ''}
+				</p>
 				<label>
 					Confirm Password
 					<input
@@ -76,7 +108,7 @@ function SignupFormModal() {
 				</label>
 				<button type="submit">Sign Up</button>
 			</form>
-		</>
+		</div>
 	);
 }
 

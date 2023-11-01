@@ -15,21 +15,16 @@ function LoginFormModal() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(data.errors);
     } else {
         closeModal()
     }
   };
 
   return (
-    <>
+    <div className='form-modal-container'>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
+      <form className='form-modal-container' onSubmit={handleSubmit}>
         <label>
           Email
           <input
@@ -48,9 +43,12 @@ function LoginFormModal() {
             required
           />
         </label>
+        <p>
+            {Object.values(errors).length ? "Invalid credentials" : ''}
+          </p>
         <button type="submit">Log In</button>
       </form>
-    </>
+    </div>
   );
 }
 
