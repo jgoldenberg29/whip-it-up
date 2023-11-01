@@ -10,7 +10,7 @@ class Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')))
     item = db.Column(db.String(60), nullable=False)
-    refrigerated = db.Column(db.Boolean)
+    refridgerated = db.Column(db.Boolean)
     measurement = db.Column(db.String(25))
     quantity = db.Column(db.Float, nullable=False)
 

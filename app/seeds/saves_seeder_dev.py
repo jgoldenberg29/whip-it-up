@@ -1,5 +1,6 @@
-from app.models import db, Recipe, environment, SCHEMA
+from app.models import db, Recipe, User, environment, SCHEMA
 from sqlalchemy.sql import text
+from random import sample
 
 
 # Adds a demo user, you can add other users here if you want
@@ -7,8 +8,8 @@ def seed_saves():
 
     users = User.query.all()
     recipes = Recipe.query.all()
-    for recipe in recipes:
-        recipe.saved_by.extend(sample(users, 4))
+    for user in users:
+        user.saved_recipes.extend(sample(recipes, 4))
     db.session.commit()
 
 

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 210bfe4edf8f
+Revision ID: 12660b2bf78b
 Revises:
-Create Date: 2023-11-01 13:22:07.374419
+Create Date: 2023-11-01 14:19:38.421918
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '210bfe4edf8f'
+revision = '12660b2bf78b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -53,19 +53,18 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=True),
     sa.Column('item', sa.String(length=60), nullable=False),
-    sa.Column('refrigerated', sa.Boolean(), nullable=True),
+    sa.Column('refridgerated', sa.Boolean(), nullable=True),
     sa.Column('measurement', sa.String(length=25), nullable=True),
     sa.Column('quantity', sa.Float(), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('saves',
-    sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id', 'user_id', 'recipe_id')
+    sa.PrimaryKeyConstraint('user_id', 'recipe_id')
     )
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")

@@ -10,8 +10,8 @@ def seed_ingredients():
         new_ingredient = Ingredient(
             recipe_id=ingredient['recipe_id'],
             item=ingredient['item'],
-            refrigerated=ingredient['refrigerated'],
-            measurement=ingredient['measurement'],
+            refridgerated=ingredient['refridgerated'],
+            measurement=ingredient['measurement'] if 'measurement' in ingredient.keys() else None,
             quantity=ingredient['quantity']
         )
         db.session.add(new_ingredient)
