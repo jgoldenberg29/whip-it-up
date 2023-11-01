@@ -9,7 +9,17 @@ def seed_recipes():
 
     for recipe in recipes:
         ic(recipe)
-        new_recipe = Recipe(recipe)
+        new_recipe = Recipe(
+            user_id=recipe['user_id'],
+            title=recipe['title'],
+            recipe_url=recipe['recipe_url'],
+            image=recipe['image'],
+            description=recipe['description'],
+            prep_time=recipe['prep_time'],
+            cook_time=recipe['cook_time'],
+            servings=recipe['servings'],
+            instructions=recipe['instructions']
+        )
         db.session.add(new_recipe)
 
     db.session.commit()
