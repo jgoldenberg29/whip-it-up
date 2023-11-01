@@ -1,14 +1,14 @@
 from app.models import db, Recipe, environment, SCHEMA
 from sqlalchemy.sql import text
 from .recipes_seeds_dev import recipes
-from icecream import ic
+# from icecream import ic
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_recipes():
 
     for recipe in recipes:
-        ic(recipe)
+        # ic(recipe)
         new_recipe = Recipe(
             user_id=recipe['user_id'],
             title=recipe['title'],
