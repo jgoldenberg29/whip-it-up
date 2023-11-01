@@ -12,3 +12,5 @@ def all_recipes():
     """
 
     recipes = Query.Recipe.all()
+
+    return {recipes: [recipe.to_dict for recipe in recipes]}
