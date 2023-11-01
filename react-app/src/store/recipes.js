@@ -1,5 +1,4 @@
 
-
 const ALL_RECIPES = 'recipes/getAll'
 const ADD_RECIPE = 'recipes/createOne'
 const UPDATE_RECIPE = 'recipes/edit'
@@ -36,6 +35,18 @@ export const deleteRecipe = (recipeId) => {
 
 
 // thunks
+export const thunkGetAllRecipes = () => async dispatch => {
+    const res = await fetch('/api/recipes')
+
+    if(res.ok) {
+        const data = await res.json();
+        dispatch(ALL_RECIPES(data.recipes))
+        return null
+    } else {
+        const data = await res.json();
+        return data
+    }
+}
 
 
 const recipeReducer = (state={}, action) => {
