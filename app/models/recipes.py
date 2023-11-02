@@ -32,9 +32,9 @@ class Recipe(db.Model):
             'recipeURL': self.recipe_url,
             'image': self.image,
             'description': self.description,
-            'prep-time': self.prep_time,
-            'cook-time': self.cook-time,
+            'prepTime': self.prep_time,
+            'cookTime': self.cook_time,
             'servings': self.servings,
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
-            'instructions': sorted([isntruction.to_dict() for instruction in self.recipe_instructions], key=ingredient.step)
+            'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=instruction.step)
         }

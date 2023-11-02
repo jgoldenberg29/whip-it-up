@@ -6,7 +6,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import './App.css'
-import Landing from "./components/landing";
+import Home from "./components/Home";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -20,8 +21,8 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/" >
-            <Landing />
+          <Route exact path="/">
+            <Home/>
           </Route>
         </Switch>
       )}
