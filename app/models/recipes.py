@@ -34,7 +34,17 @@ class Recipe(db.Model):
             'description': self.description,
             'prepTime': self.prep_time,
             'cookTime': self.cook_time,
+            'totalTime': self.total_time(),
             'servings': self.servings,
+            'author': self.author.first_name,
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
             'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step'])
         }
+
+
+    def total_time(self):
+        total = self.cook_time + self.prep_time
+        total_hours = total // 60
+        total_min = total % 60
+        string = f'{f"{total_hours}hr " if total_hours > 0 else ""}{total_min}min'
+        return string
