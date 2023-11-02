@@ -1,0 +1,23 @@
+measurement_types = [
+    'milliliter',
+    'liter',
+    'teaspoon',
+    'tablespoon',
+    'cup',
+    'pint',
+    'quart',
+    'gallon',
+    'gram',
+    'milligram',
+    'kilogram',
+    'pound',
+    'ounce',
+    'pinch',
+    'drop',
+    'stick',
+    'fluid ounce',
+    'clove',
+    'bulb',
+    'head',
+    'stalk'
+]
