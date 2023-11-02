@@ -22,7 +22,7 @@ class Ingredient(db.Model):
             'id': self.id,
             'recipeId': self.recipe_id,
             'item': self.item,
-            'refrigerated': self.refrigerated,
+            'refridgerated': self.refridgerated,
             'measurement': self.measurement,
             'quantity': self.quantity
         }

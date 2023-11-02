@@ -9,6 +9,7 @@ function LoginFormModal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [demoUser, setDemoUser] = useState(false)
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
@@ -20,6 +21,16 @@ function LoginFormModal() {
         closeModal()
     }
   };
+
+  const handleDemoUser = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data.errors);
+    } else {
+        closeModal()
+    }
+  }
 
   return (
     <div className='form-modal-container'>
@@ -48,6 +59,7 @@ function LoginFormModal() {
           </p>
         <button type="submit">Log In</button>
       </form>
+      <button onClick={handleDemoUser}>Demo User</button>
     </div>
   );
 }
