@@ -17,3 +17,11 @@ class RecipeForm(FlaskForm):
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
     cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(1,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
+    # ingredients
+    item = StringField('item', validators=[DataRequired(), Length(2,60)])
+    refridgerated = BooleanField('refridgerated', validators=[DataRequired()])
+    measurement = SelectField('measurement', choices=measurement_types, validators=[DataRequired()])
+    quantity = DecimalField('quantity', validators=[DataRequired(), NumberRange(1,1000)])
+    # instructions
+    text = StringField('item', validators=[DataRequired(), Length(2,60)])
+    step = IntegerField('step', validators=[DataRequired(), NumberRange(1,300)])
