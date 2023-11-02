@@ -36,5 +36,5 @@ class Recipe(db.Model):
             'cookTime': self.cook_time,
             'servings': self.servings,
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
-            'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=instruction.step)
+            'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step'])
         }

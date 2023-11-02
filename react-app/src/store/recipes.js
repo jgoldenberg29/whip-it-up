@@ -40,7 +40,7 @@ export const thunkGetAllRecipes = () => async dispatch => {
 
     if(res.ok) {
         const data = await res.json();
-        dispatch(ALL_RECIPES(data.recipes))
+        dispatch(getAllRecipes(data.recipes))
         return null
     } else {
         const data = await res.json();
@@ -54,7 +54,7 @@ const recipeReducer = (state={}, action) => {
         case ALL_RECIPES:
             const allRecipes = {};
             action.recipes.forEach(recipe => {
-                newState[recipe.id] = recipe
+                allRecipes[recipe.id] = recipe
             });
             return allRecipes;
         case ADD_RECIPE:

@@ -12,4 +12,5 @@ def all_recipes():
     Query for all the recipes and returns them to the landing page
     """
     recipes = Recipe.query.all()
-    return {recipes: [recipe.to_dict() for recipe in recipes]}
+    ic([recipe.to_dict() for recipe in recipes])
+    return {'recipes': [recipe.to_dict() for recipe in recipes]}

@@ -15,14 +15,22 @@ export default function Home() {
         dispatch(thunkGetAllRecipes())
     }, [])
 
-    if(!Object.values(recipes).length) return null;
+    const recipesArr = Object.values(recipes)
+    if(!recipesArr.length) return null;
+
+
+
+
 
     return (
         <div className='landing-main-container'>
-            {recipes.map(recipe => {
+            <h1>HERE WE ARE</h1>
+            {recipesArr.map(recipe => {
+                return (
                 <div className='recipe-card-container' key={recipe.id}>
                     <RecipeCard recipeId={recipe.id}/>
                 </div>
+                )
             })}
         </div>
     )
