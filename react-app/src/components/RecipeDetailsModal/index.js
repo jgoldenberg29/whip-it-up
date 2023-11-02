@@ -5,15 +5,24 @@ import Ingredients from './IngredientsSection'
 
 
 
-export default function RecipeDeatailsModal() {
-    const recipes = useSelector(state => state.recipes)
+export default function RecipeDeatailsModal({ recipeId }) {
+    const recipe = useSelector(state => state.recipes[recipeId])
 
 
 
     return (
         <div>
-            <Ingredients/>
-            <Instructions/>
+            <div>
+                <img src={recipe.image} alt='tasty food'/>
+            </div>
+            <div>
+                <p>{recipe.url}</p>
+                <h2>{recipe.title}</h2>
+                <p>{recipe.description}</p>
+                <p>{recipe.author}</p>
+                <Ingredients recipeId={recipeId}/>
+                <Instructions recipeId={recipeId}/>
+            </div>
         </div>
     )
 }
