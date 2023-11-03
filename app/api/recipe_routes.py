@@ -36,7 +36,7 @@ def create_recipe():
     ic(form.data['instructions'])
     ic(form.data['ingredients'])
 
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         data = form.data
 
         image = data['image']
@@ -85,4 +85,4 @@ def create_recipe():
         ic(recipe.to_dict())
         return {'recipe': recipe.to_dict()}
     else:
-        return {'errors': {validation_errors_to_error_messages(form.errors)}}, 400
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

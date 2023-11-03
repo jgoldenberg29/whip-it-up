@@ -20,7 +20,7 @@ export default function CreateRecipe(){
     const [instructionCounter, setInstructionCounter] = useState([1,2,3])
     const [errors, setErrors] = useState({})
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
         const recipe = new FormData()
 
@@ -56,9 +56,11 @@ export default function CreateRecipe(){
         recipe.append('ingredients', ingredientsString)
         recipe.append('instructions', instructionsString)
 
-        const data = dispatch(thunkCreateRecipe(recipe))
+        const data = await dispatch(thunkCreateRecipe(recipe))
         if (data) {
+            console.log("🚀 ~ file: index.js:61 ~ handleSubmit ~ data:", data)
             setErrors(data.errors)
+            console.log("🚀 ~ file: index.js:63 ~ handleSubmit ~ data.errors:", data.errors)
         } else {
             // history.push('/profile')
         }
@@ -144,6 +146,7 @@ export default function CreateRecipe(){
                 id={`instructions${key}`}
                 className='form-input'
                 onChange={e => setInstructions({...instructions, [key]: e.target.value})}
+                required
                 />
                 </label>
             </div>
@@ -162,6 +165,7 @@ export default function CreateRecipe(){
                     id='title'
                     className='form-input'
                     onChange={e => setTitle(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.title ? errors?.title : ''}</p>
@@ -173,6 +177,7 @@ export default function CreateRecipe(){
                     className='form-input'
                     accept="image/*"
                     onChange={e => setImage(e.target.files[0])}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.image ? errors.image : ''}</p>
@@ -184,6 +189,7 @@ export default function CreateRecipe(){
                     id='recipeURL'
                     className='form-input'
                     onChange={e => setRecipeURL(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
@@ -194,6 +200,7 @@ export default function CreateRecipe(){
                     id='description'
                     className='form-input'
                     onChange={e => setDescription(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.description ? errors.description : ''}</p>
@@ -205,6 +212,7 @@ export default function CreateRecipe(){
                     id='prep-time'
                     className='form-input'
                     onChange={e => setPrepTime(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
@@ -216,6 +224,7 @@ export default function CreateRecipe(){
                     id='cook-time'
                     className='form-input'
                     onChange={e => setCookTime(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
@@ -227,6 +236,7 @@ export default function CreateRecipe(){
                     id='servings'
                     className='form-input'
                     onChange={e => setServings(e.target.value)}
+                    required
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.servings ? errors.servings : ''}</p>

@@ -5,39 +5,24 @@ from wtforms.validators import DataRequired, ValidationError, Length, NumberRang
 from werkzeug.datastructures import MultiDict, TypeConversionDict
 from ..api.AWS_helpers import ALLOWED_IMG_EXTENSIONS
 from .measurement_types import measurement_types
+from ..models import Recipe
 
 def url_exists(form, field):
+    recipe_url = field.data
     recipe = Recipe.query.filter(Recipe.recipe_url == recipe_url).first()
     if recipe:
         raise ValidationError("This url is already linked to a recipe")
 
 def validated_obj_string(form, field):
-    if '/' not in ingredients:
+    string = field.data
+    if '/' not in string:
         raise ValidationError('please use create form to enter ingredients')
-    # for ingredient in ingredients.values():
-    #     quantity = ingredient['quantity']
-    #     item = ingredient['item']
-    #     if not isinstance(quantity, int) or isinstance(quantity, float):
-    #         raise ValidationError("amount must be a number")
-    #     if ingredient['measurement']:
-    #         measurement = ingredient['measurement']
-    #         if not isinstance(measurement, str) or len(measurement) > 30:
-    #             raise ValidationError('please choose one of the provided units of measurement')
-    #     if not isinstance(item, str) or len(item) > 60:
-    #         raise ValidationError('please enter a food item for ingrients')
-
-# def validate_instructions_dict(form, field):
-#     for step,text in instructions.items():
-#         if not isinstance(step, int):
-#             raise ValidationError('step must be a positive integer')
-#         if not isinstance(string, text) or len(text) > 500:
-#             raise ValidationError('instruction must be less than 500 characters')
 
 class RecipeForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(3,100)])
     recipe_url = StringField('recipe_url', validators=[url_exists, Length(1,255), URL()])
     image = FileField('image', validators=[FileAllowed(list(ALLOWED_IMG_EXTENSIONS)), FileRequired()])
-    description = StringField('desciption', validators=[DataRequired()])
+    description = StringField('desciption', validators=[DataRequired(), Length(15,4000)])
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
     cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(0,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
