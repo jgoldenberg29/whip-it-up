@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import './App.css'
 import Home from "./components/Home";
+import CreateRecipe from "./components/CreateRecipe";
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/recipes/new">
+            <CreateRecipe />
+          </Route>
           <Route exact path="/">
             <Home/>
           </Route>

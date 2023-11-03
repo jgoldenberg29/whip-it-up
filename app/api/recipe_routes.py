@@ -3,8 +3,8 @@ from flask_login import login_required, current_user
 from app.models import db, User, Recipe, Ingredient, Instruction
 from icecream import ic
 from ..forms.recipe import RecipeForm
-from ..forms.ingredients import IngredientForm
-from ..forms.instructions import InstructionForm
+# from ..forms.ingredients import IngredientForm
+# from ..forms.instructions import InstructionForm
 from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from random import choice
 from .default_images import default_recipe_images
@@ -58,7 +58,7 @@ def create_recipe():
             return { 'errors': {'message': 'Oops! something went wrong on our end '}}, 500
         url = upload
         new_recipe = Recipe(
-            user_id = current_user.id
+            user_id = current_user.id,
             recipe_url = data['recipe_url'],
             image = url,
             description = data['description'],
