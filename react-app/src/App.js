@@ -9,6 +9,7 @@ import './App.css'
 import Home from "./components/Home";
 import CreateRecipe from "./components/CreateRecipe";
 import EditRecipe from "./components/EditRecipe";
+import ProfilePage from "./components/ProfilePage";
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/recipes/new">
             <CreateRecipe />
+          </Route>
+          <Route>
+            <ProfilePage />
           </Route>
           <Route exact path="/">
             <Home/>

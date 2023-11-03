@@ -1,32 +1,37 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { thunkGetAllRecipes } from "../../store/recipes"
 import { NavLink } from "react-router-dom"
+import RecipeCard from "../Home/RecipeCard"
+import SavedRecipes from "./SavedRecipes"
+import SharedRecipes from "./SharedRecipes"
 
 
 
-export default function() {
+export default function ProfilePage() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-    const recipes = useState(state => state.recipes)
+    const recipes = useSelector(state => state.recipes)
     const [cardsToggle, setCardsToggle] = useState('saved')
     const [savedRecipes, setSavedRecipes] = useState([])
     const [sharedRecipes, setSharedRecipes] = useState([])
 
     useEffect(() => {
-        if(user.savedRecipes.length) {
-            const saved = []
-            for (let recipeId of user?.savedRecipes) {
-                saved.push(recipes[recipeId])
+        if(user) {
+            if(user.savedRecipes?.length) {
+                const saved = []
+                for (let recipeId of user?.savedRecipes) {
+                    saved.push(recipes[recipeId])
+                }
+                setSavedRecipes(saved)
             }
-            setSavedRecipes(saved)
+            if(user.SharedRecipes?.length) {
+                const shared = []
+                for (let recipeId of user?.sharedRecipes) {
+                    shared.push(recipes[recipeId])
+                }
+                setSharedRecipes(shared)
         }
-        if(user.SharedRecipes.length) {
-            const shared = []
-            for (let recipeId of user?.sharedRecipes) {
-                shared.push(recipes[recipeId])
-            }
-            setSharedRecipes(shared)
         }
     }, [user, recipes])
 
@@ -47,41 +52,11 @@ export default function() {
             </div>
             {cardsToggle === 'saved' ?
                 <div>
-                    {savedRecipes.length ?
-                        <div>
-                            {savedRecipes.map(recipe => {
-                        return (
-                        <div className='recipe-card-container' key={recipe.id}>
-                            <RecipeCard recipeId={recipe.id}/>
-                        </div>
-                        )
-                    })}
-                        </div>
-                    :
-                    <div>
-                       <span>Explore some new recipes!</span>
-                       <NavLink exact to="/">Explore</NavLink>
-                    </div>
-                    }
+                    <SavedRecipes />
                 </div>
             :
                 <div>
-                    {sharedRecipes.length ?
-                        <div>
-                            {sharedRecipes.map(recipe => {
-                        return (
-                        <div className='recipe-card-container' key={recipe.id}>
-                            <RecipeCard recipeId={recipe.id}/>
-                        </div>
-                        )
-                    })}
-                        </div>
-                    :
-                    <div>
-                    <span>You have not shared any recipes yet...let's get started!</span>
-                    <NavLink exact to="/recipes/new">Share Recipe</NavLink>
-                    </div>
-                    }
+                    <SharedRecipes />
                 </div>
             }
         </div>
