@@ -89,7 +89,6 @@ export const signUp = (firstName, lastName, username, email, password) => async 
 	} else if (response.status < 500) {
 		const data = await response.json();
 		if (data.errors) {
-			// console.log("🚀 ~ file: session.js:93 ~ signUp ~ data:", data)
 			return data;
 		}
 	} else {

@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, User, Recipe, Ingredient, Instruction
 from icecream import ic
@@ -30,24 +30,11 @@ def create_recipe():
     takes in information from the create recipe page and uses the recipe, ingredient and instruction forms to validate the information. Adds and commits the information to the database and returns the recipe dictionary.
     """
 
-    # recipe_form = RecipeForm()
-    # ingredient_form = IngredientForm()
-    # instruction_form = InstructionForm()
-
-    # recipe_form['csrf_token'].data.recipe = request.cookies['csrf_token']
-    # ingredient_form['csrf_token'].data.ingredients = request.cookies['csrf_token']
-    # instruction_form['csrf_token'].data.instructions = request.cookies['csrf_token']
-
-    # if recipe_form.validate_on_submit():
-    #     pass
-    # if ingredient_form.validate_on_submit():
-    #     pass
-    # if instruction_form.validate_on_submit():
-    #     pass
-
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     ic(form.data)
+    ic(form.data['instructions'])
+    ic(form.data['ingredients'])
 
     if form.validate_on_submit:
         data = form.data
