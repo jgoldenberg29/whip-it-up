@@ -46,6 +46,8 @@ def create_recipe():
     #     pass
 
     form = RecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    ic(form.data)
 
     if form.validate_on_submit:
         data = form.data
@@ -56,9 +58,10 @@ def create_recipe():
         upload = upload_file_to_s3(image)
         if 'url' not in upload:
             return { 'errors': {'message': 'Oops! something went wrong on our end '}}, 500
-        url = upload
+        url = upload['url']
         new_recipe = Recipe(
             user_id = current_user.id,
+            title = data['title'],
             recipe_url = data['recipe_url'],
             image = url,
             description = data['description'],
@@ -70,7 +73,7 @@ def create_recipe():
         db.session.commit()
         recipe = Recipe.query.filter(Recipe.image == url).first()
 
-        for ingredient in data['instructions']:
+        for ingredient in data['ingredients']:
             new_ingredient = Ingredient(
                 recipe_id = recipe.id,
                 item = ingredient['item'],
@@ -80,11 +83,11 @@ def create_recipe():
             )
             db.session.add(new_ingredient)
 
-        for instruction in data['instructions']:
+        for step,instruction in data['instructions'].items():
             new_instruction = Instruction(
                 recipe_id = recipe.id,
-                text = instruction['text'],
-                step = instruction['step']
+                text = instruction,
+                step = step
             )
             db.session.add(new_instruction)
 

@@ -1,7 +1,12 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { thunkCreateRecipe } from "../../store/recipes"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
 export default function CreateRecipe(){
+    const dispatch = useDispatch()
+    const history = useHistory()
     const [title, setTitle] = useState('')
     const [image, setImage] = useState('')
     const [recipeURL, setRecipeURL] = useState('')
@@ -17,6 +22,24 @@ export default function CreateRecipe(){
 
     const handleSubmit = e => {
         e.preventDefault()
+        const recipe = new FormData()
+        recipe.append('title', title)
+        recipe.append('recipe_url', recipeURL)
+        recipe.append('image', image)
+        recipe.append('description', description)
+        recipe.append('prep_time', prepTime)
+        recipe.append('cook_time', cookTime)
+        recipe.append('servings', servings)
+        recipe.append('ingredients', ingredients)
+        recipe.append('instructions', instructions)
+        console.log("🚀 ~ file: index.js:35 ~ handleSubmit ~ recipe:", recipe)
+
+        const data = dispatch(thunkCreateRecipe(recipe))
+        if (data) {
+            setErrors(data.errors)
+        } else {
+            // history.push('/profile')
+        }
     }
 
     console.log(ingredients)
@@ -115,10 +138,10 @@ export default function CreateRecipe(){
                     value={title}
                     id='title'
                     className='form-input'
-                    onchange={e => setTitle(e.target.value)}
+                    onChange={e => setTitle(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.title ? errors.title : ''}</p>
+                <p className='create-form-errors'>{errors?.title ? errors?.title : ''}</p>
                 <label htmlFor="image">
                     Choose Image
                     <input
@@ -126,10 +149,10 @@ export default function CreateRecipe(){
                     id='image'
                     className='form-input'
                     accept="image/*"
-                    onchange={e => setImage(e.target.files[0])}
+                    onChange={e => setImage(e.target.files[0])}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.image ? errors.image : ''}</p>
+                <p className='create-form-errors'>{errors?.image ? errors.image : ''}</p>
                 <label htmlFor="recipeURL">
                     Site URL
                     <input
@@ -137,20 +160,20 @@ export default function CreateRecipe(){
                     value={recipeURL}
                     id='recipeURL'
                     className='form-input'
-                    onchange={e => setRecipeURL(e.target.value)}
+                    onChange={e => setRecipeURL(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.recipe_url ? errors.recipe_url : ''}</p>
+                <p className='create-form-errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
                 <label htmlFor="description">
                     Description
                     <textarea
                     value={description}
                     id='description'
                     className='form-input'
-                    onchange={e => setDescription(e.target.value)}
+                    onChange={e => setDescription(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.description ? errors.description : ''}</p>
+                <p className='create-form-errors'>{errors?.description ? errors.description : ''}</p>
                 <label htmlFor="prep-time">
                     Prep Time
                     <input
@@ -158,10 +181,10 @@ export default function CreateRecipe(){
                     value={prepTime}
                     id='prep-time'
                     className='form-input'
-                    onchange={e => setPrepTime(e.target.value)}
+                    onChange={e => setPrepTime(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.prep_time ? errors.prep_time : ''}</p>
+                <p className='create-form-errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
                 <label htmlFor="cook-time">
                     Cook Time
                     <input
@@ -169,10 +192,10 @@ export default function CreateRecipe(){
                     value={cookTime}
                     id='cook-time'
                     className='form-input'
-                    onchange={e => setCookTime(e.target.value)}
+                    onChange={e => setCookTime(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.cook_time ? errors.cook_time : ''}</p>
+                <p className='create-form-errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
                 <label htmlFor="servings">
                     Servings
                     <input
@@ -180,10 +203,10 @@ export default function CreateRecipe(){
                     value={servings}
                     id='servings'
                     className='form-input'
-                    onchange={e => setServings(e.target.value)}
+                    onChange={e => setServings(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors'>{errors.servings ? errors.servings : ''}</p>
+                <p className='create-form-errors'>{errors?.servings ? errors.servings : ''}</p>
                 <div>
                 <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
                 </div>
@@ -198,8 +221,8 @@ export default function CreateRecipe(){
                 <div>
                 <span onClick={e => setInstructionCounter([...instructionCounter, instructionCounter.length+1])}>+ add a step</span>
                 </div>
+            <button type='submit'>Share Recipe</button>
             </form>
-            <button>Share Recipe</button>
         </div>
     )
 }
