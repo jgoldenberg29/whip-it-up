@@ -1,29 +1,56 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { thunkCreateRecipe } from "../../store/recipes"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min"
 
 
-export default function CreateRecipe(){
+export default function EditRecipe(){
+    const { id } = useParams()
+    const recipe = useSelector(state => state.recipes[id])
     const dispatch = useDispatch()
     const history = useHistory()
-    const [title, setTitle] = useState('')
-    const [image, setImage] = useState('')
-    const [recipeURL, setRecipeURL] = useState('')
-    const [description, setDescription] = useState('')
-    const [prepTime, setPrepTime] = useState(0)
-    const [cookTime, setCookTime] = useState(0)
-    const [servings, setServings] = useState(0)
+    const [title, setTitle] = useState(recipe?.title)
+    const [image, setImage] = useState(recipe?.image)
+    const [recipeURL, setRecipeURL] = useState(recipe?.recipeURL)
+    const [description, setDescription] = useState(recipe?.description)
+    const [prepTime, setPrepTime] = useState(recipe?.prepTime)
+    const [cookTime, setCookTime] = useState(recipe?.cookTime)
+    const [servings, setServings] = useState(recipe?.servings)
     const [ingredients, setIngredients] = useState({})
     const [instructions, setInstructions] = useState({})
-    const [ingredientCounter, setIngredientCounter] = useState([1,2,3])
-    const [instructionCounter, setInstructionCounter] = useState([1,2,3])
+    const [ingredientCounter, setIngredientCounter] = useState([])
+    const [instructionCounter, setInstructionCounter] = useState([])
     const [errors, setErrors] = useState({})
+
+    useEffect(() => {
+        if (recipe) {
+            let totalIngredients = []
+            const ingredientsObj = {}
+            let i = 1
+            for (let ingredient of recipe?.ingredients) {
+                totalIngredients.push(i)
+                ingredientsObj[i] = {'quantity': ingredient.quantity, 'measurement': ingredient.measurement, 'item': ingredient.item, 'refridgerated': ingredient.refridgerated}
+                i++
+            }
+            setIngredientCounter(totalIngredients)
+            setIngredients(ingredientsObj)
+
+            let totalInstructions = []
+            const instructionsObj = {}
+            let j = 1
+            for (let instruction of recipe?.instructions) {
+                totalInstructions.push(j)
+                instructions[j] = instruction.text
+                j++
+            }
+            setInstructionCounter(totalInstructions)
+            setInstructions(instructionsObj)
+        }
+    }, [recipe])
 
     const handleSubmit = async e => {
         e.preventDefault()
         const recipe = new FormData()
-
 
         let instructionsString = ''
         console.log(instructions)

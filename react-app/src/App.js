@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import './App.css'
 import Home from "./components/Home";
 import CreateRecipe from "./components/CreateRecipe";
+import EditRecipe from "./components/EditRecipe";
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/recipes/:id/edit'>
+            <EditRecipe />
+          </Route>
           <Route exact path="/recipes/new">
             <CreateRecipe />
           </Route>
