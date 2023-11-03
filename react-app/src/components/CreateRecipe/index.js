@@ -39,10 +39,10 @@ export default function CreateRecipe(){
             ingredientsString += `${ingredient.quantity},`
             ingredientsString += `${ingredient.measurement},`
             ingredientsString += `${ingredient.item},`
-            if (ingredient.refridgerated === undefined) {
-                ingredientsString += `false/`
+            if (!ingredient.refridgerated) {
+                ingredientsString += `False/`
             } else {
-              ingredientsString += `${ingredient.refridgerated}/`
+              ingredientsString += `True/`
             }
 
         }

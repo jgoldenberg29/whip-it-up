@@ -59,25 +59,30 @@ def create_recipe():
         db.session.add(new_recipe)
         db.session.commit()
         recipe = Recipe.query.filter(Recipe.image == url).first()
-
-        for ingredient in data['ingredients']:
+        ingredient_rows = data['ingredients'].split('/')
+        del ingredient_rows[-1]
+        for row in ingredient_rows:
+            seperated_row = row.split(',')
+            ic(seperated_row)
             new_ingredient = Ingredient(
                 recipe_id = recipe.id,
-                item = ingredient['item'],
-                refridgerated = ingredient['refridgerated'],
-                measurement = ingredient['measurement'],
-                quantity = ingredient['quantity']
+                quantity = seperated_row[0],
+                measurement = seperated_row[1],
+                item =seperated_row[2],
+                refridgerated = True if seperated_row[3] == 'True' else False,
             )
             db.session.add(new_ingredient)
-
-        for step,instruction in data['instructions'].items():
+        seperated_instructions = data['instructions'].split('/')
+        for i in range(len(seperated_instructions)):
             new_instruction = Instruction(
                 recipe_id = recipe.id,
-                text = instruction,
-                step = step
+                text = seperated_instructions[i],
+                step = i+1
             )
             db.session.add(new_instruction)
 
         db.session.commit()
+        ic(recipe.to_dict())
+        return {'recipe': recipe.to_dict()}
     else:
         return {'errors': {validation_errors_to_error_messages(form.errors)}}, 400
