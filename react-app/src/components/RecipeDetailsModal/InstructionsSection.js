@@ -14,7 +14,6 @@ export default function Instructions({ recipeId }) {
             {showInstructions && <div>
                 <ol>
                     {recipe.instructions.map(instruction => {
-                        console.log("🚀 ~ file: InstructionsSection.js:24 ~ Instructions ~ instruction:", instruction)
                             return (
                                 <li key={instruction.id}>
                                     <span>{instruction.text}</span>
