@@ -22,11 +22,11 @@ export default function CreateRecipe(){
     console.log(ingredients)
 
     const ingredientInputs = ingredientCounter.map(key => {
-        // handle state like the reducer using an object input value = key of object onChange sets value for that key with new object
         return (
             <div key={key}>
                 <label htmlFor={`amount${key}`}>
                 <input
+                type='number'
                 value={ingredients[key]?.quantity}
                 id={`amount${key}`}
                 className='form-input'
@@ -35,16 +35,38 @@ export default function CreateRecipe(){
                 </label>
                 {/* <p className='create-form-errors'>{errors.quantity ? errors.quantity : ''}</p> */}
                 <label htmlFor={`unit${key}`}>
-                <input
+                <select
                 value={ingredients[key]?.measurement}
                 id={`unit${key}`}
                 className='form-input'
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
-                />
+                name="measurement">
+                    <option value="">item</option>
+                    <option value="bulb">bulb</option>
+                    <option value="clove">clove</option>
+                    <option value="cup">cup</option>
+                    <option value="drop">drop</option>
+                    <option value="fluid ounce">fluid ounce</option>
+                    <option value="gram">gram</option>
+                    <option value="head">head</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="liter">liter</option>
+                    <option value="milligram">milligram</option>
+                    <option value="milliliter">milliliter</option>
+                    <option value="ounce">ounce</option>
+                    <option value="pint">pint</option>
+                    <option value="pound">pound</option>
+                    <option value="quart">quart</option>
+                    <option value="stalk">stalk</option>
+                    <option value="stick">stick</option>
+                    <option value="tablespoon">tablespoon</option>
+                    <option value="teaspoon">teaspoon</option>
+                </select>
                 </label>
                 {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`ingredient${key}`}>
                 <input
+                type='text'
                 value={ingredients[key]?.item}
                 id={`ingredient${key}`}
                 className='form-input'
@@ -54,6 +76,7 @@ export default function CreateRecipe(){
                 {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`refridgerated${key}`}>
                 <input
+                type='checkbox'
                 value={ingredients[key]?.refridgerated}
                 id={`refridgerated${key}`}
                 className='form-input'
@@ -65,6 +88,22 @@ export default function CreateRecipe(){
         )
     })
 
+    const instructionInputs = instructionCounter.map(key => {
+        return (
+            <div key={key}>
+                <label htmlFor={`instruction${key}`}>
+                {key}.
+                <textarea
+                value={instructions[key]}
+                id={`instructions${key}`}
+                className='form-input'
+                onChange={e => setIngredients({...ingredients, [key]: e.target.value})}
+                />
+                </label>
+            </div>
+        )
+    })
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -72,6 +111,7 @@ export default function CreateRecipe(){
                 <label htmlFor="title">
                     Title
                     <input
+                    type='text'
                     value={title}
                     id='title'
                     className='form-input'
@@ -82,6 +122,7 @@ export default function CreateRecipe(){
                 <label htmlFor="image">
                     Choose Image
                     <input
+                    type='file'
                     id='image'
                     className='form-input'
                     accept="image/*"
@@ -92,6 +133,7 @@ export default function CreateRecipe(){
                 <label htmlFor="recipeURL">
                     Site URL
                     <input
+                    type='text'
                     value={recipeURL}
                     id='recipeURL'
                     className='form-input'
@@ -101,7 +143,7 @@ export default function CreateRecipe(){
                 <p className='create-form-errors'>{errors.recipe_url ? errors.recipe_url : ''}</p>
                 <label htmlFor="description">
                     Description
-                    <input
+                    <textarea
                     value={description}
                     id='description'
                     className='form-input'
@@ -112,6 +154,7 @@ export default function CreateRecipe(){
                 <label htmlFor="prep-time">
                     Prep Time
                     <input
+                    type='number'
                     value={prepTime}
                     id='prep-time'
                     className='form-input'
@@ -122,6 +165,7 @@ export default function CreateRecipe(){
                 <label htmlFor="cook-time">
                     Cook Time
                     <input
+                    type='number'
                     value={cookTime}
                     id='cook-time'
                     className='form-input'
@@ -132,6 +176,7 @@ export default function CreateRecipe(){
                 <label htmlFor="servings">
                     Servings
                     <input
+                    type='number'
                     value={servings}
                     id='servings'
                     className='form-input'
@@ -146,7 +191,15 @@ export default function CreateRecipe(){
                 <div>
                     <span onClick={e => setIngredientCounter([...ingredientCounter, ingredientCounter.length+1])}>+ add ingredient</span>
                 </div>
+                <div>
+                    <span>Cooking Instructions</span>
+                </div>
+                {instructionInputs}
+                <div>
+                <span onClick={e => setInstructionCounter([...instructionCounter, instructionCounter.length+1])}>+ add a step</span>
+                </div>
             </form>
+            <button>Share Recipe</button>
         </div>
     )
 }
