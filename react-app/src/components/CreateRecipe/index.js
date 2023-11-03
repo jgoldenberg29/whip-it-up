@@ -69,6 +69,7 @@ export default function CreateRecipe(){
     console.log(instructions)
 
     const ingredientInputs = ingredientCounter.map(key => {
+        ingredients[key] = {'quantity':0, 'item':'', refridgerated: false}
         return (
             <div key={key}>
                 <label htmlFor={`amount${key}`}>
@@ -77,6 +78,7 @@ export default function CreateRecipe(){
                 value={ingredients[key]?.quantity}
                 id={`amount${key}`}
                 className='form-input'
+                required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'quantity': e.target.value}})}
                 />
                 </label>
@@ -85,10 +87,11 @@ export default function CreateRecipe(){
                 <select
                 value={ingredients[key]?.measurement}
                 id={`unit${key}`}
+                required
                 className='form-input'
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
                 name="measurement">
-                    <option value="">item</option>
+                    <option value="">choose one</option>
                     <option value="bulb">bulb</option>
                     <option value="clove">clove</option>
                     <option value="cup">cup</option>
@@ -108,6 +111,7 @@ export default function CreateRecipe(){
                     <option value="stick">stick</option>
                     <option value="tablespoon">tablespoon</option>
                     <option value="teaspoon">teaspoon</option>
+                    <option value="whole">whole</option>
                 </select>
                 </label>
                 {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
@@ -117,6 +121,7 @@ export default function CreateRecipe(){
                 value={ingredients[key]?.item}
                 id={`ingredient${key}`}
                 className='form-input'
+                required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'item': e.target.value} })}
                 />
                 </label>
@@ -127,7 +132,7 @@ export default function CreateRecipe(){
                 value={ingredients[key]?.refridgerated}
                 id={`refridgerated${key}`}
                 className='form-input'
-                defaultValue={false}
+                required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>
