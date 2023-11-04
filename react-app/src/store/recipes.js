@@ -1,3 +1,4 @@
+import { setUser } from "./session"
 
 const ALL_RECIPES = 'recipes/getAll'
 const ADD_RECIPE = 'recipes/createOne'
@@ -58,6 +59,24 @@ export const thunkCreateRecipe = (recipe) => async dispatch => {
     if (res.ok) {
         const data = await res.json()
         dispatch(createRecipe(data.recipe))
+        dispatch(setUser(data.user))
+        return null
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
+export const thunkUpdateRecipe = (recipe, id) => async dispatch => {
+    const res = await fetch(`/api/recipes/${id}`, {
+        method: "PUT",
+        body: recipe
+    })
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(editRecipe(data.recipe))
+        dispatch(setUser(data.user))
         return null
     } else {
         const data = await res.json()

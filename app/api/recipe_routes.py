@@ -61,7 +61,7 @@ def create_recipe():
         db.session.commit()
 
         recipe = Recipe.query.filter(Recipe.image == url).first()
-        
+
         ingredient_rows = data['ingredients'].split('/')
         del ingredient_rows[-1]
         for row in ingredient_rows:
@@ -91,7 +91,7 @@ def create_recipe():
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@recipe_routes.route('/recipes/:id', methods=['PUT'])
+@recipe_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_recipe(id):
     """
@@ -101,6 +101,11 @@ def edit_recipe(id):
     form = EditRecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     recipe = Recipe.query.get(id)
+
+    if recipe is None:
+        return {'errors': {'message':'Recipe not found'}}, 404
+    elif recipe.user_id != current_user.id:
+        return {'errors': {'message':'forbidden'}}, 403
     # ic(form.data)
     # ic(form.data['instructions'])
     # ic(form.data['ingredients'])
@@ -108,7 +113,10 @@ def edit_recipe(id):
     if form.validate_on_submit():
         data = form.data
 
-        if data['image'] != recipe.image:
+        ic(data['image'])
+        ic(recipe.image)
+        url = None
+        if data['image'] != recipe.image and data['image'] != None:
             image = data['image']
             image.filename = get_unique_filename(image.filename)
             url = choice(default_recipe_images)
@@ -117,17 +125,16 @@ def edit_recipe(id):
                 return { 'errors': {'message': 'Oops! something went wrong on our end '}}, 500
             url = upload['url']
 
-        updated_recipe = Recipe(
-            user_id = current_user.id,
-            title = data['title'],
-            recipe_url = data['recipe_url'],
-            image = url if url else recipe.image,
-            description = data['description'],
-            prep_time = data['prep_time'],
-            cook_time = data['cook_time'],
-            servings = data['servings']
-        )
-        db.session.add(updated_recipe)
+        recipe.title = data['title']
+        recipe.recipe_url = data['recipe_url']
+        recipe.image = url if url else recipe.image
+        recipe.description = data['description']
+        recipe.prep_time = data['prep_time']
+        recipe.cook_time = data['cook_time']
+        recipe.servings = data['servings']
+
+        recipe.recipe_ingredients = []
+        recipe.recipe_instructions = []
         db.session.commit()
 
         ingredient_rows = data['ingredients'].split('/')
@@ -136,21 +143,21 @@ def edit_recipe(id):
             seperated_row = row.split(',')
             ic(seperated_row)
             updated_ingredient = Ingredient(
-                recipe_id = recipe.id,
+                recipe_id = id,
                 quantity = seperated_row[0],
                 measurement = seperated_row[1],
                 item =seperated_row[2],
                 refridgerated = True if seperated_row[3] == 'True' else False,
             )
-            db.session.add(updated_ingredient_ingredient)
+            db.session.add(updated_ingredient)
         seperated_instructions = data['instructions'].split('/')
         for i in range(len(seperated_instructions)):
             updated_instruction = Instruction(
-                recipe_id = recipe.id,
+                recipe_id = id,
                 text = seperated_instructions[i],
                 step = i+1
             )
-            db.session.add(updated_instruction_instruction)
+            db.session.add(updated_instruction)
 
         db.session.commit()
         ic(recipe.to_dict())

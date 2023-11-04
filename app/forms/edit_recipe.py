@@ -20,7 +20,7 @@ def validated_obj_string(form, field):
 
 class EditRecipeForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(3,100)])
-    recipe_url = StringField('recipe_url', validators=[url_exists, Length(1,255), URL()])
+    recipe_url = StringField('recipe_url', validators=[Length(1,255), URL()])
     image = FileField('image', validators=[FileAllowed(list(ALLOWED_IMG_EXTENSIONS))])
     description = StringField('desciption', validators=[DataRequired(), Length(15,4000)])
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])

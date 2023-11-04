@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { thunkCreateRecipe } from "../../store/recipes"
+import { thunkCreateRecipe, thunkUpdateRecipe } from "../../store/recipes"
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
@@ -56,7 +56,7 @@ export default function RecipeForm({ formType, recipe }){
     console.log(image)
     const handleSubmit = async e => {
         e.preventDefault()
-        const recipe = new FormData()
+        const newRecipe = new FormData()
 
 
         let instructionsString = ''
@@ -80,21 +80,21 @@ export default function RecipeForm({ formType, recipe }){
             }
 
         }
-        recipe.append('title', title)
-        recipe.append('recipe_url', recipeURL)
-        recipe.append('description', description)
-        recipe.append('prep_time', prepTime)
-        recipe.append('cook_time', cookTime)
-        recipe.append('servings', servings)
-        recipe.append('ingredients', ingredientsString)
-        recipe.append('instructions', instructionsString)
-        recipe.append('image', image)
+        newRecipe.append('title', title)
+        newRecipe.append('recipe_url', recipeURL)
+        newRecipe.append('description', description)
+        newRecipe.append('prep_time', prepTime)
+        newRecipe.append('cook_time', cookTime)
+        newRecipe.append('servings', servings)
+        newRecipe.append('ingredients', ingredientsString)
+        newRecipe.append('instructions', instructionsString)
+        newRecipe.append('image', image)
 
         let data = null
         if (formType === 'create'){
-            data = await dispatch(thunkCreateRecipe(recipe))
+            data = await dispatch(thunkCreateRecipe(newRecipe))
         } else {
-            data = await dispatch()//editThunk(recipe)
+            data = await dispatch(thunkUpdateRecipe(newRecipe, recipe.id))
         }
         if (data) {
             setErrors(data.errors)
@@ -181,7 +181,6 @@ export default function RecipeForm({ formType, recipe }){
                 value={ingredients[key]?.refridgerated}
                 id={`refridgerated${key}`}
                 className='form-input'
-                required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>
