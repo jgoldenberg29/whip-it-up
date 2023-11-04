@@ -42,8 +42,9 @@ export default function SharedRecipes() {
                         <div className='recipe-card-container' key={recipe.id}>
                             <RecipeCard recipeId={recipe.id}/>
                             <div>
-                            <button>update</button>
-                            <button>remove</button>
+                                <NavLink exact to={`/recipes/${recipe.id}/edit`}>update</NavLink>
+                                {/* <button>update</button> */}
+                                <button>remove</button>
                             </div>
                         </div>
                     )

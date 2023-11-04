@@ -186,7 +186,7 @@ export default function EditRecipe(){
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <h1>Share Your Recipe</h1>
+            <h1>Update Your Recipe</h1>
                 <label htmlFor="title">
                     Title
                     <input
@@ -284,7 +284,7 @@ export default function EditRecipe(){
                 <div>
                 <span onClick={e => setInstructionCounter([...instructionCounter, instructionCounter.length+1])}>+ add a step</span>
                 </div>
-            <button type='submit'>Share Recipe</button>
+            <button type='submit'>Update Recipe</button>
             </form>
         </div>
     )
