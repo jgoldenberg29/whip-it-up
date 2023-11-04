@@ -41,6 +41,10 @@ export default function SharedRecipes() {
                     return (
                         <div className='recipe-card-container' key={recipe.id}>
                             <RecipeCard recipeId={recipe.id}/>
+                            <div>
+                            <button>update</button>
+                            <button>remove</button>
+                            </div>
                         </div>
                     )
                 })}

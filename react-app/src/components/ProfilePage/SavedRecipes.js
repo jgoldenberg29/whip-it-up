@@ -39,6 +39,9 @@ export default function SavedRecipes() {
                 {savedRecipes.map(recipe => {
                     return (
                         <div className='recipe-card-container' key={recipe.id}>
+                            <div>
+                                <button>unsave</button>
+                            </div>
                             <RecipeCard recipeId={recipe.id}/>
                         </div>
                     )

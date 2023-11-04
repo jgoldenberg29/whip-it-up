@@ -18,7 +18,7 @@ export default function Home() {
     const recipesArr = Object.values(recipes)
     if(!recipesArr.length) return null;
 
-    
+
 
 
 
@@ -28,6 +28,7 @@ export default function Home() {
             {recipesArr.map(recipe => {
                 return (
                 <div className='recipe-card-container' key={recipe.id}>
+                    <button>save</button>
                     <RecipeCard recipeId={recipe.id}/>
                 </div>
                 )
