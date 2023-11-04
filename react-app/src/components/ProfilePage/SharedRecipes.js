@@ -14,6 +14,19 @@ export default function SharedRecipes() {
     const [savedRecipes, setSavedRecipes] = useState([])
     const [sharedRecipes, setSharedRecipes] = useState([])
 
+
+    useEffect(() => {
+        if(user) {
+            if(user.sharedRecipes.length) {
+                const shared = []
+                for (let recipeId of user?.sharedRecipes) {
+                    shared.push(recipes[recipeId])
+                }
+                setSharedRecipes(shared)
+        }
+        }
+    }, [user, recipes])
+
     if(!user.sharedRecipes.length) {
         return (
             <div>

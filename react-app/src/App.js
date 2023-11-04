@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/recipes/new">
             <CreateRecipe />
           </Route>
-          <Route>
+          <Route exact path="/profile">
             <ProfilePage />
           </Route>
           <Route exact path="/">

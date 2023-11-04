@@ -18,14 +18,14 @@ export default function ProfilePage() {
 
     useEffect(() => {
         if(user) {
-            if(user.savedRecipes?.length) {
+            if(user.savedRecipes.length) {
                 const saved = []
                 for (let recipeId of user?.savedRecipes) {
                     saved.push(recipes[recipeId])
                 }
                 setSavedRecipes(saved)
             }
-            if(user.SharedRecipes?.length) {
+            if(user.sharedRecipes?.length) {
                 const shared = []
                 for (let recipeId of user?.sharedRecipes) {
                     shared.push(recipes[recipeId])
@@ -35,7 +35,7 @@ export default function ProfilePage() {
         }
     }, [user, recipes])
 
-    if(!Object.values(recipes).length){
+    if(!user || !Object.values(recipes).length){
         dispatch(thunkGetAllRecipes())
         return null
     }

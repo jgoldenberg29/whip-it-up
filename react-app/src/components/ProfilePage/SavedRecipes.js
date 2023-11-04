@@ -10,9 +10,21 @@ export default function SavedRecipes() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const recipes = useSelector(state => state.recipes)
-    const [cardsToggle, setCardsToggle] = useState('saved')
     const [savedRecipes, setSavedRecipes] = useState([])
-    const [sharedRecipes, setSharedRecipes] = useState([])
+
+
+    useEffect(() => {
+        if(user) {
+            if(user.savedRecipes?.length) {
+                const saved = []
+                for (let recipeId of user?.savedRecipes) {
+                    saved.push(recipes[recipeId])
+                }
+                setSavedRecipes(saved)
+            }
+        }
+    }, [user, recipes])
+
 
     if (!user.savedRecipes.length) {
         return (
