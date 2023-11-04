@@ -138,7 +138,7 @@ export default function CreateRecipe(){
             </div>
         )
     })
-
+    
     const instructionInputs = instructionCounter.map(key => {
         return (
             <div key={key}>

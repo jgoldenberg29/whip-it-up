@@ -24,7 +24,7 @@ export default function Home() {
 
     return (
         <div className='landing-main-container'>
-            <h1>HERE WE ARE</h1>
+            <h1>Whip It Up</h1>
             {recipesArr.map(recipe => {
                 return (
                 <div className='recipe-card-container' key={recipe.id}>

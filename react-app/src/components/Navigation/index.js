@@ -5,19 +5,20 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
+	const user = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
+		<div>
+			<span>
 				<NavLink exact to="/">Home</NavLink>
-			</li>
+			</span>
+			{user &&<NavLink exact to='/recipes/new'>Share Recipe</NavLink>}
 			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+				<span>
+					<ProfileButton user={user} />
+				</span>
 			)}
-		</ul>
+		</div>
 	);
 }
 
