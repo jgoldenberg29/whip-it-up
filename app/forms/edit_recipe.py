@@ -18,14 +18,13 @@ def validated_obj_string(form, field):
     if '/' not in string:
         raise ValidationError('please use create form to enter ingredients')
 
-class RecipeForm(FlaskForm):
+class EditRecipeForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(3,100)])
     recipe_url = StringField('recipe_url', validators=[url_exists, Length(1,255), URL()])
-    image = FileField('image', validators=[FileAllowed(list(ALLOWED_IMG_EXTENSIONS)), FileRequired()])
+    image = FileField('image', validators=[FileAllowed(list(ALLOWED_IMG_EXTENSIONS))])
     description = StringField('desciption', validators=[DataRequired(), Length(15,4000)])
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
     cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(0,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
     ingredients = StringField('ingredients', validators=[DataRequired(), validated_obj_string])
     instructions = StringField('instructions', validators=[DataRequired(), validated_obj_string])
-   

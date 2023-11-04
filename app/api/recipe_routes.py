@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import db, User, Recipe, Ingredient, Instruction
 from icecream import ic
 from ..forms.recipe import RecipeForm
+from ..forms.edit_recipe import EditRecipeForm
 # from ..forms.ingredients import IngredientForm
 # from ..forms.instructions import InstructionForm
 from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
@@ -58,7 +59,9 @@ def create_recipe():
         )
         db.session.add(new_recipe)
         db.session.commit()
+
         recipe = Recipe.query.filter(Recipe.image == url).first()
+        
         ingredient_rows = data['ingredients'].split('/')
         del ingredient_rows[-1]
         for row in ingredient_rows:
@@ -83,6 +86,74 @@ def create_recipe():
 
         db.session.commit()
         ic(recipe.to_dict())
-        return {'recipe': recipe.to_dict()}
+        return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+@recipe_routes.route('/recipes/:id', methods=['PUT'])
+@login_required
+def edit_recipe(id):
+    """
+    takes in information from the create recipe page and uses the recipe, ingredient and instruction forms to validate the information. Adds and commits the information to the database and returns the recipe dictionary.
+    """
+
+    form = EditRecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    recipe = Recipe.query.get(id)
+    # ic(form.data)
+    # ic(form.data['instructions'])
+    # ic(form.data['ingredients'])
+
+    if form.validate_on_submit():
+        data = form.data
+
+        if data['image'] != recipe.image:
+            image = data['image']
+            image.filename = get_unique_filename(image.filename)
+            url = choice(default_recipe_images)
+            upload = upload_file_to_s3(image)
+            if 'url' not in upload:
+                return { 'errors': {'message': 'Oops! something went wrong on our end '}}, 500
+            url = upload['url']
+
+        updated_recipe = Recipe(
+            user_id = current_user.id,
+            title = data['title'],
+            recipe_url = data['recipe_url'],
+            image = url if url else recipe.image,
+            description = data['description'],
+            prep_time = data['prep_time'],
+            cook_time = data['cook_time'],
+            servings = data['servings']
+        )
+        db.session.add(updated_recipe)
+        db.session.commit()
+
+        ingredient_rows = data['ingredients'].split('/')
+        del ingredient_rows[-1]
+        for row in ingredient_rows:
+            seperated_row = row.split(',')
+            ic(seperated_row)
+            updated_ingredient = Ingredient(
+                recipe_id = recipe.id,
+                quantity = seperated_row[0],
+                measurement = seperated_row[1],
+                item =seperated_row[2],
+                refridgerated = True if seperated_row[3] == 'True' else False,
+            )
+            db.session.add(updated_ingredient_ingredient)
+        seperated_instructions = data['instructions'].split('/')
+        for i in range(len(seperated_instructions)):
+            updated_instruction = Instruction(
+                recipe_id = recipe.id,
+                text = seperated_instructions[i],
+                step = i+1
+            )
+            db.session.add(updated_instruction_instruction)
+
+        db.session.commit()
+        ic(recipe.to_dict())
+        return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400

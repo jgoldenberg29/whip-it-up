@@ -49,7 +49,11 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
-              <NavLink exact to="/profile">Profile Page</NavLink>
+              <NavLink
+              onClick={e => closeMenu()}
+              exact to="/profile">
+              Profile Page
+              </NavLink>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { thunkCreateRecipe } from "../../store/recipes"
+import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
-export default function CreateRecipe({ formType, recipe }){
+export default function RecipeForm({ formType, recipe }){
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -18,13 +19,16 @@ export default function CreateRecipe({ formType, recipe }){
     const [instructions, setInstructions] = useState({})
     const [ingredientCounter, setIngredientCounter] = useState([1,2,3])
     const [instructionCounter, setInstructionCounter] = useState([1,2,3])
+    // const [stateType, setStateType] = useState(formType)
     const [errors, setErrors] = useState({})
+    const { closeModal } = useModal();
 
     useEffect(() => {
         if (formType='edit' && recipe) {
             setTitle(recipe.title)
             setRecipeURL(recipe.recipeURL)
             setDescription(recipe.description)
+            setImage(recipe.image)
             setPrepTime(recipe.prepTime)
             setCookTime(recipe.cookTime)
             setServings(recipe.servings)
@@ -41,7 +45,7 @@ export default function CreateRecipe({ formType, recipe }){
             const tempInstructions = {}
             const tempCounterInst = []
             for (let i = 0; i < recipe.instructions.length; i++) {
-                tempInstructions[i+1] = recipe.instructions[i]
+                tempInstructions[i+1] = recipe.instructions[i].text
                 tempCounterInst.push(i+1)
             }
             setInstructions(tempInstructions)
@@ -49,7 +53,7 @@ export default function CreateRecipe({ formType, recipe }){
         }
     }, [formType, recipe])
 
-
+    console.log(image)
     const handleSubmit = async e => {
         e.preventDefault()
         const recipe = new FormData()
@@ -78,18 +82,24 @@ export default function CreateRecipe({ formType, recipe }){
         }
         recipe.append('title', title)
         recipe.append('recipe_url', recipeURL)
-        recipe.append('image', image)
         recipe.append('description', description)
         recipe.append('prep_time', prepTime)
         recipe.append('cook_time', cookTime)
         recipe.append('servings', servings)
         recipe.append('ingredients', ingredientsString)
         recipe.append('instructions', instructionsString)
+        recipe.append('image', image)
 
-        const data = await dispatch(thunkCreateRecipe(recipe))
+        let data = null
+        if (formType === 'create'){
+            data = await dispatch(thunkCreateRecipe(recipe))
+        } else {
+            data = await dispatch()//editThunk(recipe)
+        }
         if (data) {
             setErrors(data.errors)
         } else {
+            closeModal()
             history.push('/profile')
         }
     }
@@ -213,7 +223,7 @@ export default function CreateRecipe({ formType, recipe }){
 
     return (
         <div className='form-modal-container'>
-            <h1>Share Your Recipe</h1>
+            <h1>{formType === 'edit' ? "Update" : "Share"} Your Recipe</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">
                     Title
@@ -235,7 +245,7 @@ export default function CreateRecipe({ formType, recipe }){
                     className='form-input'
                     accept="image/*"
                     onChange={e => setImage(e.target.files[0])}
-                    required
+                    required={formType==="create"}
                     />
                 </label>
                 <p className='create-form-errors'>{errors?.image ? errors.image : ''}</p>
@@ -312,7 +322,7 @@ export default function CreateRecipe({ formType, recipe }){
                 <div>
                 <span onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
                 </div>
-            <button type='submit'>Share Recipe</button>
+            <button type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
             </form>
         </div>
     )
