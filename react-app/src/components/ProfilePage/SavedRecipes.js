@@ -10,21 +10,20 @@ export default function SavedRecipes() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const recipes = useSelector(state => state.recipes)
-    const [savedRecipes, setSavedRecipes] = useState([])
 
+    if(!Object.values(recipes).length) return null
 
-    useEffect(() => {
-        if(user) {
-            if(user.savedRecipes?.length) {
-                const saved = []
-                for (let recipeId of user?.savedRecipes) {
-                    saved.push(recipes[recipeId])
-                }
-                setSavedRecipes(saved)
-            }
-        }
-    }, [user, recipes])
-
+    const savedRecipeMap = user.savedRecipes.map(recipeId => {
+        const recipe = recipes[recipeId]
+        return (
+            <div className='recipe-card-container' key={recipeId}>
+                <div>
+                    <button>unsave</button>
+                </div>
+                <RecipeCard recipeId={recipeId}/>
+            </div>
+        )
+    })
 
     if (!user.savedRecipes.length) {
         return (
@@ -36,16 +35,7 @@ export default function SavedRecipes() {
     } else {
         return (
             <div>
-                {savedRecipes.map(recipe => {
-                    return (
-                        <div className='recipe-card-container' key={recipe.id}>
-                            <div>
-                                <button>unsave</button>
-                            </div>
-                            <RecipeCard recipeId={recipe.id}/>
-                        </div>
-                    )
-                })}
+                {savedRecipeMap}
             </div>
         )
     }

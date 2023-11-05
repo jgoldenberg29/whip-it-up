@@ -84,6 +84,21 @@ export const thunkUpdateRecipe = (recipe, id) => async dispatch => {
     }
 }
 
+export const thunkDeleteRecipe = (id) => async dispatch => {
+    const res = await fetch(`/api/recipes/${id}`, {
+        method: "DELETE"
+    })
+
+    if(res.ok) {
+        const data = await res.json()
+        dispatch(deleteRecipe(id))
+        dispatch(setUser(data.user))
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
 
 const recipeReducer = (state={}, action) => {
     switch (action.type) {

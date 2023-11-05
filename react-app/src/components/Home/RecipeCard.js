@@ -11,7 +11,7 @@ export default function RecipeCard({ recipeId }) {
     return (
         <>
             <OpenModalButton
-            buttonText={<img src={recipe.image} alt='tasty food'/>}
+            buttonText={<img src={recipe?.image} alt='tasty food'/>}
             modalComponent={<RecipeDeatailsModal recipeId={recipeId}/>}
             />
         </>

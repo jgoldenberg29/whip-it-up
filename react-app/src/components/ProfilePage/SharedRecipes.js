@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom"
 import RecipeCard from "../Home/RecipeCard"
 import OpenModalButton from "../OpenModalButton"
 import RecipeForm from "../RecipeForm"
+import DeleteRecipeModal from "../DeleteRecipeModal"
 
 
 
@@ -12,22 +13,28 @@ export default function SharedRecipes() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const recipes = useSelector(state => state.recipes)
-    const [cardsToggle, setCardsToggle] = useState('saved')
-    const [savedRecipes, setSavedRecipes] = useState([])
-    const [sharedRecipes, setSharedRecipes] = useState([])
 
+    if (!Object.values(recipes).length) return null
 
-    useEffect(() => {
-        if(user) {
-            if(user.sharedRecipes.length) {
-                const shared = []
-                for (let recipeId of user?.sharedRecipes) {
-                    shared.push(recipes[recipeId])
-                }
-                setSharedRecipes(shared)
-        }
-        }
-    }, [user, recipes])
+    const sharedRecipesMap = user.sharedRecipes.map(recipeId => {
+        const recipe = recipes[recipeId]
+        return (
+            <div className='recipe-card-container' key={recipeId}>
+                <RecipeCard recipeId={recipeId}/>
+                <div>
+                    <OpenModalButton
+                        buttonText='update'
+                        modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
+                    />
+                    <OpenModalButton
+                        buttonText='remove'
+                        modalComponent={<DeleteRecipeModal recipeId={recipeId}/>}
+
+                    />
+                </div>
+            </div>
+        )
+    })
 
     if(!user.sharedRecipes.length) {
         return (
@@ -39,20 +46,7 @@ export default function SharedRecipes() {
     } else {
         return (
             <div>
-                {sharedRecipes.map(recipe => {
-                    return (
-                        <div className='recipe-card-container' key={recipe.id}>
-                            <RecipeCard recipeId={recipe.id}/>
-                            <div>
-                            <OpenModalButton
-                                buttonText='update'
-                                modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
-                            />
-                                <button>remove</button>
-                            </div>
-                        </div>
-                    )
-                })}
+                {sharedRecipesMap}
             </div>
 
         )
