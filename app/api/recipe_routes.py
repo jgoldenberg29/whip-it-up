@@ -133,8 +133,8 @@ def edit_recipe(id):
         recipe.cook_time = data['cook_time']
         recipe.servings = data['servings']
 
-        recipe.recipe_ingredients = []
-        recipe.recipe_instructions = []
+        [db.session.delete(ingredient) for ingredient in recipe.recipe_ingredients]
+        [db.session.delete(instruction) for instruction in recipe.recipe_instructions]
         db.session.commit()
 
         ingredient_rows = data['ingredients'].split('/')
@@ -164,3 +164,17 @@ def edit_recipe(id):
         return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+
+@recipe_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_recipe(id):
+
+    recipe = Recipe.query.get(id)
+    [db.session.delete(ingredient) for ingredient in recipe.recipe_ingredients]
+    [db.session.delete(instruction) for instruction in recipe.recipe_instructions]
+    db.session.delete(recipe)
+    db.session.commit()
+
+    return {'user': current_user.to_dict()}
