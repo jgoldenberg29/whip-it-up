@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { thunkGetAllRecipes } from "../../store/recipes"
 import { NavLink } from "react-router-dom"
 import RecipeCard from "../Home/RecipeCard"
+import OpenModalButton from "../OpenModalButton"
+import RecipeForm from "../RecipeForm"
 
 
 
@@ -41,6 +43,13 @@ export default function SharedRecipes() {
                     return (
                         <div className='recipe-card-container' key={recipe.id}>
                             <RecipeCard recipeId={recipe.id}/>
+                            <div>
+                            <OpenModalButton
+                                buttonText='update'
+                                modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
+                            />
+                                <button>remove</button>
+                            </div>
                         </div>
                     )
                 })}

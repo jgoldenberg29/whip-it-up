@@ -18,16 +18,17 @@ export default function Home() {
     const recipesArr = Object.values(recipes)
     if(!recipesArr.length) return null;
 
-    
+
 
 
 
     return (
         <div className='landing-main-container'>
-            <h1>HERE WE ARE</h1>
+            <h1>Whip It Up</h1>
             {recipesArr.map(recipe => {
                 return (
                 <div className='recipe-card-container' key={recipe.id}>
+                    <button>save</button>
                     <RecipeCard recipeId={recipe.id}/>
                 </div>
                 )

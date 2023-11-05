@@ -3,21 +3,27 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import OpenModalButton from '../OpenModalButton';
+import RecipeForm from '../RecipeForm';
 
 function Navigation({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
+	const user = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
+		<div>
+			<span>
 				<NavLink exact to="/">Home</NavLink>
-			</li>
+			</span>
+			{user &&<OpenModalButton
+				buttonText='Share Recipe'
+				modalComponent={<RecipeForm formType='create'/>}
+			/>}
 			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+				<span>
+					<ProfileButton user={user} />
+				</span>
 			)}
-		</ul>
+		</div>
 	);
 }
 

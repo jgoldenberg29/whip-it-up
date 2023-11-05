@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { thunkCreateRecipe } from "../../store/recipes"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
-export default function CreateRecipe(){
+export default function CreateRecipe({ formType, recipe }){
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -19,6 +19,36 @@ export default function CreateRecipe(){
     const [ingredientCounter, setIngredientCounter] = useState([1,2,3])
     const [instructionCounter, setInstructionCounter] = useState([1,2,3])
     const [errors, setErrors] = useState({})
+
+    useEffect(() => {
+        if (formType='edit' && recipe) {
+            setTitle(recipe.title)
+            setRecipeURL(recipe.recipeURL)
+            setDescription(recipe.description)
+            setPrepTime(recipe.prepTime)
+            setCookTime(recipe.cookTime)
+            setServings(recipe.servings)
+
+            const tempIngredients = {}
+            const tempCounterIng = []
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+                tempIngredients[i+1] = recipe.ingredients[i]
+                tempCounterIng.push(i+1)
+            }
+            setIngredients(tempIngredients)
+            setIngredientCounter(tempCounterIng)
+
+            const tempInstructions = {}
+            const tempCounterInst = []
+            for (let i = 0; i < recipe.instructions.length; i++) {
+                tempInstructions[i+1] = recipe.instructions[i]
+                tempCounterInst.push(i+1)
+            }
+            setInstructions(tempInstructions)
+            setInstructionCounter(tempCounterInst)
+        }
+    }, [formType, recipe])
+
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -66,14 +96,25 @@ export default function CreateRecipe(){
 
     console.log(instructions)
 
+    const removeIngredientRow = (key) => {
+        const tempIngredients = ingredients
+        delete tempIngredients[key]
+        setIngredients({...tempIngredients})
+        const newCounter = []
+        for(let k of Object.keys(tempIngredients)) {
+            newCounter.push(k)
+        }
+        setIngredientCounter(newCounter)
+    }
+
     const ingredientInputs = ingredientCounter.map(key => {
-        ingredients[key] = {'quantity':0, 'item':'', refridgerated: false}
+        // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
         return (
             <div key={key}>
                 <label htmlFor={`amount${key}`}>
                 <input
                 type='number'
-                value={ingredients[key]?.quantity}
+                value={ingredients[key]?.quantity ? ingredients[key]?.quantity : 0}
                 id={`amount${key}`}
                 className='form-input'
                 required
@@ -134,10 +175,22 @@ export default function CreateRecipe(){
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>
+                <span onClick={e => removeIngredientRow(key)}>remove row</span>
                 {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
             </div>
         )
     })
+
+    const removeInstructionRow = key => {
+        const tempInstructions = instructions
+        delete tempInstructions[key]
+        setInstructions({...tempInstructions})
+        const newCounter = []
+        for(let k of Object.keys(tempInstructions)) {
+            newCounter.push(k)
+        }
+        setInstructionCounter(newCounter)
+    }
 
     const instructionInputs = instructionCounter.map(key => {
         return (
@@ -152,14 +205,16 @@ export default function CreateRecipe(){
                 required
                 />
                 </label>
+                <span onClick={e => removeInstructionRow(key)}>remove row</span>
             </div>
         )
     })
+    console.log('instructions', instructions)
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='form-modal-container'>
             <h1>Share Your Recipe</h1>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="title">
                     Title
                     <input
@@ -248,14 +303,14 @@ export default function CreateRecipe(){
                 </div>
                 {ingredientInputs}
                 <div>
-                    <span onClick={e => setIngredientCounter([...ingredientCounter, ingredientCounter.length+1])}>+ add ingredient</span>
+                    <span onClick={e => setIngredientCounter([...ingredientCounter, Number(ingredientCounter[ingredientCounter.length-1])+1])}>+ add ingredient</span>
                 </div>
                 <div>
                     <span>Cooking Instructions</span>
                 </div>
                 {instructionInputs}
                 <div>
-                <span onClick={e => setInstructionCounter([...instructionCounter, instructionCounter.length+1])}>+ add a step</span>
+                <span onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
                 </div>
             <button type='submit'>Share Recipe</button>
             </form>

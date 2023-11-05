@@ -4,6 +4,7 @@ import RecipeDeatailsModal from '../RecipeDetailsModal'
 
 
 export default function RecipeCard({ recipeId }) {
+    const user = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[recipeId])
 
 
