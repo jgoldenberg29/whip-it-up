@@ -6,7 +6,8 @@ import RecipeCard from "../Home/RecipeCard"
 import OpenModalButton from "../OpenModalButton"
 import RecipeForm from "../RecipeForm"
 import DeleteRecipeModal from "../DeleteRecipeModal"
-
+import Masonry from 'react-masonry-css'
+import RecipeCardContainer from "../Home/RecipeCardContainer"
 
 
 export default function SharedRecipes() {
@@ -16,23 +17,19 @@ export default function SharedRecipes() {
 
     if (!Object.values(recipes).length) return null
 
-    const sharedRecipesMap = user.sharedRecipes.map(recipeId => {
-        const recipe = recipes[recipeId]
-        return (
-            <div className='recipe-card-container' key={recipeId}>
-                <RecipeCard recipeId={recipeId}/>
-                <div>
-                    <OpenModalButton
-                        buttonText='update'
-                        modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
-                    />
-                    <OpenModalButton
-                        buttonText='remove'
-                        modalComponent={<DeleteRecipeModal recipeId={recipeId}/>}
+    const breakpoints = {
+        default: 6,
+        1200: 4,
+        950: 3,
+        700: 2,
+        500: 1
+      };
 
-                    />
-                </div>
-            </div>
+    const sharedRecipesMap = user.sharedRecipes.map(recipeId => {
+        return (
+            <>
+                <RecipeCardContainer pageType='shared' recipeId={recipeId}/>
+            </>
         )
     })
 
@@ -46,7 +43,12 @@ export default function SharedRecipes() {
     } else {
         return (
             <div>
-                {sharedRecipesMap}
+                <Masonry
+                breakpointCols={breakpoints}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
+                    {sharedRecipesMap}
+                </Masonry>
             </div>
 
         )

@@ -178,3 +178,27 @@ def delete_recipe(id):
     db.session.commit()
 
     return {'user': current_user.to_dict()}
+
+
+@recipe_routes.route('/<int:id>/save')
+@login_required
+def save_recipe(id):
+
+    recipe = Recipe.query.get(id)
+    current_user.saved_recipes.append(recipe)
+    db.session.commit()
+
+    return {'user': current_user.to_dict()}
+
+
+
+@recipe_routes.route('/<int:id>/unsave')
+@login_required
+def unsave_recipe(id):
+
+    recipe = Recipe.query.get(id)
+    idx = current_user.saved_recipes.index(recipe)
+    current_user.saved_recipes.pop(idx)
+    db.session.commit()
+
+    return {'user': current_user.to_dict()}
