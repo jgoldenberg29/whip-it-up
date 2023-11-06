@@ -47,6 +47,7 @@
     position: absolute;
     background-color: rgb(208, 196, 196);
     z-index: 10;
+    right: 20px;
 }
 
 .form-modal-container{
