@@ -5,6 +5,7 @@ import { thunkGetAllRecipes } from "../../store/recipes";
 import RecipeCard from "./RecipeCard";
 import { thunkSaveRecipe } from "../../store/session";
 import Masonry from 'react-masonry-css'
+import RecipeCardContainer from "./RecipeCardContainer";
 
 
 
@@ -32,12 +33,13 @@ export default function Home() {
     const smallButtonClass = showButton ? "small-card-button" : "hide-button"
 
     const breakpoints = {
-        default: 6,
+        default: 5,
         1200: 4,
         950: 3,
         700: 2,
-        500: 1
       };
+
+      console.log(showButton)
 
     return (
         <div className='landing-main-container'>
@@ -47,16 +49,7 @@ export default function Home() {
             columnClassName="my-masonry-grid_column">
             {recipesArr.map(recipe => {
                 return (
-                <div
-                className='recipe-card-container'
-                key={recipe.id}
-                onMouseEnter={() => setShowButton(true)}
-                onMouseLeave={() => setShowButton(false)}
-                >
-                    <button
-                    style={{backgroundColor: '#f9c54d',}} className="small-card-button" onClick={e => handleSave(recipe.id)}>save</button>
-                    <RecipeCard recipeId={recipe.id}></RecipeCard>
-                </div>
+                <RecipeCardContainer recipeId={recipe.id}/>
                 )
             })}
             </Masonry>

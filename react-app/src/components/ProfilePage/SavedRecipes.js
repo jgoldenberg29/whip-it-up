@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom"
 import RecipeCard from "../Home/RecipeCard"
 import { thunkUnsaveRecipe } from "../../store/session"
 import Masonry from 'react-masonry-css'
+import RecipeCardContainer from "../Home/RecipeCardContainer"
 
 
 
@@ -26,15 +27,9 @@ export default function SavedRecipes() {
     const savedRecipeMap = user.savedRecipes.map(recipeId => {
         const recipe = recipes[recipeId]
         return (
-            <div className='recipe-card-container' key={recipeId}>
-                <div>
-                    <button
-                    style={{backgroundColor: '#f9c54d',}}
-                    className="small-card-button"
-                    onClick={e => handleUnsave(recipeId)}>unsave</button>
-                </div>
-                <RecipeCard recipeId={recipeId}/>
-            </div>
+            <>
+            <RecipeCardContainer recipeId={recipeId} pageType='saved'/>
+            </>
         )
     })
 

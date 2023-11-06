@@ -7,6 +7,7 @@ import OpenModalButton from "../OpenModalButton"
 import RecipeForm from "../RecipeForm"
 import DeleteRecipeModal from "../DeleteRecipeModal"
 import Masonry from 'react-masonry-css'
+import RecipeCardContainer from "../Home/RecipeCardContainer"
 
 
 export default function SharedRecipes() {
@@ -25,22 +26,10 @@ export default function SharedRecipes() {
       };
 
     const sharedRecipesMap = user.sharedRecipes.map(recipeId => {
-        const recipe = recipes[recipeId]
         return (
-            <div className='recipe-card-container' key={recipeId}>
-                <RecipeCard recipeId={recipeId}/>
-                <div>
-                    <OpenModalButton
-                        buttonText='update'
-                        modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
-                    />
-                    <OpenModalButton
-                        buttonText='remove'
-                        modalComponent={<DeleteRecipeModal recipeId={recipeId}/>}
-
-                    />
-                </div>
-            </div>
+            <>
+                <RecipeCardContainer pageType='shared' recipeId={recipeId}/>
+            </>
         )
     })
 
