@@ -8,7 +8,6 @@ recipes = [
         'prep_time': 15,
         'cook_time': 30,
         'servings': 6,
-        # 'instructions': "1. Fry the bacon then add the onion and cook until golden, 6-8 minutes.  Add the garlic and cook for another minute.  Add all remaining ingredients except for the parsley.  Bring to a boil, reduce the heat to medium-low, cover and simmer 30-40 minutes. 2. Add the parsley and simmer for another minute. 3. Add salt and pepper to taste. Note: This is a great make-ahead soup as the flavor is even better the next day!"
     },
      {
         'user_id': 1,
