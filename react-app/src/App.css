@@ -1,3 +1,9 @@
+/* global */
+
+.errors {
+    color: red;
+}
+
 /* modals */
 
 #modal {

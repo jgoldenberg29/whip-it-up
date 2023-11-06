@@ -234,7 +234,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.title ? errors?.title : ''}</p>
+                <p className='create-form-errors errors'>{errors?.title ? errors?.title : ''}</p>
                 <label htmlFor="image">
                     Choose Image
                     <input
@@ -246,7 +246,7 @@ export default function RecipeForm({ formType, recipe }){
                     required={formType==="create"}
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.image ? errors.image : ''}</p>
+                <p className='create-form-errors errors'>{errors?.image ? errors.image : ''}</p>
                 <label htmlFor="recipeURL">
                     Site URL
                     <input
@@ -258,7 +258,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
+                <p className='create-form-errors errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
                 <label htmlFor="description">
                     Description
                     <textarea
@@ -269,7 +269,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.description ? errors.description : ''}</p>
+                <p className='create-form-errors errors'>{errors?.description ? errors.description : ''}</p>
                 <label htmlFor="prep-time">
                     Prep Time
                     <input
@@ -281,7 +281,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
+                <p className='create-form-errors errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
                 <label htmlFor="cook-time">
                     Cook Time
                     <input
@@ -293,7 +293,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
+                <p className='create-form-errors errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
                 <label htmlFor="servings">
                     Servings
                     <input
@@ -305,10 +305,10 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors'>{errors?.servings ? errors.servings : ''}</p>
+                <p className='create-form-errors errors'>{errors?.servings ? errors.servings : ''}</p>
                 <div>
                 <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
-                <p>{errors?.ingredients ? errors.ingredients : ''}</p>
+                <p className='errors'>{errors?.ingredients ? errors.ingredients : ''}</p>
                 </div>
                 {ingredientInputs}
                 <div>
@@ -316,7 +316,7 @@ export default function RecipeForm({ formType, recipe }){
                 </div>
                 <div>
                     <span>Cooking Instructions</span>
-                    <p>{errors?.instructions ? errors.instructions : ''}</p>
+                    <p className='errors'>{errors?.instructions ? errors.instructions : ''}</p>
                 </div>
                 {instructionInputs}
                 <div>

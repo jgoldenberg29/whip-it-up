@@ -34,7 +34,7 @@ function SignupFormModal() {
 		<div className='form-modal-container'>
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit}>
-				<p>
+				<p className='errors'>
 					{errors?.message ? errors?.message : ''}
 				</p>
 				<label>
@@ -46,7 +46,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p>
+				<p className='errors'>
 					{errors?.first_name ? errors?.first_name : ''}
 				</p>
 				<label>
@@ -58,7 +58,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p>
+				<p> className='errors'
 					{errors?.last_name ? errors?.last_name : ''}
 				</p>
 				<label>
@@ -70,7 +70,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p>
+				<p className='errors'>
 					{errors?.email ? errors?.email : ''}
 				</p>
 				<label>
@@ -82,7 +82,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p>
+				<p className='errors'>
 					{errors?.username ? errors?.username : ''}
 				</p>
 				<label>
@@ -94,7 +94,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p>
+				<p className='errors'>
 					{errors?.password ? errors?.password : ''}
 				</p>
 				<label>

@@ -21,7 +21,7 @@ export default function DeleteRecipeModal({ recipeId }) {
         <div className="form-modal-container">
             <h1>Remove Recipe</h1>
             <p>Are you sure you want to keep this recipe all to yourself?</p>
-            <p>{errors?.message ? errors.message : ''}</p>
+            <p className='errors'>{errors?.message ? errors.message : ''}</p>
             <button onClick={handleDelete}>{'yes (remove)'}</button>
             <button onClick={e => closeModal()}>{'No (keep)'}</button>
         </div>
