@@ -7,7 +7,6 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import './App.css'
 import Home from "./components/Home";
-import CreateRecipe from "./components/CreateRecipe";
 import EditRecipe from "./components/EditRecipe";
 import ProfilePage from "./components/ProfilePage";
 
@@ -24,12 +23,6 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path='/recipes/:id/edit'>
-            <EditRecipe />
-          </Route>
-          <Route exact path="/recipes/new">
-            <CreateRecipe />
-          </Route>
           <Route exact path="/profile">
             <ProfilePage />
           </Route>
