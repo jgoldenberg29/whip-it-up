@@ -10,19 +10,21 @@ function Navigation({ isLoaded }){
 	const user = useSelector(state => state.session.user);
 
 	return (
-		<div>
+		<div className='nav-container'>
 			<span>
 				<NavLink exact to="/">Home</NavLink>
 			</span>
-			{user &&<OpenModalButton
-				buttonText='Share Recipe'
-				modalComponent={<RecipeForm formType='create'/>}
-			/>}
-			{isLoaded && (
-				<span>
-					<ProfileButton user={user} />
-				</span>
-			)}
+			<div className='nave-profile-share'>
+				{user &&<OpenModalButton
+					buttonText='Share Recipe'
+					modalComponent={<RecipeForm formType='create'/>}
+				/>}
+				{isLoaded && (
+					<span>
+						<ProfileButton user={user} />
+					</span>
+				)}
+			</div>
 		</div>
 	);
 }
