@@ -26,6 +26,19 @@
   }
 
 /* Nav */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px, 5px;
+}
+
+.nave-profile-share {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
 .hidden {
     display: none;
 }
