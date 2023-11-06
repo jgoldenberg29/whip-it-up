@@ -37,6 +37,8 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
 
     const unsaveButtonClass = showButton ? "small-card-button unsave" : "hide-button"
 
+    const editDeleteDivClass = showButton ? "edit-delete-container" : "hide-container"
+
     if (pageType === 'saved') {
         return (
             <div
@@ -53,9 +55,14 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
     } else if (pageType === 'shared') {
         const recipe = recipes[recipeId]
         return (
-            <div className='recipe-card-container' key={recipeId}>
+            <div
+            className='recipe-card-container'
+            key={recipeId}
+            onMouseEnter={() => setShowButton(true)}
+            onMouseLeave={() => setShowButton(false)}
+            >
                 <RecipeCard recipeId={recipeId}/>
-                <div className="edit-delete-container">
+                <div className={editDeleteDivClass}>
                     <OpenModalButton
                         buttonText='update'
                         modalComponent={<RecipeForm formType='edit' recipe={recipe}/>}
