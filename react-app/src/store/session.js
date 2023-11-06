@@ -2,7 +2,7 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
-const setUser = (user) => ({
+export const setUser = (user) => ({
 	type: SET_USER,
 	payload: user,
 });
@@ -48,7 +48,7 @@ export const login = (email, password) => async (dispatch) => {
 	} else if (response.status < 500) {
 		const data = await response.json();
 		if (data.errors) {
-			return data.errors;
+			return data;
 		}
 	} else {
 		return ["An error occurred. Please try again."];
@@ -67,13 +67,15 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (firstName, lastName, username, email, password) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
+			'first_name': firstName,
+			'last_name': lastName,
 			username,
 			email,
 			password,
@@ -87,12 +89,38 @@ export const signUp = (username, email, password) => async (dispatch) => {
 	} else if (response.status < 500) {
 		const data = await response.json();
 		if (data.errors) {
-			return data.errors;
+			return data;
 		}
 	} else {
 		return ["An error occurred. Please try again."];
 	}
 };
+
+export const thunkSaveRecipe = (id) => async dispatch => {
+	const res = await fetch(`/api/recipes/${id}/save`)
+
+	if(res.ok) {
+		const data = await res.json()
+		dispatch(setUser(data.user))
+		return null
+	} else {
+		const data = await res.json()
+		return data
+	}
+}
+
+export const thunkUnsaveRecipe = (id) => async dispatch => {
+	const res = await fetch(`/api/recipes/${id}/unsave`)
+
+	if(res.ok) {
+		const data = await res.json()
+		dispatch(setUser(data.user))
+		return null
+	} else {
+		const data = await res.json()
+		return data
+	}
+}
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {

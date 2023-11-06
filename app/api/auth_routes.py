@@ -3,6 +3,7 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from icecream import ic
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -11,10 +12,13 @@ def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
-    errorMessages = []
+    errorMessages = {}
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            if field not in errorMessages:
+                errorMessages[field] = f'{error}'
+            else:
+                errorMessages[field] = f'{errorMessages[field]}. {error}'
     return errorMessages
 
 
@@ -60,12 +64,16 @@ def sign_up():
     Creates a new user and logs them in
     """
     form = SignUpForm()
+    ic(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        data = form.data
         user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
+            first_name=data['first_name'],
+            last_name=data['last_name'],
+            username=data['username'],
+            email=data['email'],
+            password=data['password']
         )
         db.session.add(user)
         db.session.commit()

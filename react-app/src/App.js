@@ -5,6 +5,12 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import './App.css'
+import Home from "./components/Home";
+import CreateRecipe from "./components/CreateRecipe";
+import EditRecipe from "./components/EditRecipe";
+import ProfilePage from "./components/ProfilePage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -18,11 +24,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
+          <Route exact path='/recipes/:id/edit'>
+            <EditRecipe />
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route exact path="/recipes/new">
+            <CreateRecipe />
+          </Route>
+          <Route exact path="/profile">
+            <ProfilePage />
+          </Route>
+          <Route exact path="/">
+            <Home/>
           </Route>
         </Switch>
       )}

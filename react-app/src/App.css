@@ -1,0 +1,150 @@
+/* modals */
+
+#modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #modal-content {
+    position: absolute;
+    background-color:white;
+  }
+
+/* Nav */
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: rgb(208, 196, 196);
+    z-index: 10;
+}
+
+.form-modal-container{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    max-height: 700px;
+}
+
+/* card layout */
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-top: 20px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 0px; /* gutter size */
+    background-clip: padding-box;
+  }
+
+  /* Style your items */
+  .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 10px;
+  }
+
+/* Recipe Card */
+
+.recipe-card-container {
+    position: relative;
+    width: 100%;
+}
+
+.recipe-card-container > button {
+    border: none;
+    background-color: white;
+}
+
+.small-card-button {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    width: 60px;
+    height: 27px;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.unsave {
+    width: 70px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.hide-button{
+    display: none;
+}
+
+.edit-delete-container {
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    width: 85%;
+    right: 17px;
+    bottom: 13px;
+}
+
+.hide-container > button {
+    display: none;
+}
+
+.edit-delete-container > button {
+    width: 70px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: 16px;
+    border: none;
+    background-color: #f9c54d;
+}
+
+.recipecard-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.recipecard-image-button {
+    width: 205px;
+    border: none;
+}
+
+
+/* recipe details */
+
+.details-main-container {
+    display: flex;
+    max-width: 900px;
+    max-height: 700px;
+    column-gap: 20px
+}
+
+.details-image-container {
+    height: 100%;
+
+}
+
+.details-image-container > img {
+    height: 700px
+}
+
+.details-info-container {
+    overflow: scroll;
+}
