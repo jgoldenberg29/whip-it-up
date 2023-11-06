@@ -1,3 +1,14 @@
+/* Nav */
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: rgb(208, 196, 196);
+    z-index: 10;
+}
+
 .form-modal-container{
     display: flex;
     flex-direction: column;
@@ -5,7 +16,51 @@
     max-height: 700px;
 }
 
-img {
-    max-width: 250px;
-    max-height: 250px;
+/* Recipe Card */
+
+.recipe-card-container {
+    position: relative;
+    width: 100%;
 }
+
+.recipe-card-container > button {
+    border: none;
+    background-color: white;
+}
+
+.small-card-button {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    width: 60px;
+    height: 27px;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.recipecard-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.recipecard-image-button {
+    width: 205px;
+    border: none;
+}
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-top: 20px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 0px; /* gutter size */
+    background-clip: padding-box;
+  }
+
+  /* Style your items */
+  .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 10px;
+  }

@@ -96,6 +96,32 @@ export const signUp = (firstName, lastName, username, email, password) => async 
 	}
 };
 
+export const thunkSaveRecipe = (id) => async dispatch => {
+	const res = await fetch(`/api/recipes/${id}/save`)
+
+	if(res.ok) {
+		const data = await res.json()
+		dispatch(setUser(data.user))
+		return null
+	} else {
+		const data = await res.json()
+		return data
+	}
+}
+
+export const thunkUnsaveRecipe = (id) => async dispatch => {
+	const res = await fetch(`/api/recipes/${id}/unsave`)
+
+	if(res.ok) {
+		const data = await res.json()
+		dispatch(setUser(data.user))
+		return null
+	} else {
+		const data = await res.json()
+		return data
+	}
+}
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:

@@ -6,7 +6,7 @@ import RecipeCard from "../Home/RecipeCard"
 import OpenModalButton from "../OpenModalButton"
 import RecipeForm from "../RecipeForm"
 import DeleteRecipeModal from "../DeleteRecipeModal"
-
+import Masonry from 'react-masonry-css'
 
 
 export default function SharedRecipes() {
@@ -15,6 +15,14 @@ export default function SharedRecipes() {
     const recipes = useSelector(state => state.recipes)
 
     if (!Object.values(recipes).length) return null
+
+    const breakpoints = {
+        default: 6,
+        1200: 4,
+        950: 3,
+        700: 2,
+        500: 1
+      };
 
     const sharedRecipesMap = user.sharedRecipes.map(recipeId => {
         const recipe = recipes[recipeId]
@@ -46,7 +54,12 @@ export default function SharedRecipes() {
     } else {
         return (
             <div>
-                {sharedRecipesMap}
+                <Masonry
+                breakpointCols={breakpoints}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
+                    {sharedRecipesMap}
+                </Masonry>
             </div>
 
         )
