@@ -19,7 +19,7 @@ export default function RecipeForm({ formType, recipe }){
     const [instructions, setInstructions] = useState({})
     const [ingredientCounter, setIngredientCounter] = useState([1,2,3])
     const [instructionCounter, setInstructionCounter] = useState([1,2,3])
-    // const [stateType, setStateType] = useState(formType)
+    const [stateFormType, setStateFormType] = useState(formType)
     const [errors, setErrors] = useState({})
     const { closeModal } = useModal();
 
@@ -54,7 +54,7 @@ export default function RecipeForm({ formType, recipe }){
     }, [formType, recipe])
 
     console.log(image)
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const newRecipe = new FormData()
 
@@ -65,7 +65,7 @@ export default function RecipeForm({ formType, recipe }){
         for (let text of Object.values(instructions)) {
             console.log(text)
             console.log(instructionsString)
-            instructionsString += `${text}/`
+            instructionsString += `${text}&`
         }
         let ingredientsString = ''
         for (let ingredient of Object.values(ingredients)) {
@@ -74,9 +74,9 @@ export default function RecipeForm({ formType, recipe }){
             ingredientsString += `${ingredient.measurement},`
             ingredientsString += `${ingredient.item},`
             if (!ingredient.refridgerated) {
-                ingredientsString += `False/`
+                ingredientsString += `False&`
             } else {
-              ingredientsString += `True/`
+              ingredientsString += `True&`
             }
 
         }
@@ -91,7 +91,7 @@ export default function RecipeForm({ formType, recipe }){
         newRecipe.append('image', image)
 
         let data = null
-        if (formType === 'create'){
+        if (stateFormType === 'create'){
             data = await dispatch(thunkCreateRecipe(newRecipe))
         } else {
             data = await dispatch(thunkUpdateRecipe(newRecipe, recipe.id))
@@ -123,15 +123,14 @@ export default function RecipeForm({ formType, recipe }){
             <div key={key}>
                 <label htmlFor={`amount${key}`}>
                 <input
-                type='number'
-                value={ingredients[key]?.quantity ? ingredients[key]?.quantity : 0}
+                type='text'
+                value={ingredients[key]?.quantity ? ingredients[key]?.quantity : ''}
                 id={`amount${key}`}
                 className='form-input'
                 required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'quantity': e.target.value}})}
                 />
                 </label>
-                {/* <p className='create-form-errors'>{errors.quantity ? errors.quantity : ''}</p> */}
                 <label htmlFor={`unit${key}`}>
                 <select
                 value={ingredients[key]?.measurement}
@@ -141,6 +140,7 @@ export default function RecipeForm({ formType, recipe }){
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
                 name="measurement">
                     <option value="">choose one</option>
+                    <option value="">whole item</option>
                     <option value="bulb">bulb</option>
                     <option value="clove">clove</option>
                     <option value="cup">cup</option>
@@ -149,21 +149,22 @@ export default function RecipeForm({ formType, recipe }){
                     <option value="gram">gram</option>
                     <option value="head">head</option>
                     <option value="kilogram">kilogram</option>
+                    <option value="large">large</option>
                     <option value="liter">liter</option>
+                    <option value="medium">medium</option>
                     <option value="milligram">milligram</option>
                     <option value="milliliter">milliliter</option>
                     <option value="ounce">ounce</option>
                     <option value="pint">pint</option>
                     <option value="pound">pound</option>
                     <option value="quart">quart</option>
+                    <option value="small">small</option>
                     <option value="stalk">stalk</option>
                     <option value="stick">stick</option>
                     <option value="tablespoon">tablespoon</option>
                     <option value="teaspoon">teaspoon</option>
-                    <option value="whole">whole</option>
                 </select>
                 </label>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`ingredient${key}`}>
                 <input
                 type='text'
@@ -174,7 +175,6 @@ export default function RecipeForm({ formType, recipe }){
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'item': e.target.value} })}
                 />
                 </label>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`refridgerated${key}`}>
                 <input
                 type='checkbox'
@@ -185,7 +185,6 @@ export default function RecipeForm({ formType, recipe }){
                 />
                 </label>
                 <span onClick={e => removeIngredientRow(key)}>remove row</span>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
             </div>
         )
     })
@@ -309,6 +308,7 @@ export default function RecipeForm({ formType, recipe }){
                 <p className='create-form-errors'>{errors?.servings ? errors.servings : ''}</p>
                 <div>
                 <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
+                <p>{errors?.ingredients ? errors.ingredients : ''}</p>
                 </div>
                 {ingredientInputs}
                 <div>
@@ -316,6 +316,7 @@ export default function RecipeForm({ formType, recipe }){
                 </div>
                 <div>
                     <span>Cooking Instructions</span>
+                    <p>{errors?.instructions ? errors.instructions : ''}</p>
                 </div>
                 {instructionInputs}
                 <div>

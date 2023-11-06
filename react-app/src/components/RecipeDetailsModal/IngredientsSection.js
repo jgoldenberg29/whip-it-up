@@ -20,7 +20,7 @@ export default function Ingredients({ recipeId }) {
                         if (ingredient.refridgerated) {
                             return (
                                 <li key={ingredient.id}>
-                                    <span>{ingredient.quantity} {ingredient.measurement} {ingredient.item}</span>
+                                    <span>{ingredient.quantity} {ingredient.measurement}{ingredient.item}</span>
                                 </li>
                             )
                         }
