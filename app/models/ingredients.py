@@ -12,7 +12,7 @@ class Ingredient(db.Model):
     item = db.Column(db.String(60), nullable=False)
     refridgerated = db.Column(db.Boolean)
     measurement = db.Column(db.String(25))
-    quantity = db.Column(db.Float, nullable=False)
+    quantity = db.Column(db.String(10), nullable=False)
 
     used_in = db.relationship('Recipe', back_populates = 'recipe_ingredients')
 

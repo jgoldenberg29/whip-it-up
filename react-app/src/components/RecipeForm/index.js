@@ -121,9 +121,10 @@ export default function RecipeForm({ formType, recipe }){
         // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
         return (
             <div key={key}>
+                <p>{errors?.ingredients ? errors.ingredients : ''}</p>
                 <label htmlFor={`amount${key}`}>
                 <input
-                type='number'
+                type='text'
                 value={ingredients[key]?.quantity ? ingredients[key]?.quantity : 0}
                 id={`amount${key}`}
                 className='form-input'
@@ -131,7 +132,6 @@ export default function RecipeForm({ formType, recipe }){
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'quantity': e.target.value}})}
                 />
                 </label>
-                {/* <p className='create-form-errors'>{errors.quantity ? errors.quantity : ''}</p> */}
                 <label htmlFor={`unit${key}`}>
                 <select
                 value={ingredients[key]?.measurement}
@@ -163,7 +163,6 @@ export default function RecipeForm({ formType, recipe }){
                     <option value="whole">whole</option>
                 </select>
                 </label>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`ingredient${key}`}>
                 <input
                 type='text'
@@ -174,7 +173,6 @@ export default function RecipeForm({ formType, recipe }){
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'item': e.target.value} })}
                 />
                 </label>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
                 <label htmlFor={`refridgerated${key}`}>
                 <input
                 type='checkbox'
@@ -185,7 +183,6 @@ export default function RecipeForm({ formType, recipe }){
                 />
                 </label>
                 <span onClick={e => removeIngredientRow(key)}>remove row</span>
-                {/* <p className='create-form-errors'>{errors.title ? errors.title : ''}</p> */}
             </div>
         )
     })
@@ -204,6 +201,7 @@ export default function RecipeForm({ formType, recipe }){
     const instructionInputs = instructionCounter.map(key => {
         return (
             <div key={key}>
+                <p>{errors?.instructions ? errors.instructions : ''}</p>
                 <label htmlFor={`instruction${key}`}>
                 {key}.
                 <textarea

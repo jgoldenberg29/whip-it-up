@@ -18,6 +18,23 @@ def validated_obj_string(form, field):
     if '/' not in string:
         raise ValidationError('please use create form to enter ingredients')
 
+def validate_ingredients(form, field):
+    ingredients = field.data.split('/')
+    del ingredient_rows[-1]
+    for row in ingredient_rows:
+        seperated_row = row.split(',')
+        if '/' not in seperated_row[0] or not seperated_row[0].isdigit():
+            raise ValidationError('Quantity must be a positive integer, decimal or fraction')
+        if not seperated_row[2].isalpha():
+            raise ValidationError('Ingredient must be a food item')
+
+def validate_instructions(form, field):
+    instructions = fiel.data.split('/')
+    del instructions[-1]
+    for instruction in instructions:
+        if len(instruction) < 10:
+            raise ValidationError('Instructions must be at least 10 characters long')
+
 class RecipeForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(3,100)])
     recipe_url = StringField('recipe_url', validators=[url_exists, Length(1,255), URL()])
@@ -26,6 +43,5 @@ class RecipeForm(FlaskForm):
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
     cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(0,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
-    ingredients = StringField('ingredients', validators=[DataRequired(), validated_obj_string])
-    instructions = StringField('instructions', validators=[DataRequired(), validated_obj_string])
-   
+    ingredients = StringField('ingredients', validators=[DataRequired(), validated_obj_string, validate_ingredients])
+    instructions = StringField('instructions', validators=[DataRequired(), validated_obj_string, validate_instructions])

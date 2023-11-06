@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 70038da46389
+Revision ID: cd47cc38932d
 Revises:
-Create Date: 2023-11-02 13:04:54.602908
+Create Date: 2023-11-06 12:59:29.624244
 
 """
 from alembic import op
@@ -12,9 +12,8 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
-
 # revision identifiers, used by Alembic.
-revision = '70038da46389'
+revision = 'cd47cc38932d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -54,7 +53,7 @@ def upgrade():
     sa.Column('item', sa.String(length=60), nullable=False),
     sa.Column('refridgerated', sa.Boolean(), nullable=True),
     sa.Column('measurement', sa.String(length=25), nullable=True),
-    sa.Column('quantity', sa.Float(), nullable=False),
+    sa.Column('quantity', sa.String(length=10), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -74,16 +73,17 @@ def upgrade():
     sa.PrimaryKeyConstraint('user_id', 'recipe_id')
     )
 
+
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+            op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     if environment == "production":
-        op.execute(f"ALTER TABLE recipes SET SCHEMA {SCHEMA};")
+            op.execute(f"ALTER TABLE recipes SET SCHEMA {SCHEMA};")
     if environment == "production":
-        op.execute(f"ALTER TABLE ingredients SET SCHEMA {SCHEMA};")
+            op.execute(f"ALTER TABLE ingredients SET SCHEMA {SCHEMA};")
     if environment == "production":
-        op.execute(f"ALTER TABLE instructions SET SCHEMA {SCHEMA};")
+            op.execute(f"ALTER TABLE instructions SET SCHEMA {SCHEMA};")
     if environment == "production":
-        op.execute(f"ALTER TABLE saves SET SCHEMA {SCHEMA};")
+            op.execute(f"ALTER TABLE saves SET SCHEMA {SCHEMA};")
 
     # ### end Alembic commands ###
 
