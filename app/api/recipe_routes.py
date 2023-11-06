@@ -20,7 +20,6 @@ def all_recipes():
     Query for all the recipes and returns them to the landing page
     """
     recipes = Recipe.query.all()
-    ic([recipe.to_dict() for recipe in recipes])
     return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
 
@@ -33,9 +32,6 @@ def create_recipe():
 
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    ic(form.data)
-    ic(form.data['instructions'])
-    ic(form.data['ingredients'])
 
     if form.validate_on_submit():
         data = form.data
@@ -62,11 +58,10 @@ def create_recipe():
 
         recipe = Recipe.query.filter(Recipe.image == url).first()
 
-        ingredient_rows = data['ingredients'].split('/')
+        ingredient_rows = data['ingredients'].split('&')
         del ingredient_rows[-1]
         for row in ingredient_rows:
             seperated_row = row.split(',')
-            ic(seperated_row)
             new_ingredient = Ingredient(
                 recipe_id = recipe.id,
                 quantity = seperated_row[0],
@@ -75,7 +70,7 @@ def create_recipe():
                 refridgerated = True if seperated_row[3] == 'True' else False,
             )
             db.session.add(new_ingredient)
-        seperated_instructions = data['instructions'].split('/')
+        seperated_instructions = data['instructions'].split('&')
         del seperated_instructions[-1]
         for i in range(len(seperated_instructions)):
             new_instruction = Instruction(
@@ -86,7 +81,6 @@ def create_recipe():
             db.session.add(new_instruction)
 
         db.session.commit()
-        ic(recipe.to_dict())
         return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
@@ -107,15 +101,10 @@ def edit_recipe(id):
         return {'errors': {'message':'Recipe not found'}}, 404
     elif recipe.user_id != current_user.id:
         return {'errors': {'message':'forbidden'}}, 403
-    # ic(form.data)
-    # ic(form.data['instructions'])
-    # ic(form.data['ingredients'])
 
     if form.validate_on_submit():
         data = form.data
 
-        ic(data['image'])
-        ic(recipe.image)
         url = None
         if data['image'] != recipe.image and data['image'] != None:
             image = data['image']
@@ -142,7 +131,6 @@ def edit_recipe(id):
         del ingredient_rows[-1]
         for row in ingredient_rows:
             seperated_row = row.split(',')
-            ic(seperated_row)
             updated_ingredient = Ingredient(
                 recipe_id = id,
                 quantity = seperated_row[0],
@@ -162,7 +150,6 @@ def edit_recipe(id):
             db.session.add(updated_instruction)
 
         db.session.commit()
-        ic(recipe.to_dict())
         return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400

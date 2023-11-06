@@ -6,6 +6,7 @@ from werkzeug.datastructures import MultiDict, TypeConversionDict
 from ..api.AWS_helpers import ALLOWED_IMG_EXTENSIONS
 from .measurement_types import measurement_types
 from ..models import Recipe
+from icecream import ic
 
 def url_exists(form, field):
     recipe_url = field.data
@@ -15,21 +16,25 @@ def url_exists(form, field):
 
 def validated_obj_string(form, field):
     string = field.data
-    if '/' not in string:
-        raise ValidationError('please use create form to enter ingredients')
+    if '&' not in string:
+        raise ValidationError('please use create form to enter information')
 
 def validate_ingredients(form, field):
-    ingredients = field.data.split('/')
-    del ingredient_rows[-1]
-    for row in ingredient_rows:
+    ingredients = field.data.split('&')
+    ic(ingredients)
+    del ingredients[-1]
+    ic(ingredients)
+    for row in ingredients:
         seperated_row = row.split(',')
-        if '/' not in seperated_row[0] or not seperated_row[0].isdigit():
-            raise ValidationError('Quantity must be a positive integer, decimal or fraction')
+        ic(seperated_row)
+        for chars in seperated_row[0].split('/'):
+            if not chars.isdigit():
+                raise ValidationError('Quantity must be a positive integer, decimal or fraction')
         if not seperated_row[2].isalpha():
             raise ValidationError('Ingredient must be a food item')
 
 def validate_instructions(form, field):
-    instructions = fiel.data.split('/')
+    instructions = field.data.split('&')
     del instructions[-1]
     for instruction in instructions:
         if len(instruction) < 10:

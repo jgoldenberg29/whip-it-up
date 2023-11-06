@@ -19,7 +19,10 @@ measurement_types = [
     'clove',
     'bulb',
     'head',
-    'stalk'
+    'stalk',
+    'small',
+    'medium',
+    'large',
 ]
 
 sorted_measurement_types = ['bulb', 'clove', 'cup', 'drop', 'fluid ounce', 'gallon', 'gram', 'head', 'kilogram', 'liter', 'milligram', 'milliliter', 'ounce', 'pinch', 'pint', 'pound', 'quart', 'stalk', 'stick', 'tablespoon', 'teaspoon']
