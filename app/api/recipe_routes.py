@@ -76,6 +76,7 @@ def create_recipe():
             )
             db.session.add(new_ingredient)
         seperated_instructions = data['instructions'].split('/')
+        del seperated_instructions[-1]
         for i in range(len(seperated_instructions)):
             new_instruction = Instruction(
                 recipe_id = recipe.id,
@@ -151,6 +152,7 @@ def edit_recipe(id):
             )
             db.session.add(updated_ingredient)
         seperated_instructions = data['instructions'].split('/')
+        del seperated_instructions[-1]
         for i in range(len(seperated_instructions)):
             updated_instruction = Instruction(
                 recipe_id = id,
