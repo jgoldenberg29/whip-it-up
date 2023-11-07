@@ -272,3 +272,24 @@ body {
     border-radius: 10px;
     align-self: center;
 }
+
+
+/* profile page */
+
+.profile-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+.shared-saved-div {
+    display: flex;
+    column-gap: 10px;
+    font-size: 20px;
+}
+
+#shared-toggle:hover,
+#saved-toggle:hover {
+    color: #f9c54d;
+}

@@ -41,14 +41,24 @@ export default function ProfilePage() {
     }
 
     return (
-        <div>
+        <div className='profile-main-container'>
             <div className='profile-user-info'>
                 <h2>{user.firstName} {user.LastName}</h2>
                 <p>{user.username}</p>
             </div>
-            <div>
+            <div className='shared-saved-div'>
                 {/* create class highlighting the chosen category */}
-                <span onClick={e => setCardsToggle('shared')}>Shared</span><span onClick={e => setCardsToggle('saved')}>Saved</span>
+                <span id='shared-toggle'
+                onClick={e => setCardsToggle('shared')}
+                >
+                Shared
+                </span>
+                <span
+                id='saved-toggle'
+                onClick={e => setCardsToggle('saved')}
+                >
+                Saved
+                </span>
             </div>
             {cardsToggle === 'saved' ?
                 <div>
