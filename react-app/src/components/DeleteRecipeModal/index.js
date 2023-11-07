@@ -18,12 +18,12 @@ export default function DeleteRecipeModal({ recipeId }) {
     }
 
     return (
-        <div className="form-modal-container">
+        <div className="form-modal-container delete-modal">
             <h1>Remove Recipe</h1>
-            <p>Are you sure you want to keep this recipe all to yourself?</p>
+            <p className='delete-prompt'>Are you sure you want to keep this recipe all to yourself?</p>
             <p className='errors'>{errors?.message ? errors.message : ''}</p>
-            <button onClick={handleDelete}>{'yes (remove)'}</button>
-            <button onClick={e => closeModal()}>{'No (keep)'}</button>
+            <button class='delete-submit-button' onClick={handleDelete}>{'yes (remove)'}</button>
+            <button className='delete-submit-button' onClick={e => closeModal()}>{'No (keep)'}</button>
         </div>
     )
 }
