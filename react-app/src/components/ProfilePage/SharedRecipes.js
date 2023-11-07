@@ -35,9 +35,13 @@ export default function SharedRecipes() {
 
     if(!user.sharedRecipes.length) {
         return (
-            <div>
-                <span>You have not shared any recipes yet...let's get started!</span>
-                <NavLink exact to="/recipes/new">Share Recipe</NavLink>
+            <div className="empty-profile-div">
+                <span className="empty-profile-prompt">You have not shared any recipes yet...let's get started!</span>
+                <OpenModalButton
+                    className='empty-profile-button'
+					buttonText='Share Recipe'
+					modalComponent={<RecipeForm formType='create'/>}
+                />
             </div>
         )
     } else {

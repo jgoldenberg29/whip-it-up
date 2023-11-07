@@ -14,7 +14,7 @@ function Navigation({ isLoaded }){
 			<span>
 				<NavLink exact to="/">Whip It Up</NavLink>
 			</span>
-			<div className='nave-profile-share'>
+			<div className='nav-profile-share'>
 				{user &&<OpenModalButton
 					buttonText='Share Recipe'
 					modalComponent={<RecipeForm formType='create'/>}

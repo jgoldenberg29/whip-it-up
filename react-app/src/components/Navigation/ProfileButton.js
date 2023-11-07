@@ -40,15 +40,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button
+      className="profile-dropdown-button"
+      onClick={openMenu}>
+        <i class="fa-solid fa-carrot"></i>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
+            <li className="profile-dropdown-item">Hello Chef {user.firstName},</li>
+            <li className="profile-dropdown-item">{user.email}</li>
+            <li className="profile-dropdown-item">
               <NavLink
               onClick={e => closeMenu()}
               exact to="/profile">

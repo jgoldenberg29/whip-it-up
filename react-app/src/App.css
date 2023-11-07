@@ -9,6 +9,79 @@ body {
     color: red;
 }
 
+
+
+/* Nav */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    /* height: 75px; */
+}
+
+.nav-profile-share {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+}
+
+.nav-profile-share > button {
+    background-color: #f9c54d;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.nav-profile-share > button:hover {
+    border: 3px solid rgb(65, 9, 65);
+}
+
+.profile-dropdown-button {
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    border: none;
+    font-size: 24px;
+    background-color: rgb(65, 9, 65);;
+    color:#f9c54d;
+}
+
+.profile-dropdown-button:hover {
+    border: 3px solid #f9c54d;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: rgb(255, 246, 207);
+    z-index: 10;
+    right: 30px;
+    width: fit-content;
+    border-radius: 7px;
+    list-style-type: none;
+    margin-top: 0px 0px;
+    padding: 12px;
+    text-align: center;
+}
+
+.profile-dropdown-item {
+    padding: 4px;
+}
+
+.form-modal-container{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    max-height: 700px;
+}
+
 /* modals */
 
 #modal {
@@ -37,42 +110,6 @@ body {
     border-radius: 10px;
   }
 
-/* Nav */
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px, 5px;
-}
-
-.nave-profile-share {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
-}
-
-.hidden {
-    display: none;
-}
-
-.profile-dropdown {
-    position: absolute;
-    background-color: rgb(236, 227, 227);
-    z-index: 10;
-    right: 30px;
-    width: 100px;
-    border-radius: 7px;
-    list-style-type: none;
-    margin-top: 0px 0px;
-    padding: 10px;
-}
-
-.form-modal-container{
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    max-height: 700px;
-}
 
 /* card layout */
 
@@ -296,6 +333,18 @@ body {
     row-gap: 30px;
 }
 
+.profile-user-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+    margin: 30px;
+}
+
+.profile-name {
+    font-size: 30px;
+}
+
 .shared-saved-div {
     display: flex;
     column-gap: 10px;
@@ -313,6 +362,37 @@ body {
 
 .selected {
     border-bottom: 4px solid #f9c54d;
+}
+
+.empty-profile-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-profile-prompt {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.empty-profile-link {
+    font-size: 30px;
+    color: rgb(65, 9, 65);
+    text-decoration: none;
+}
+
+.empty-profile-link:hover {
+    color: #f9c54d;
+}
+
+.empty-profile-div > button {
+    background-color: #f9c54d;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
 }
 
 
@@ -338,3 +418,7 @@ body {
     align-self: center;
     margin-bottom: 10px;
 }
+
+
+
+/* global overwrites */
