@@ -14,11 +14,6 @@ def url_exists(form, field):
     if recipe:
         raise ValidationError("This url is already linked to a recipe")
 
-def validated_obj_string(form, field):
-    string = field.data
-    if '&' not in string:
-        raise ValidationError('please use create form to enter information')
-
 def validate_ingredients(form, field):
     ingredients = field.data.split('&')
     ic(ingredients)
@@ -27,11 +22,18 @@ def validate_ingredients(form, field):
     for row in ingredients:
         seperated_row = row.split(',')
         ic(seperated_row)
-        for chars in seperated_row[0].split('/'):
-            if not chars.isdigit():
-                raise ValidationError('Quantity must be a positive integer, decimal or fraction')
-        if not seperated_row[2].isalpha():
-            raise ValidationError('Ingredient must be a food item')
+        for chars in seperated_row[0].split('.'):
+            ic(chars)
+            for i in range(len(chars)):
+                sep_chars = chars[i].split('/')
+                ic(sep_chars)
+                for char in sep_chars:
+                    if char and not char.isdigit():
+                        raise ValidationError('Amount must be a positive integer, decimal or fraction')
+        if len(seperated_row[0]) > 10:
+            raise ValidationError('Amount cannot exceed 10 digits/characters')
+        if seperated_row[2] and len(seperated_row[2]) > 60:
+                raise ValidationError('Ingredients cannot exceed 60 characters')
 
 def validate_instructions(form, field):
     instructions = field.data.split('&')
@@ -48,5 +50,5 @@ class RecipeForm(FlaskForm):
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
     cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(0,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
-    ingredients = StringField('ingredients', validators=[DataRequired(), validated_obj_string, validate_ingredients])
-    instructions = StringField('instructions', validators=[DataRequired(), validated_obj_string, validate_instructions])
+    ingredients = StringField('ingredients', validators=[DataRequired(), validate_ingredients])
+    instructions = StringField('instructions', validators=[DataRequired(), validate_instructions])

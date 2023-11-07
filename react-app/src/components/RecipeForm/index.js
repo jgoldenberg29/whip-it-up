@@ -56,6 +56,8 @@ export default function RecipeForm({ formType, recipe }){
     console.log(image)
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log('insubmit instructions', instructions)
+        console.log('insubmit ingredients', ingredients)
         const newRecipe = new FormData()
 
 
@@ -94,6 +96,7 @@ export default function RecipeForm({ formType, recipe }){
         if (stateFormType === 'create'){
             data = await dispatch(thunkCreateRecipe(newRecipe))
         } else {
+            console.log("🚀 ~ file: index.js:99 ~ handleSubmit ~ newRecipe:", newRecipe.get('ingredients'))
             data = await dispatch(thunkUpdateRecipe(newRecipe, recipe.id))
         }
         if (data) {
@@ -103,8 +106,6 @@ export default function RecipeForm({ formType, recipe }){
             history.push('/profile')
         }
     }
-
-    console.log(instructions)
 
     const removeIngredientRow = (key) => {
         const tempIngredients = ingredients
@@ -117,30 +118,32 @@ export default function RecipeForm({ formType, recipe }){
         setIngredientCounter(newCounter)
     }
 
+    console.log(ingredients)
+
     const ingredientInputs = ingredientCounter.map(key => {
         // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
         return (
-            <div key={key}>
-                <label htmlFor={`amount${key}`}>
+            <div className='ingredients-input-div' key={key}>
+                <label htmlFor='amount'>
                 <input
                 type='text'
                 value={ingredients[key]?.quantity ? ingredients[key]?.quantity : ''}
-                id={`amount${key}`}
+                id='amount'
                 className='form-input'
                 required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'quantity': e.target.value}})}
                 />
                 </label>
-                <label htmlFor={`unit${key}`}>
+                <label htmlFor='unit'>
                 <select
                 value={ingredients[key]?.measurement}
-                id={`unit${key}`}
+                id='unit'
                 required
-                className='form-input'
+                className='select-field form-input'
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
                 name="measurement">
                     <option value="">choose one</option>
-                    <option value="">whole item</option>
+                    <option value="whole">whole item</option>
                     <option value="bulb">bulb</option>
                     <option value="clove">clove</option>
                     <option value="cup">cup</option>
@@ -165,26 +168,28 @@ export default function RecipeForm({ formType, recipe }){
                     <option value="teaspoon">teaspoon</option>
                 </select>
                 </label>
-                <label htmlFor={`ingredient${key}`}>
+                <label htmlFor='ingredient'>
                 <input
                 type='text'
                 value={ingredients[key]?.item}
-                id={`ingredient${key}`}
+                id='ingredient'
                 className='form-input'
                 required
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'item': e.target.value} })}
                 />
                 </label>
-                <label htmlFor={`refridgerated${key}`}>
+                <label htmlFor='refridgerated'>
                 <input
                 type='checkbox'
                 value={ingredients[key]?.refridgerated}
-                id={`refridgerated${key}`}
+                id='refridgerated'
                 className='form-input'
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>
-                <span onClick={e => removeIngredientRow(key)}>remove row</span>
+                <span
+                className="remove-add-row"
+                onClick={e => removeIngredientRow(key)}>remove</span>
             </div>
         )
     })
@@ -203,17 +208,19 @@ export default function RecipeForm({ formType, recipe }){
     const instructionInputs = instructionCounter.map(key => {
         return (
             <div key={key}>
-                <label htmlFor={`instruction${key}`}>
+                <label htmlFor='instruction'>
                 {key}.
                 <textarea
                 value={instructions[key]}
-                id={`instructions${key}`}
+                id='instruction'
                 className='form-input'
                 onChange={e => setInstructions({...instructions, [key]: e.target.value})}
                 required
                 />
                 </label>
-                <span onClick={e => removeInstructionRow(key)}>remove row</span>
+                <span
+                className="remove-add-row"
+                onClick={e => removeInstructionRow(key)}>remove</span>
             </div>
         )
     })
@@ -222,9 +229,9 @@ export default function RecipeForm({ formType, recipe }){
     return (
         <div className='form-modal-container'>
             <h1>{formType === 'edit' ? "Update" : "Share"} Your Recipe</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">
-                    Title
+            <form className='recipe-form'onSubmit={handleSubmit}>
+                <label className='form-label-container' htmlFor="title">
+                    Give your dish name
                     <input
                     type='text'
                     value={title}
@@ -235,8 +242,8 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.title ? errors?.title : ''}</p>
-                <label htmlFor="image">
-                    Choose Image
+                <label className='form-label-container' htmlFor="image">
+                    Choose a mouthwatering image
                     <input
                     type='file'
                     id='image'
@@ -247,8 +254,8 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.image ? errors.image : ''}</p>
-                <label htmlFor="recipeURL">
-                    Site URL
+                <label className='form-label-container' htmlFor="recipeURL">
+                    {'Share your recipe url (optional)'}
                     <input
                     type='text'
                     value={recipeURL}
@@ -259,8 +266,8 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
-                <label htmlFor="description">
-                    Description
+                <label className='form-label-container' htmlFor="description">
+                    Tell us what makes this dish so delicious
                     <textarea
                     value={description}
                     id='description'
@@ -269,11 +276,13 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
+                <div className='form-time-servings-div'>
                 <p className='create-form-errors errors'>{errors?.description ? errors.description : ''}</p>
-                <label htmlFor="prep-time">
+                <label className='form-label-container' htmlFor="prep-time">
                     Prep Time
                     <input
                     type='number'
+                    min={1}
                     value={prepTime}
                     id='prep-time'
                     className='form-input'
@@ -282,10 +291,11 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
-                <label htmlFor="cook-time">
+                <label className='form-label-container' htmlFor="cook-time">
                     Cook Time
                     <input
                     type='number'
+                    min={1}
                     value={cookTime}
                     id='cook-time'
                     className='form-input'
@@ -294,10 +304,11 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
-                <label htmlFor="servings">
+                <label className='form-label-container' htmlFor="servings">
                     Servings
                     <input
                     type='number'
+                    min={1}
                     value={servings}
                     id='servings'
                     className='form-input'
@@ -306,23 +317,29 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.servings ? errors.servings : ''}</p>
-                <div>
+                </div>
+                <h4 className='form-header'>Add ingredients to your recipe...</h4>
+                <div className='ingredient-headers'>
                 <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
                 <p className='errors'>{errors?.ingredients ? errors.ingredients : ''}</p>
                 </div>
                 {ingredientInputs}
                 <div>
-                    <span onClick={e => setIngredientCounter([...ingredientCounter, Number(ingredientCounter[ingredientCounter.length-1])+1])}>+ add ingredient</span>
+                    <span
+                    className="remove-add-row"
+                    onClick={e => setIngredientCounter([...ingredientCounter, Number(ingredientCounter[ingredientCounter.length-1])+1])}>+ add ingredient</span>
                 </div>
                 <div>
-                    <span>Cooking Instructions</span>
+                <h4 className='form-header'>Tell us how you make it...</h4>
                     <p className='errors'>{errors?.instructions ? errors.instructions : ''}</p>
                 </div>
-                {instructionInputs}
+                <div className='instructions-div'>
+                  {instructionInputs}
+                </div>
                 <div>
                 <span onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
                 </div>
-            <button type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
+            <button className="submit-button" type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
             </form>
         </div>
     )
