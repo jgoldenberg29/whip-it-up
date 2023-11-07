@@ -277,6 +277,7 @@ export default function RecipeForm({ formType, recipe }){
                     Prep Time
                     <input
                     type='number'
+                    min={1}
                     value={prepTime}
                     id='prep-time'
                     className='form-input'
@@ -289,6 +290,7 @@ export default function RecipeForm({ formType, recipe }){
                     Cook Time
                     <input
                     type='number'
+                    min={1}
                     value={cookTime}
                     id='cook-time'
                     className='form-input'
@@ -301,6 +303,7 @@ export default function RecipeForm({ formType, recipe }){
                     Servings
                     <input
                     type='number'
+                    min={1}
                     value={servings}
                     id='servings'
                     className='form-input'

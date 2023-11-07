@@ -7,7 +7,6 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import './App.css'
 import Home from "./components/Home";
-import EditRecipe from "./components/EditRecipe";
 import ProfilePage from "./components/ProfilePage";
 
 
