@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
 	return (
 		<div className='nav-container'>
 			<span>
-				<NavLink exact to="/">Home</NavLink>
+				<NavLink exact to="/">Whip It Up</NavLink>
 			</span>
 			<div className='nave-profile-share'>
 				{user &&<OpenModalButton

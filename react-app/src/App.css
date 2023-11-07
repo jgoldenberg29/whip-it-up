@@ -1,5 +1,9 @@
 /* global */
 
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .errors {
     color: red;
 }
@@ -157,14 +161,114 @@
 }
 
 .details-image-container {
-    height: 100%;
-
+    height: 600px;
+    width: 600px;
 }
 
 .details-image-container > img {
-    height: 700px
+    height: 100%;
+    width: 100%;
 }
 
 .details-info-container {
     overflow: scroll;
+}
+
+
+/* recipe form */
+
+.form-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-size: 18px;
+
+}
+
+.form-label-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.form-time-servings-div {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+#cook-time,
+#prep-time,
+#servings {
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.ingredient-headers {
+    display: flex;
+    justify-content: space-between;
+}
+
+#amount {
+    width: 40px;
+}
+
+#unit {
+    border-radius: 6px;
+    border: 2.5px solid #9f9292;
+}
+
+.ingredients-input-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    border-radius: 6px;
+    border: 2.5px solid #9f9292;
+}
+
+.form-input:hover {
+    border: 2.5px solid #f9c54d;
+}
+
+.form-input:focus {
+    outline: 2.5px solid #f9c54d;
+    border: 2.5px solid white;
+}
+
+#description {
+    height: 100px;
+}
+
+.remove-add-row:hover {
+    color: #f9c54d;
+}
+
+.instructions-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#instruction {
+    width: 450px;
+}
+
+.submit-button {
+    background-color:#f9c54d;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    align-self: center;
 }
