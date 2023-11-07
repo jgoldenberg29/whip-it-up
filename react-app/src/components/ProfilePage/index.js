@@ -40,6 +40,9 @@ export default function ProfilePage() {
         return null
     }
 
+    const savedSelectedClass = cardsToggle === 'saved' ? 'shared-saved-span selected' : 'shared-saved-span'
+    const sharedSelectedClass = cardsToggle === 'shared' ? 'shared-saved-span selected' : 'shared-saved-span'
+
     return (
         <div className='profile-main-container'>
             <div className='profile-user-info'>
@@ -48,12 +51,15 @@ export default function ProfilePage() {
             </div>
             <div className='shared-saved-div'>
                 {/* create class highlighting the chosen category */}
-                <span id='shared-toggle'
+                <span
+                className={sharedSelectedClass}
+                id='shared-toggle'
                 onClick={e => setCardsToggle('shared')}
                 >
                 Shared
                 </span>
                 <span
+                className={savedSelectedClass}
                 id='saved-toggle'
                 onClick={e => setCardsToggle('saved')}
                 >
