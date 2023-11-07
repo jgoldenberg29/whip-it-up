@@ -57,10 +57,14 @@ body {
 
 .profile-dropdown {
     position: absolute;
-    background-color: rgb(208, 196, 196);
+    background-color: rgb(236, 227, 227);
     z-index: 10;
-    right: 20px;
+    right: 30px;
+    width: 100px;
     border-radius: 7px;
+    list-style-type: none;
+    margin-top: 0px 0px;
+    padding: 10px;
 }
 
 .form-modal-container{

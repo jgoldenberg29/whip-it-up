@@ -58,7 +58,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<p> className='errors'
+				<p className='errors'>
 					{errors?.last_name ? errors?.last_name : ''}
 				</p>
 				<label>

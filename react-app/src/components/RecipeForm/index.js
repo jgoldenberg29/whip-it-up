@@ -118,8 +118,6 @@ export default function RecipeForm({ formType, recipe }){
         setIngredientCounter(newCounter)
     }
 
-    console.log(ingredients)
-
     const ingredientInputs = ingredientCounter.map(key => {
         // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
         return (
