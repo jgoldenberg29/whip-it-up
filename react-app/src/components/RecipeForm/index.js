@@ -56,6 +56,8 @@ export default function RecipeForm({ formType, recipe }){
     console.log(image)
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log('insubmit instructions', instructions)
+        console.log('insubmit ingredients', ingredients)
         const newRecipe = new FormData()
 
 
@@ -94,6 +96,7 @@ export default function RecipeForm({ formType, recipe }){
         if (stateFormType === 'create'){
             data = await dispatch(thunkCreateRecipe(newRecipe))
         } else {
+            console.log("🚀 ~ file: index.js:99 ~ handleSubmit ~ newRecipe:", newRecipe.get('ingredients'))
             data = await dispatch(thunkUpdateRecipe(newRecipe, recipe.id))
         }
         if (data) {
@@ -114,6 +117,8 @@ export default function RecipeForm({ formType, recipe }){
         }
         setIngredientCounter(newCounter)
     }
+
+    console.log(ingredients)
 
     const ingredientInputs = ingredientCounter.map(key => {
         // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
