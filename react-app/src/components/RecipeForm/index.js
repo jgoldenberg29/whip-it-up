@@ -295,12 +295,11 @@ export default function RecipeForm({ formType, recipe }){
                     Cook Time
                     <input
                     type='number'
-                    min={1}
+                    min={0}
                     value={cookTime}
                     id='cook-time'
                     className='form-input'
                     onChange={e => setCookTime(e.target.value)}
-                    required
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
