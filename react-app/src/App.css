@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(65, 9, 65);
 }
 
 .errors {
@@ -33,6 +34,7 @@ body {
   #modal-content {
     position: absolute;
     background-color:white;
+    border-radius: 10px;
   }
 
 /* Nav */
@@ -58,6 +60,7 @@ body {
     background-color: rgb(208, 196, 196);
     z-index: 10;
     right: 20px;
+    border-radius: 7px;
 }
 
 .form-modal-container{
@@ -156,13 +159,18 @@ body {
 .details-main-container {
     display: flex;
     max-width: 900px;
-    max-height: 700px;
-    column-gap: 20px
+    max-height: 600px;
+    column-gap: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 600px
 }
 
 .details-image-container {
-    height: 600px;
-    width: 600px;
+    height: 100%;
+    width: 48%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .details-image-container > img {
@@ -172,6 +180,7 @@ body {
 
 .details-info-container {
     overflow: scroll;
+    width: 48%;
 }
 
 
@@ -289,7 +298,39 @@ body {
     font-size: 20px;
 }
 
+.shared-saved-span {
+    padding: 3px;
+}
+
 #shared-toggle:hover,
 #saved-toggle:hover {
     color: #f9c54d;
+}
+
+.selected {
+    border-bottom: 4px solid #f9c54d;
+}
+
+
+/* delete modal */
+.delete-modal {
+    height: 250px;
+    width: 326px;
+    overflow: hidden;
+}
+
+.delete-prompt {
+    font-size: 18px;
+    margin: 0px 10px;
+    text-align: center;
+}
+
+.delete-submit-button {
+    background-color:#f9c54d;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    align-self: center;
+    margin-bottom: 10px;
 }
