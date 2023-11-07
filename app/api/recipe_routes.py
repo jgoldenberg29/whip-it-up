@@ -129,7 +129,7 @@ def edit_recipe(id):
 
         ic(recipe.to_dict())
 
-        ingredient_rows = data['ingredients'].split('&')
+        ingredient_rows = data['ingredients'].split('')
         del ingredient_rows[-1]
         ic(ingredient_rows)
         for row in ingredient_rows:
@@ -137,7 +137,7 @@ def edit_recipe(id):
             updated_ingredient = Ingredient(
                 recipe_id = id,
                 quantity = seperated_row[0],
-                measurement = seperated_row[1] if not 'whole' else None,
+                measurement = seperated_row[1] if seperated_row[1] != 'whole' else None,
                 item =seperated_row[2],
                 refridgerated = True if seperated_row[3] == 'True' else False,
             )
