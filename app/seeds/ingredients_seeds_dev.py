@@ -53,14 +53,14 @@ ingredients = [
         'item': 'tomatoes',
         'measurement': 'medium',
         'quantity': '2',
-        'refridgerated': True,
+        'refridgerated': False,
     },
     {
         'recipe_id': 1,
         'item': 'chicken broth',
         'measurement': 'cup',
         'quantity': '6',
-        'refridgerated': True,
+        'refridgerated': False,
     },
     {
         'recipe_id': 1,
@@ -100,6 +100,7 @@ ingredients = [
     {
         'recipe_id': 1,
         'item': 'bay leaf',
+        'measurement': 'whole item',
         'quantity': '1',
         'refridgerated': False,
     },
@@ -129,28 +130,28 @@ ingredients = [
         'item': 'tahini',
         'measurement': 'cup',
         'quantity': '.5',
-        'refridgerated': True,
+        'refridgerated': False,
     },
      {
         'recipe_id': 2,
         'item': 'ground cumin',
         'measurement': 'pinch',
         'quantity': '1',
-        'refridgerated': True,
+        'refridgerated': False,
     },
      {
         'recipe_id': 2,
         'item': 'salt',
         'measurement': 'teaspoon',
         'quantity': '.5',
-        'refridgerated': True,
+        'refridgerated': False,
     },
      {
         'recipe_id': 2,
         'item': 'ice water',
         'measurement': 'tablespoon',
         'quantity': '6',
-        'refridgerated': True,
+        'refridgerated': False,
     },
     {
         'recipe_id': 3,
@@ -246,6 +247,7 @@ ingredients = [
     {
         'recipe_id': 4,
         'item': 'egg',
+        'measurement': 'whole item',
         'quantity': '1',
         'refridgerated': False,
     },
@@ -294,6 +296,7 @@ ingredients = [
     {
         'recipe_id': 5,
         'item': 'boneless chicken breast halves',
+        'measurement': 'whole item',
         'quantity': '6',
         'refridgerated': False,
     },
