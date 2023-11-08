@@ -129,7 +129,7 @@ def edit_recipe(id):
 
         ic(recipe.to_dict())
 
-        ingredient_rows = data['ingredients'].split('')
+        ingredient_rows = data['ingredients'].split('&')
         del ingredient_rows[-1]
         ic(ingredient_rows)
         for row in ingredient_rows:

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(65, 9, 65);
+    color: #878687;
 }
 
 .errors {
@@ -31,7 +31,7 @@ body {
 .nav-profile-share {
     display: flex;
     justify-content: space-between;
-    column-gap: 50px;
+    column-gap: 35px;
 }
 
 .nav-profile-share > button {
@@ -44,7 +44,8 @@ body {
 }
 
 .nav-profile-share > button:hover {
-    border: 3px solid #410941;
+    border: 3px solid #878687;
+    cursor: pointer;
 }
 
 .profile-dropdown-button {
@@ -53,12 +54,13 @@ body {
     border-radius: 10px;
     border: none;
     font-size: 24px;
-    background-color: rgb(65, 9, 65);
+    background-color: #878687;
     color:#f9c54d;
 }
 
 .profile-dropdown-button:hover {
     border: 3px solid #f9c54d;
+    cursor: pointer;
 }
 
 .hidden {
@@ -72,7 +74,7 @@ body {
     right: 30px;
     width: fit-content;
     border-radius: 10px;
-    border: 3px solid rgb(65, 9, 65);
+    border: 3px solid #878687;
     list-style-type: none;
     margin-top: 0px 0px;
     padding: 12px;
@@ -86,7 +88,7 @@ body {
 .profile-dropdown-email {
     padding: 4px;
     font-size: 15px;
-    border-bottom: 2px solid rgb(65, 9, 65);
+    border-bottom: 2px solid #878687;
     padding-bottom: 13px;
     margin-bottom: 10px;
 }
@@ -95,8 +97,8 @@ body {
     text-decoration: none;
     font-size: 17px;
     padding: 10px;
-    color: rgb(65, 9, 65);
-    border-bottom: 2px solid rgb(65, 9, 65);
+    color: #878687;
+    border-bottom: 2px solid #878687;
     margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 13px;
@@ -105,8 +107,9 @@ body {
 
 .profile-page-link:hover {
     color:#f9c54d;
-    background-color: rgb(65, 9, 65);
+    background-color: #878687;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .profile-dropdown-logout {
@@ -117,18 +120,20 @@ body {
     border: none;
     color:#f9c54d;
     font-size: 16px;
-    background-color: rgb(65, 9, 65);
+    background-color: #878687;
 }
 
 .profile-dropdown-logout:hover {
     border: 3px solid #f9c54d;
+    cursor: pointer;
 }
 
 .form-modal-container{
     display: flex;
     flex-direction: column;
     overflow: scroll;
-    max-height: 700px;
+    height: fit-content;
+    max-height: 825px;
 }
 
 .search-div {
@@ -175,15 +180,17 @@ body {
 /* card layout */
 
 .my-masonry-grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
+    /* display: -webkit-box; Not needed if autoprefixing */
+    /* display: -ms-flexbox; Not needed if autoprefixing */
     display: flex;
+    justify-content: center;
     margin-top: 20px; /* gutter size offset */
     width: auto;
   }
   .my-masonry-grid_column {
     padding-left: 0px; /* gutter size */
     background-clip: padding-box;
+    min-width: 265px;
   }
 
   /* Style your items */
@@ -196,6 +203,7 @@ body {
 .recipe-card-container {
     position: relative;
     width: 100%;
+    min-width: 265px;
 }
 
 .recipe-card-container > button {
@@ -351,12 +359,13 @@ body {
     height: 30px;
     font-size: 17px;
     color: #000000b3 ;
-    border: 2.5px solid rgb(65, 9, 65);
+    border: 2.5px solid #878687;
     background-color: rgb(255, 246, 207);
 }
 
 .form-input:hover {
     border: 2.5px solid #f9c54d;
+    cursor: pointer;
 }
 
 .form-input:focus {
@@ -368,8 +377,13 @@ body {
     height: 100px;
 }
 
+.remove-add-row {
+    font-size: 14px;
+}
+
 .remove-add-row:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .instructions-div {
@@ -387,17 +401,19 @@ body {
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
-    color: rgb(65, 9, 65);
+    color: #878687;
     border: none;
     align-self: center;
 }
 
 .submit-button:hover {
-    border: 3px solid rgb(65, 9, 65);
+    border: 3px solid #878687;
+    cursor: pointer;
 }
 
 .add-a-step:hover {
     color:#f9c54d;
+    cursor: pointer;
 }
 /* profile page */
 
@@ -433,6 +449,7 @@ body {
 #shared-toggle:hover,
 #saved-toggle:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .selected {
@@ -452,7 +469,7 @@ body {
 
 .empty-profile-link {
     display: flex;
-    color: rgb(65, 9, 65);
+    color: #878687;
     text-decoration: none;
     background-color: #f9c54d;
     width: 180px;
@@ -476,7 +493,8 @@ body {
 }
 .empty-profile-link:hover,
 .empty-profile-div > button:hover {
-    border: 3px solid rgb(65, 9, 65);
+    border: 3px solid #878687;
+    cursor: pointer;
 }
 
 
