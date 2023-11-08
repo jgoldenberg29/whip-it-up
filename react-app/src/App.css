@@ -2,11 +2,150 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(65, 9, 65);
+    color: #878687;
 }
 
 .errors {
     color: red;
+}
+
+
+
+/* Nav */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    /* height: 75px; */
+}
+
+#logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+    overflow: none;
+}
+
+.nav-profile-share {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 35px;
+}
+
+.nav-profile-share > button {
+    background-color: #f9c54d;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.nav-profile-share > button:hover {
+    border: 3px solid #878687;
+    cursor: pointer;
+}
+
+.profile-dropdown-button {
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    background-color: #878687;
+    color:#f9c54d;
+}
+
+.profile-dropdown-button:hover {
+    border: 3px solid #f9c54d;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: rgb(255, 246, 207);
+    z-index: 10;
+    right: 30px;
+    width: fit-content;
+    border-radius: 10px;
+    border: 3px solid #878687;
+    list-style-type: none;
+    margin-top: 0px 0px;
+    padding: 12px;
+    text-align: center;
+}
+
+.profile-dropdown-welcome {
+    padding: 4px;
+    font-size: 18px;
+}
+.profile-dropdown-email {
+    padding: 4px;
+    font-size: 15px;
+    border-bottom: 2px solid #878687;
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px;
+    color: #878687;
+    border-bottom: 2px solid #878687;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link:hover {
+    color:#f9c54d;
+    background-color: #878687;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile-dropdown-logout {
+    width: 90px;
+    height: 35px;
+    margin-top: 28px;
+    border-radius: 10px;
+    border: none;
+    color:#f9c54d;
+    font-size: 16px;
+    background-color: #878687;
+}
+
+.profile-dropdown-logout:hover {
+    border: 3px solid #f9c54d;
+    cursor: pointer;
+}
+
+.form-modal-container{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: fit-content;
+    max-height: 825px;
+}
+
+.search-div {
+    display: flex;
+    width: 70%;
+    background-color:rgb(255, 246, 207);
+    border-radius: 25px;
+    height: 45px;
+    align-items: center;
+    padding-left: 10px;
+    column-gap: 5px;
+    font-size: 18px;
 }
 
 /* modals */
@@ -37,55 +176,21 @@ body {
     border-radius: 10px;
   }
 
-/* Nav */
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px, 5px;
-}
-
-.nave-profile-share {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
-}
-
-.hidden {
-    display: none;
-}
-
-.profile-dropdown {
-    position: absolute;
-    background-color: rgb(236, 227, 227);
-    z-index: 10;
-    right: 30px;
-    width: 100px;
-    border-radius: 7px;
-    list-style-type: none;
-    margin-top: 0px 0px;
-    padding: 10px;
-}
-
-.form-modal-container{
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    max-height: 700px;
-}
 
 /* card layout */
 
 .my-masonry-grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
+    /* display: -webkit-box; Not needed if autoprefixing */
+    /* display: -ms-flexbox; Not needed if autoprefixing */
     display: flex;
+    justify-content: center;
     margin-top: 20px; /* gutter size offset */
     width: auto;
   }
   .my-masonry-grid_column {
     padding-left: 0px; /* gutter size */
     background-clip: padding-box;
+    min-width: 265px;
   }
 
   /* Style your items */
@@ -98,6 +203,7 @@ body {
 .recipe-card-container {
     position: relative;
     width: 100%;
+    min-width: 265px;
 }
 
 .recipe-card-container > button {
@@ -111,7 +217,7 @@ body {
     top: 13px;
     width: 60px;
     height: 27px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 17px;
 }
 
@@ -141,7 +247,7 @@ body {
 .edit-delete-container > button {
     width: 70px;
     height: 30px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 16px;
     border: none;
     background-color: #f9c54d;
@@ -165,7 +271,7 @@ body {
     max-width: 900px;
     max-height: 600px;
     column-gap: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     height: 600px
 }
@@ -207,6 +313,8 @@ body {
 
 .form-label-container {
     display: flex;
+    font-size: 20px;
+    row-gap: 5px;
     flex-direction: column;
     margin-bottom: 5px;
 }
@@ -236,7 +344,7 @@ body {
 }
 
 #unit {
-    border-radius: 6px;
+    border-radius: 8px;
     border: 2.5px solid #9f9292;
 }
 
@@ -247,12 +355,17 @@ body {
 }
 
 .form-input {
-    border-radius: 6px;
-    border: 2.5px solid #9f9292;
+    border-radius: 8px;
+    height: 30px;
+    font-size: 17px;
+    color: #000000b3 ;
+    border: 2.5px solid #878687;
+    background-color: rgb(255, 246, 207);
 }
 
 .form-input:hover {
     border: 2.5px solid #f9c54d;
+    cursor: pointer;
 }
 
 .form-input:focus {
@@ -264,8 +377,13 @@ body {
     height: 100px;
 }
 
+.remove-add-row {
+    font-size: 14px;
+}
+
 .remove-add-row:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .instructions-div {
@@ -283,10 +401,20 @@ body {
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
+    color: #878687;
+    border: none;
     align-self: center;
 }
 
+.submit-button:hover {
+    border: 3px solid #878687;
+    cursor: pointer;
+}
 
+.add-a-step:hover {
+    color:#f9c54d;
+    cursor: pointer;
+}
 /* profile page */
 
 .profile-main-container {
@@ -294,6 +422,18 @@ body {
     flex-direction: column;
     align-items: center;
     row-gap: 30px;
+}
+
+.profile-user-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+    margin: 30px;
+}
+
+.profile-name {
+    font-size: 30px;
 }
 
 .shared-saved-div {
@@ -309,10 +449,52 @@ body {
 #shared-toggle:hover,
 #saved-toggle:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .selected {
     border-bottom: 4px solid #f9c54d;
+}
+
+.empty-profile-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-profile-prompt {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.empty-profile-link {
+    display: flex;
+    color: #878687;
+    text-decoration: none;
+    background-color: #f9c54d;
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-profile-div > button {
+    background-color: #f9c54d;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
+}
+.empty-profile-link:hover,
+.empty-profile-div > button:hover {
+    border: 3px solid #878687;
+    cursor: pointer;
 }
 
 
@@ -338,3 +520,7 @@ body {
     align-self: center;
     margin-bottom: 10px;
 }
+
+
+
+/* global overwrites */

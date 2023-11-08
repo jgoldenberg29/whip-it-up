@@ -23,20 +23,13 @@ export default function Home() {
     const recipesArr = Object.values(recipes)
     if(!recipesArr.length) return null;
 
-    const handleSave = async (id) => {
-        const data = await dispatch(thunkSaveRecipe(id))
-        if (data) {
-            setErrors(data.errors)
-        }
-    }
-
     const smallButtonClass = showButton ? "small-card-button" : "hide-button"
 
     const breakpoints = {
-        default: 5,
-        1200: 4,
-        950: 3,
-        700: 2,
+        default: 6,
+        1315: 4,
+        1055: 3,
+        785: 2,
       };
 
       console.log(showButton)

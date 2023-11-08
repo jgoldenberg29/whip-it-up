@@ -43,9 +43,9 @@ export default function SavedRecipes() {
 
     if (!user.savedRecipes.length) {
         return (
-            <div>
-                <span>Explore some new recipes!</span>
-                <NavLink exact to="/">Explore</NavLink>
+            <div className="empty-profile-div">
+                <span className="empty-profile-prompt">Let's browse for some new recipes!</span>
+                <NavLink className="empty-profile-link" exact to="/">Get Cookin'</NavLink>
             </div>
         )
     } else {

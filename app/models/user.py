@@ -34,8 +34,8 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'firstName': self.first_name,
-            'lastName': self.last_name,
+            'firstName': self.first_name.capitalize(),
+            'lastName': self.last_name.capitalize(),
             'username': self.username,
             'email': self.email,
             'sharedRecipes': [recipe.id for recipe in self.shared_recipes],
