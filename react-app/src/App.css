@@ -31,7 +31,7 @@ body {
 .nav-profile-share {
     display: flex;
     justify-content: space-between;
-    column-gap: 50px;
+    column-gap: 35px;
 }
 
 .nav-profile-share > button {
