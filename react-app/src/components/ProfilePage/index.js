@@ -46,7 +46,7 @@ export default function ProfilePage() {
     return (
         <div className='profile-main-container'>
             <div className='profile-user-info'>
-                <h2>{user.firstName} {user.LastName}</h2>
+                <h2 className="profile-name">{user.firstName} {user.lastName}</h2>
                 <p>{user.username}</p>
             </div>
             <div className='shared-saved-div'>

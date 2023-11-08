@@ -9,6 +9,133 @@ body {
     color: red;
 }
 
+
+
+/* Nav */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    /* height: 75px; */
+}
+
+.nav-profile-share {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+}
+
+.nav-profile-share > button {
+    background-color: #f9c54d;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.nav-profile-share > button:hover {
+    border: 3px solid #410941;
+}
+
+.profile-dropdown-button {
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    background-color: rgb(65, 9, 65);
+    color:#f9c54d;
+}
+
+.profile-dropdown-button:hover {
+    border: 3px solid #f9c54d;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: rgb(255, 246, 207);
+    z-index: 10;
+    right: 30px;
+    width: fit-content;
+    border-radius: 10px;
+    border: 3px solid rgb(65, 9, 65);
+    list-style-type: none;
+    margin-top: 0px 0px;
+    padding: 12px;
+    text-align: center;
+}
+
+.profile-dropdown-welcome {
+    padding: 4px;
+    font-size: 18px;
+}
+.profile-dropdown-email {
+    padding: 4px;
+    font-size: 15px;
+    border-bottom: 2px solid rgb(65, 9, 65);
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px;
+    color: rgb(65, 9, 65);
+    border-bottom: 2px solid rgb(65, 9, 65);
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link:hover {
+    color:#f9c54d;
+    background-color: rgb(65, 9, 65);
+    border-radius: 10px;
+}
+
+.profile-dropdown-logout {
+    width: 90px;
+    height: 35px;
+    margin-top: 28px;
+    border-radius: 10px;
+    border: none;
+    color:#f9c54d;
+    font-size: 16px;
+    background-color: rgb(65, 9, 65);
+}
+
+.profile-dropdown-logout:hover {
+    border: 3px solid #f9c54d;
+}
+
+.form-modal-container{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    max-height: 700px;
+}
+
+.search-div {
+    display: flex;
+    width: 70%;
+    background-color:rgb(255, 246, 207);
+    border-radius: 25px;
+    height: 45px;
+    align-items: center;
+    padding-left: 10px;
+    column-gap: 5px;
+    font-size: 18px;
+}
+
 /* modals */
 
 #modal {
@@ -37,42 +164,6 @@ body {
     border-radius: 10px;
   }
 
-/* Nav */
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px, 5px;
-}
-
-.nave-profile-share {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
-}
-
-.hidden {
-    display: none;
-}
-
-.profile-dropdown {
-    position: absolute;
-    background-color: rgb(236, 227, 227);
-    z-index: 10;
-    right: 30px;
-    width: 100px;
-    border-radius: 7px;
-    list-style-type: none;
-    margin-top: 0px 0px;
-    padding: 10px;
-}
-
-.form-modal-container{
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    max-height: 700px;
-}
 
 /* card layout */
 
@@ -111,7 +202,7 @@ body {
     top: 13px;
     width: 60px;
     height: 27px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 17px;
 }
 
@@ -141,7 +232,7 @@ body {
 .edit-delete-container > button {
     width: 70px;
     height: 30px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 16px;
     border: none;
     background-color: #f9c54d;
@@ -165,7 +256,7 @@ body {
     max-width: 900px;
     max-height: 600px;
     column-gap: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     height: 600px
 }
@@ -207,6 +298,8 @@ body {
 
 .form-label-container {
     display: flex;
+    font-size: 20px;
+    row-gap: 5px;
     flex-direction: column;
     margin-bottom: 5px;
 }
@@ -236,7 +329,7 @@ body {
 }
 
 #unit {
-    border-radius: 6px;
+    border-radius: 8px;
     border: 2.5px solid #9f9292;
 }
 
@@ -247,8 +340,12 @@ body {
 }
 
 .form-input {
-    border-radius: 6px;
-    border: 2.5px solid #9f9292;
+    border-radius: 8px;
+    height: 30px;
+    font-size: 17px;
+    color: #000000b3 ;
+    border: 2.5px solid rgb(65, 9, 65);
+    background-color: rgb(255, 246, 207);
 }
 
 .form-input:hover {
@@ -283,10 +380,18 @@ body {
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
+    color: rgb(65, 9, 65);
+    border: none;
     align-self: center;
 }
 
+.submit-button:hover {
+    border: 3px solid rgb(65, 9, 65);
+}
 
+.add-a-step:hover {
+    color:#f9c54d;
+}
 /* profile page */
 
 .profile-main-container {
@@ -294,6 +399,18 @@ body {
     flex-direction: column;
     align-items: center;
     row-gap: 30px;
+}
+
+.profile-user-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+    margin: 30px;
+}
+
+.profile-name {
+    font-size: 30px;
 }
 
 .shared-saved-div {
@@ -313,6 +430,46 @@ body {
 
 .selected {
     border-bottom: 4px solid #f9c54d;
+}
+
+.empty-profile-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-profile-prompt {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.empty-profile-link {
+    display: flex;
+    color: rgb(65, 9, 65);
+    text-decoration: none;
+    background-color: #f9c54d;
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-profile-div > button {
+    background-color: #f9c54d;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
+}
+.empty-profile-link:hover,
+.empty-profile-div > button:hover {
+    border: 3px solid rgb(65, 9, 65);
 }
 
 
@@ -338,3 +495,7 @@ body {
     align-self: center;
     margin-bottom: 10px;
 }
+
+
+
+/* global overwrites */
