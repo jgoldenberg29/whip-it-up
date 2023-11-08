@@ -37,7 +37,7 @@ body {
 }
 
 .nav-profile-share > button:hover {
-    border: 3px solid rgb(65, 9, 65);
+    border: 3px solid #410941;
 }
 
 .profile-dropdown-button {
@@ -124,6 +124,18 @@ body {
     max-height: 700px;
 }
 
+.search-div {
+    display: flex;
+    width: 70%;
+    background-color:rgb(255, 246, 207);
+    border-radius: 25px;
+    height: 45px;
+    align-items: center;
+    padding-left: 10px;
+    column-gap: 5px;
+    font-size: 18px;
+}
+
 /* modals */
 
 #modal {
@@ -143,7 +155,7 @@ body {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgb(65, 9, 65);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   #modal-content {
@@ -332,7 +344,8 @@ body {
     height: 30px;
     font-size: 17px;
     color: #000000b3 ;
-    border: 2.5px solid #9f9292;
+    border: 2.5px solid rgb(65, 9, 65);
+    background-color: rgb(255, 246, 207);
 }
 
 .form-input:hover {
