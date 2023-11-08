@@ -48,17 +48,18 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li className="profile-dropdown-item">Hello Chef {user.firstName},</li>
-            <li className="profile-dropdown-item">{user.email}</li>
+            <li className="profile-dropdown-welcome">Hello Chef {user.firstName},</li>
+            <li className="profile-dropdown-email">{user.email}</li>
             <li className="profile-dropdown-item">
               <NavLink
+              class="profile-page-link"
               onClick={e => closeMenu()}
               exact to="/profile">
               Profile Page
               </NavLink>
             </li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button className="profile-dropdown-logout" onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (

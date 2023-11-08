@@ -334,7 +334,9 @@ export default function RecipeForm({ formType, recipe }){
                   {instructionInputs}
                 </div>
                 <div>
-                <span onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
+                <span
+                className="add-a-step"
+                onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
                 </div>
             <button className="submit-button" type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
             </form>

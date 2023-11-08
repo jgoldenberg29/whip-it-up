@@ -45,7 +45,7 @@ export default function SavedRecipes() {
         return (
             <div className="empty-profile-div">
                 <span className="empty-profile-prompt">Let's browse for some new recipes!</span>
-                <NavLink className="empty-profile-link" exact to="/">Explore</NavLink>
+                <NavLink className="empty-profile-link" exact to="/">Get Cookin'</NavLink>
             </div>
         )
     } else {

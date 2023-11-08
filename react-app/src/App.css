@@ -31,7 +31,7 @@ body {
     background-color: #f9c54d;
     height: 40px;
     width: 120px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     font-size: 16px;
 }
@@ -43,10 +43,10 @@ body {
 .profile-dropdown-button {
     height: 40px;
     width: 60px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     font-size: 24px;
-    background-color: rgb(65, 9, 65);;
+    background-color: rgb(65, 9, 65);
     color:#f9c54d;
 }
 
@@ -64,15 +64,57 @@ body {
     z-index: 10;
     right: 30px;
     width: fit-content;
-    border-radius: 7px;
+    border-radius: 10px;
+    border: 3px solid rgb(65, 9, 65);
     list-style-type: none;
     margin-top: 0px 0px;
     padding: 12px;
     text-align: center;
 }
 
-.profile-dropdown-item {
+.profile-dropdown-welcome {
     padding: 4px;
+    font-size: 18px;
+}
+.profile-dropdown-email {
+    padding: 4px;
+    font-size: 15px;
+    border-bottom: 2px solid rgb(65, 9, 65);
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px;
+    color: rgb(65, 9, 65);
+    border-bottom: 2px solid rgb(65, 9, 65);
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+
+.profile-page-link:hover {
+    color:#f9c54d;
+    background-color: rgb(65, 9, 65);
+    border-radius: 10px;
+}
+
+.profile-dropdown-logout {
+    width: 90px;
+    height: 35px;
+    margin-top: 28px;
+    border-radius: 10px;
+    border: none;
+    color:#f9c54d;
+    font-size: 16px;
+    background-color: rgb(65, 9, 65);
+}
+
+.profile-dropdown-logout:hover {
+    border: 3px solid #f9c54d;
 }
 
 .form-modal-container{
@@ -101,7 +143,7 @@ body {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(65, 9, 65);
   }
 
   #modal-content {
@@ -148,7 +190,7 @@ body {
     top: 13px;
     width: 60px;
     height: 27px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 17px;
 }
 
@@ -178,7 +220,7 @@ body {
 .edit-delete-container > button {
     width: 70px;
     height: 30px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 16px;
     border: none;
     background-color: #f9c54d;
@@ -202,7 +244,7 @@ body {
     max-width: 900px;
     max-height: 600px;
     column-gap: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     height: 600px
 }
@@ -244,6 +286,8 @@ body {
 
 .form-label-container {
     display: flex;
+    font-size: 20px;
+    row-gap: 5px;
     flex-direction: column;
     margin-bottom: 5px;
 }
@@ -273,7 +317,7 @@ body {
 }
 
 #unit {
-    border-radius: 6px;
+    border-radius: 8px;
     border: 2.5px solid #9f9292;
 }
 
@@ -284,7 +328,10 @@ body {
 }
 
 .form-input {
-    border-radius: 6px;
+    border-radius: 8px;
+    height: 30px;
+    font-size: 17px;
+    color: #000000b3 ;
     border: 2.5px solid #9f9292;
 }
 
@@ -320,10 +367,18 @@ body {
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
+    color: rgb(65, 9, 65);
+    border: none;
     align-self: center;
 }
 
+.submit-button:hover {
+    border: 3px solid rgb(65, 9, 65);
+}
 
+.add-a-step:hover {
+    color:#f9c54d;
+}
 /* profile page */
 
 .profile-main-container {
@@ -376,13 +431,18 @@ body {
 }
 
 .empty-profile-link {
-    font-size: 30px;
+    display: flex;
     color: rgb(65, 9, 65);
     text-decoration: none;
-}
-
-.empty-profile-link:hover {
-    color: #f9c54d;
+    background-color: #f9c54d;
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .empty-profile-div > button {
@@ -393,6 +453,10 @@ body {
     border-radius: 10px;
     font-size: 27px;
     margin: 20px;
+}
+.empty-profile-link:hover,
+.empty-profile-div > button:hover {
+    border: 3px solid rgb(65, 9, 65);
 }
 
 
