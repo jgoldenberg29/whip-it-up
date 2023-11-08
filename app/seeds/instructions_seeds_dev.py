@@ -244,4 +244,64 @@ instructions = [
         'text': "Cool on rack for 10 minutes before slicing",
         'step': 11
     },
+    {
+        'recipe_id': 11,
+        'text': "Wash and peel one pound of potatoes and peel one small onion.",
+        'step': 1
+    },
+    {
+        'recipe_id': 11,
+        'text': "Grate the potatoes into a bowl using the grating side (the side everyone knows about and uses to grate cheese) of a four-sided grater. Grate the onion, too. If grating the onion doesn’t work, you can very finely chop it with a knife.",
+        'step': 2
+    },
+    {
+        'recipe_id': 11,
+        'text': "If there is excess water in the potatoes (it drips out when squeezed in the hand), drain some of the potato water.",
+        'step': 3
+    },
+    {
+        'recipe_id': 11,
+        'text': "Add one pinch of salt, a pinch of pepper if you want the pancakes savory, flour, and the egg.",
+        'step': 4
+    },
+    {
+        'recipe_id': 11,
+        'text': "Mix everything together until the batter is well mixed. This works best if you do it with your (clean) hands.",
+        'step': 5
+    },
+    {
+        'recipe_id': 11,
+        'text': "Cool on rack for 10 minutes before slicingHeat two tablespoons of oil in a pan and add two tablespoons of batter per pancake. Make sure the pancake is not too thick or too large to ensure proper cooking. You probably won’t be able to fit more than 2-4 pancakes into your pan at the same time."
+    },
+    {
+        'recipe_id': 11,
+        'text': "Cook until both sides are golden brown (3-4 minutes per side), then remove them from the pan. Put them on a paper towel or similar to allow the oil to absorb. You can then put the pancakes in the preheated oven to keep them warm.",
+        'step': 7
+    },
+    {
+        'recipe_id': 11,
+        'text': "Repeat the process with the rest of the batter. Add more oil as needed.",
+        'step': 8
+    },
+    {
+        'recipe_id': 11,
+        'text': "Serve immediately with applesauce or sour cream.",
+        'step': 9
+    },
+    {
+        'recipe_id': 12,
+        'text': "Whisk together half and half and sugar until the sugar is dissolved.  Whisk in cream, vanilla extract, mint extract, sea salt, and a little bit of green food coloring if desired.",
+        'step': 1
+    },
+    {
+        'recipe_id': 12,
+        'text': "Pour the contents into the bowl of your ice cream maker and follow the manufacturer’s instructions. After 20 minutes, add the chopped chocolate.  Churn for an additional 5-7 minutes before checking the ice cream, as it is possible to over-churn ice cream.
+",
+        'step': 2
+    },
+    {
+        'recipe_id': 12,
+        'text': "Spoon the ice cream into an airtight container and press plastic wrap right onto the top surface of the ice cream to prevent ice crystals from forming.  Freeze for several hours.",
+        'step': 3
+    },
 ]

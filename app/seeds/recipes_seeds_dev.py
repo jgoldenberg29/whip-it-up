@@ -79,7 +79,7 @@ recipes = [
         'cook_time': 15,
         'servings': 4
     },
-        {
+    {
         'user_id': 1,
         'title':'Garlic Butter Steak and Potatoes Skillet',
         'recipe_url': 'https://www.eatwell101.com/garlic-butter-steak-and-potatoes-recipe',
@@ -89,7 +89,7 @@ recipes = [
         'cook_time': 15,
         'servings': 4
     },
-        {
+    {
         'user_id': 1,
         'title':'World’s Easiest Yeast Bread recipe – Artisan, NO KNEAD crusty bread',
         'recipe_url': 'https://www.recipetineats.com/easy-yeast-bread-recipe-no-knead/',
@@ -98,5 +98,25 @@ recipes = [
         'prep_time': 5,
         'cook_time': 40,
         'servings': 10
+    },
+    {
+        'user_id': 1,
+        'title':'German Potato Pancakes (Reibekuchen)',
+        'recipe_url': 'https://www.recipesfromeurope.com/german-potato-pancakes/',
+        'image': "https://whipitupbucket.s3.amazonaws.com/whip-it-up-seed-images/Authentic+German+Potato+Pancakes.jpeg",
+        'description': 'Searching for a great comfort food recipe? German potato pancakes are definitely one answer! Sometimes called Reibekuchen and sometimes Kartoffelpuffer, these hearty fried potato pancakes are delicious when hot and make for a filling meal!',
+        'prep_time': 10,
+        'cook_time': 20,
+        'servings': 8
+    },
+    {
+        'user_id': 1,
+        'title':'Mint Chocolate Chip Ice Cream',
+        'recipe_url': 'https://www.smalltownwoman.com/mint-chocolate-chip-ice-cream/',
+        'image': "https://whipitupbucket.s3.amazonaws.com/Mint+Chocolate+Chip+Ice+Cream.jpeg",
+        'description': 'This creamy Mint Chocolate Chip Ice Cream is made easily with seven ingredients like cream, mint flavoring, and chopped chocolate in your ice cream maker. This is my favorite ice cream flavor. Make this homemade ice cream recipe with natural flavors, and avoid all artificial flavors, guar gum, cellulose gum, and corn syrup.',
+        'prep_time': 5,
+        'cook_time': 25,
+        'servings': 8
     },
 ]
