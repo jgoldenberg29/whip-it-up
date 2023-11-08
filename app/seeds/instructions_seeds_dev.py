@@ -271,7 +271,8 @@ instructions = [
     },
     {
         'recipe_id': 11,
-        'text': "Cool on rack for 10 minutes before slicingHeat two tablespoons of oil in a pan and add two tablespoons of batter per pancake. Make sure the pancake is not too thick or too large to ensure proper cooking. You probably won’t be able to fit more than 2-4 pancakes into your pan at the same time."
+        'text': "Cool on rack for 10 minutes before slicingHeat two tablespoons of oil in a pan and add two tablespoons of batter per pancake. Make sure the pancake is not too thick or too large to ensure proper cooking. You probably won’t be able to fit more than 2-4 pancakes into your pan at the same time.",
+        'step': 6
     },
     {
         'recipe_id': 11,
@@ -295,8 +296,7 @@ instructions = [
     },
     {
         'recipe_id': 12,
-        'text': "Pour the contents into the bowl of your ice cream maker and follow the manufacturer’s instructions. After 20 minutes, add the chopped chocolate.  Churn for an additional 5-7 minutes before checking the ice cream, as it is possible to over-churn ice cream.
-",
+        'text': "Pour the contents into the bowl of your ice cream maker and follow the manufacturer’s instructions. After 20 minutes, add the chopped chocolate.  Churn for an additional 5-7 minutes before checking the ice cream, as it is possible to over-churn ice cream.",
         'step': 2
     },
     {
