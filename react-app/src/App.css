@@ -45,6 +45,7 @@ body {
 
 .nav-profile-share > button:hover {
     border: 3px solid #410941;
+    cursor: pointer;
 }
 
 .profile-dropdown-button {
@@ -59,6 +60,7 @@ body {
 
 .profile-dropdown-button:hover {
     border: 3px solid #f9c54d;
+    cursor: pointer;
 }
 
 .hidden {
@@ -107,6 +109,7 @@ body {
     color:#f9c54d;
     background-color: rgb(65, 9, 65);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .profile-dropdown-logout {
@@ -122,6 +125,7 @@ body {
 
 .profile-dropdown-logout:hover {
     border: 3px solid #f9c54d;
+    cursor: pointer;
 }
 
 .form-modal-container{
@@ -357,6 +361,7 @@ body {
 
 .form-input:hover {
     border: 2.5px solid #f9c54d;
+    cursor: pointer;
 }
 
 .form-input:focus {
@@ -370,6 +375,7 @@ body {
 
 .remove-add-row:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .instructions-div {
@@ -394,10 +400,12 @@ body {
 
 .submit-button:hover {
     border: 3px solid rgb(65, 9, 65);
+    cursor: pointer;
 }
 
 .add-a-step:hover {
     color:#f9c54d;
+    cursor: pointer;
 }
 /* profile page */
 
@@ -433,6 +441,7 @@ body {
 #shared-toggle:hover,
 #saved-toggle:hover {
     color: #f9c54d;
+    cursor: pointer;
 }
 
 .selected {
@@ -477,6 +486,7 @@ body {
 .empty-profile-link:hover,
 .empty-profile-div > button:hover {
     border: 3px solid rgb(65, 9, 65);
+    cursor: pointer;
 }
 
 
