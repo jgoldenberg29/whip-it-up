@@ -156,6 +156,7 @@ export default function RecipeForm({ formType, recipe }){
                     <option value="milligram">milligram</option>
                     <option value="milliliter">milliliter</option>
                     <option value="ounce">ounce</option>
+                    <option value="pinch">pinch</option>
                     <option value="pint">pint</option>
                     <option value="pound">pound</option>
                     <option value="quart">quart</option>
@@ -182,6 +183,7 @@ export default function RecipeForm({ formType, recipe }){
                 value={ingredients[key]?.refridgerated}
                 id='refridgerated'
                 className='form-input'
+                checked={ingredients[key]?.refridgerated === false}
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>

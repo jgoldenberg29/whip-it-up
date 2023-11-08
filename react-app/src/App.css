@@ -377,6 +377,10 @@ body {
     height: 100px;
 }
 
+.remove-add-row {
+    font-size: 14px;
+}
+
 .remove-add-row:hover {
     color: #f9c54d;
     cursor: pointer;
