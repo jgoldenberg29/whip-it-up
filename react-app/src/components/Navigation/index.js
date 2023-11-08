@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import OpenModalButton from '../OpenModalButton';
 import RecipeForm from '../RecipeForm';
+import logo from './logo/IMG_0275.png'
 
 function Navigation({ isLoaded }){
 	const user = useSelector(state => state.session.user);
@@ -12,7 +13,7 @@ function Navigation({ isLoaded }){
 	return (
 		<div className='nav-container'>
 			<span>
-				<NavLink exact to="/">Whip It Up</NavLink>
+				<NavLink exact to="/"><img id="logo" src={logo}/></NavLink>
 			</span>
 			<div
 			onClick={() => window.alert('Search feature coming soon')}

@@ -17,8 +17,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 25px;
     /* height: 75px; */
+}
+
+#logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+    overflow: none;
 }
 
 .nav-profile-share {
