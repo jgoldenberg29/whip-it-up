@@ -34,9 +34,9 @@ export default function Home() {
 
     const breakpoints = {
         default: 5,
-        1200: 4,
-        950: 3,
-        700: 2,
+        1315: 4,
+        1055: 3,
+        785: 2,
       };
 
       console.log(showButton)
