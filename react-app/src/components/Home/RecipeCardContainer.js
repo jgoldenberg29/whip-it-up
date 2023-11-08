@@ -12,6 +12,7 @@ import RecipeForm from "../RecipeForm"
 
 export default function RecipeCardContainer({ pageType, recipeId }) {
     const recipes = useSelector(state => state.recipes)
+    const userSavedRecipes = useSelector(state => state.session.user.savedRecipes)
     const dispatch = useDispatch()
     const [errors, setErrors] = useState()
     const [showButton, setShowButton] = useState(false)
@@ -84,8 +85,9 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
                 onMouseEnter={() => setShowButton(true)}
                 onMouseLeave={() => setShowButton(false)}
                 >
-                    <button
-                    style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleSave(recipeId)}>save</button>
+                    {userSavedRecipes.indexOf(recipeId) !== -1 ? <button
+                    style={{backgroundColor: '#f9c54d',}} className={unsaveButtonClass} onClick={e => handleUnsave(recipeId)}>unsave</button> : <button
+                    style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleSave(recipeId)}>save</button>}
                     <RecipeCard recipeId={recipeId}></RecipeCard>
                 </div>
     )
