@@ -137,7 +137,7 @@ def edit_recipe(id):
             updated_ingredient = Ingredient(
                 recipe_id = id,
                 quantity = seperated_row[0],
-                measurement = seperated_row[1] if seperated_row[1] != 'whole' else None,
+                measurement = seperated_row[1],
                 item =seperated_row[2],
                 refridgerated = True if seperated_row[3] == 'True' else False,
             )

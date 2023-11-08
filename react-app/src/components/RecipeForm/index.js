@@ -134,14 +134,14 @@ export default function RecipeForm({ formType, recipe }){
                 </label>
                 <label htmlFor='unit'>
                 <select
-                value={ingredients[key]?.measurement}
+                value={ingredients[key]?.measurement ? ingredients[key]?.measurement : ''}
                 id='unit'
                 required
                 className='select-field form-input'
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
                 name="measurement">
                     <option value="">choose one</option>
-                    <option value="whole">whole item</option>
+                    <option value="whole item">whole item</option>
                     <option value="bulb">bulb</option>
                     <option value="clove">clove</option>
                     <option value="cup">cup</option>
@@ -183,7 +183,7 @@ export default function RecipeForm({ formType, recipe }){
                 value={ingredients[key]?.refridgerated}
                 id='refridgerated'
                 className='form-input'
-                checked={ingredients[key]?.refridgerated === false}
+                checked={ingredients[key]?.refridgerated === true}
                 onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': e.target.value} })}
                 />
                 </label>
