@@ -222,7 +222,16 @@ export default function RecipeForm({ formType, recipe }){
             </div>
         )
     })
-    console.log('instructions', instructions)
+
+    const handleAddInstruction = e => {
+        if(!instructionCounter.length) setInstructionCounter([1])
+        else setInstructionCounter([...instructionCounter, instructionCounter[instructionCounter.length-1]+1])
+    }
+
+    const handleAddIngredient = e => {
+        if(!ingredientCounter.length) setIngredientCounter([1])
+        else setIngredientCounter([...ingredientCounter, ingredientCounter[ingredientCounter.length-1]+1])
+    }
 
     return (
         <div className='form-modal-container'>
@@ -260,7 +269,6 @@ export default function RecipeForm({ formType, recipe }){
                     id='recipeURL'
                     className='form-input'
                     onChange={e => setRecipeURL(e.target.value)}
-                    required
                     />
                 </label>
                 <p className='create-form-errors errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
@@ -324,7 +332,7 @@ export default function RecipeForm({ formType, recipe }){
                 <div>
                     <span
                     className="remove-add-row"
-                    onClick={e => setIngredientCounter([...ingredientCounter, Number(ingredientCounter[ingredientCounter.length-1])+1])}>+ add ingredient</span>
+                    onClick={handleAddIngredient}>+ add ingredient</span>
                 </div>
                 <div>
                 <h4 className='form-header'>Tell us how you make it...</h4>
@@ -336,7 +344,7 @@ export default function RecipeForm({ formType, recipe }){
                 <div>
                 <span
                 className="add-a-step"
-                onClick={e => setInstructionCounter([...instructionCounter, Number(instructionCounter[instructionCounter.length-1])+1])}>+ add a step</span>
+                onClick={handleAddInstruction}>+ add a step</span>
                 </div>
             <button className="submit-button" type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
             </form>
