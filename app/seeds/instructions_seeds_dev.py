@@ -118,5 +118,130 @@ instructions = [
         'recipe_id': 5,
         'text': "Serve hot and enjoy!",
         'step': 7
-    }
+    },
+    {
+        'recipe_id': 6,
+        'text': "Take the steak out of the fridge and let it warm up for 30 minutes prior to starting the recipe if you can.",
+        'step': 1
+    },
+    {
+        'recipe_id': 6,
+        'text': 'Cut the steak into 1" cubes and season generously with salt & pepper.',
+        'step': 2
+    },
+    {
+        'recipe_id': 6,
+        'text': "Add the olive oil and 1 tablespoon of the butter to a skillet over medium-high heat. Let the pan heat up for a few minutes. Add the meat in a single layer (don't crowd it and do two batches). Cook for about 2 minutes then flip and cook for another 2 minutes for the steak to be cooked to medium temperature. Repeat with the second batch. Don't move the steak around the pan… just let it cook undisturbed to get a good sear. Once each batch is done, transfer it to a plate. You can always test one piece of steak to get a good idea of timing prior to doing a whole batch.",
+        'step': 3
+    },
+    {
+        'recipe_id': 6,
+        'text': "Turn the heat down to medium-low and add the remaining butter and garlic to the pan. Cook, stirring almost constantly, for 1-2 minutes or until the garlic is cooked (but don't let it burn/get too dark). Take the pan off the heat and add the steak (and juices from the plate) back and toss with the butter sauce. Serve immediately with parsley sprinkled over top.",
+        'step': 4
+    },
+    {
+        'recipe_id': 7,
+        'text': "Preheat the oven to 425 F. Make the breading mixture by combining the panko breadcrumbs, parmesan cheese, Italian seasoning, garlic powder, parsley, salt, and pepper in a shallow dish. Place lime juice in a second shallow dish.",
+        'step': 1
+    },
+    {
+        'recipe_id': 7,
+        'text': "Dredge the fish: place it in the lime juice (both sides), season with salt and pepper, then place it in the breading mixture (both sides). Transfer the breaded filets to a foil-lined greased baking sheet.",
+        'step': 2
+    },
+    {
+        'recipe_id': 7,
+        'text': "Drizzle olive oil over the fillets and bake for 20-25 minutes or until browned and cooked through",
+        'step': 3
+    },
+    {
+        'recipe_id': 8,
+        'text': "To make the Garlic Herb Roasted Potatoes Carrots and Zucchini: Preheat your oven to 400ºF (200ºC) and set a rack to the middle. In a large bowl, toss together potatoes carrots with 2 1/2 tablespoons olive oil, thyme, rosemary and season with salt and pepper to taste. Spread onto a rimmed baking sheet—Roast in the preheated oven for  20 minutes.",
+        'step': 1
+    },
+    {
+        'recipe_id': 8,
+        'text': "Toss zucchini in a bowl with the remaining 1/2 tablespoon olive oil and season lightly with salt. Add to the baking sheet with other potatoes and carrots. Add minced garlic and toss everything, and spread into an even layer. Return to oven and roast until all of the veggies are tender and slightly browned, about 20 minutes longer. Serve the Garlic Herb Roasted Potatoes Carrots and Zucchini warm – enjoy!",
+        'step': 2
+    },
+    {
+        'recipe_id': 9,
+        'text': "To prepare the garlic butter steak recipe with potatoes wedges: In a large bowl, combine the steak strips with soy sauce, olive oil, pepper, and hot sauce. Set aside and allow steak strips to marinate while you cook potatoes.",
+        'step': 1
+    },
+    {
+        'recipe_id': 9,
+        'text': "In a large skillet over medium-high heat, mix 1 tablespoon olive oil and 1 tablespoon butter. When butter is melted, add potatoes wedges. Cook for about 4 minutes, stir and cook an additional 4-5 minutes until potatoes wedges are golden and fork-tender. Transfer sauteed potatoes to a plate and set aside.",
+        'step': 2
+    },
+    {
+        'recipe_id': 9,
+        'text': "Keep the same skillet over medium heat and add the remaining 2 tablespoons of butter, garlic, red chili pepper flakes, and fresh herbs. Lay the steak strips in one layer in the skillet, keeping the drained steak marinade for later. Cook the steak strips on each side for 1 minute each, until nicely browned – adjust timing depending on how you like your steak.",
+        'step': 3
+    },
+    {
+        'recipe_id': 9,
+        'text': "Right before the Garlic Butter steak is done, you can stir in the reserved marinade if you like, and cook for one minute. Add the potatoes wedges back to the garlic butter steak pan and heat through. Adjust seasoning with salt and pepper if necessary.",
+        'step': 4
+    },
+    {
+        'recipe_id': 9,
+        'text': "Remove from heat and serve immediately your steak and potatoes, garnished with more crushed chili pepper, fresh herbs, and a sprinkle of parmesan cheese over the potatoes if you like. Enjoy!",
+        'step': 5
+    },
+    {
+        'recipe_id': 10,
+        'text': "Mix Dough: Mix flour, yeast and salt in a large bowl. Add water, then use the handle of a wooden spoon to mix until all the flour is incorporated. Dough will be wet and sloppy – not kneadable, but not runny like cake batter. Adjust with more water or flour if needed for right consistency",
+        'step': 1
+    },
+    {
+        'recipe_id': 10,
+        'text': "Rise: Cover with cling wrap or plate, leave on counter for 2 – 3 hours until it doubles in volume, it’s wobbly like jelly and the top is bubbly (see video at 24 seconds). If after 1 hour it doesn’t seem to be rising, move it somewhere warmer ",
+        'step': 2
+    },
+    {
+        'recipe_id': 10,
+        'text': "Optional – refrigerate for flavour development (Note 9): At this stage, you can either bake immediately (move onto Step 5) or refrigerate for up to 3 days.",
+        'step': 3
+    },
+    {
+        'recipe_id': 10,
+        'text': "Take chill out of refrigerated dough – if you refrigerated dough per above, leave the bowl on the counter for 45 – 60 minutes while the oven is preheating. Cold dough does not rise as well",
+        'step': 4
+    },
+    {
+        'recipe_id': 10,
+        'text': 'Preheat oven – Put dutch oven in oven with lid on (26cm/10" or larger). Preheat to 230°C/450°F (220° fan) 30 minutes prior to baking.',
+        'step': 5
+    },
+    {
+        'recipe_id': 10,
+        'text': "Shape dough: Sprinkle work surface with 1 tbsp flour, scrape dough out of bowl. Sprinkle top with 1/2 tbsp flour.",
+        'step': 6
+    },
+    {
+        'recipe_id': 10,
+        'text': "Using a dough scraper or anything of similar shape (cake server, large knife, spatula), fold the sides inwards (about 6 folds) to roughly form a roundish shape. Don’t be too meticulous here – you’re about to deform it, it’s more about deflating the bubbles in the dough and forming a shape you can move.",
+        'step': 7
+    },
+    {
+        'recipe_id': 10,
+        'text': "Transfer to paper: Slide a large piece of parchment/baking paper (not wax paper) next to the dough, then flip the dough upside down onto the paper (ie seam side down, smooth side up). Slide/push it towards the middle, then reshape it into a round(ish) shape. Don't get too hung up about shape. In fact, lopsided = more ridges = more crunchy bits!",
+        'step': 8
+    },
+    {
+        'recipe_id': 10,
+        'text': "Remove piping hot dutch oven from oven. Use paper to place dough into pot, place lid on.",
+        'step': 9
+    },
+    {
+        'recipe_id': 10,
+        'text': "Bake 30 minutes covered, then 12 minutes uncovered or until deep golden and crispy.",
+        'step': 10
+    },
+    {
+        'recipe_id': 10,
+        'text': "Cool on rack for 10 minutes before slicing",
+        'step': 11
+    },
 ]
