@@ -240,7 +240,7 @@ export default function RecipeForm({ formType, recipe }){
             <h1>{formType === 'edit' ? "Update" : "Share"} Your Recipe</h1>
             <form className='recipe-form'onSubmit={handleSubmit}>
                 <label className='form-label-container' htmlFor="title">
-                    Give your dish name
+                    Give your dish a name
                     <input
                     type='text'
                     value={title}
@@ -264,7 +264,7 @@ export default function RecipeForm({ formType, recipe }){
                 </label>
                 <p className={errors?.image ? 'errors': 'no-errors'}>{errors?.image ? errors.image : ''}</p>
                 <label className='form-label-container' htmlFor="recipeURL">
-                    {'Share your recipe url (optional)'}
+                    Share your recipe url
                     <input
                     type='text'
                     value={recipeURL}
@@ -284,8 +284,8 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <div className='form-time-servings-div'>
                 <p className={errors?.description ? 'errors': 'no-errors'}>{errors?.description ? errors.description : ''}</p>
+                <div className='form-time-servings-div'>
                 <label className='form-label-container' htmlFor="prep-time">
                     Prep Time
                     <input
@@ -298,7 +298,6 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className={errors?.prep_time ? 'errors': 'no-errors'}>{errors?.prep_time ? errors.prep_time : ''}</p>
                 <label className='form-label-container' htmlFor="cook-time">
                     Cook Time
                     <input
@@ -310,7 +309,6 @@ export default function RecipeForm({ formType, recipe }){
                     onChange={e => setCookTime(e.target.value)}
                     />
                 </label>
-                <p className={errors?.cook_time ? 'errors': 'no-errors'}>{errors?.cook_time ? errors.cook_time : ''}</p>
                 <label className='form-label-container' htmlFor="servings">
                     Servings
                     <input
@@ -323,7 +321,11 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className={errors?.servings ? 'errors': 'no-errors'}>{errors?.servings ? errors.servings : ''}</p>
+                </div>
+                <div className='form-time-servings'>
+                    <span className={errors?.prep_time ? 'num-errors': 'no-num-errors'}>{errors?.prep_time ? errors.prep_time : ''}</span>
+                    <span className={errors?.cook_time ? 'num-errors': 'no-num-errors'}>{errors?.cook_time ? errors.cook_time : ''}</span>
+                    <span className={errors?.servings ? 'num-errors': 'no-num-errors'}>{errors?.servings ? errors.servings : ''}</span>
                 </div>
                 <h4 className='form-header'>Add ingredients to your recipe...</h4>
                 <p className={errors?.igredients ? 'errors': 'no-errors'}>{errors?.ingredients ? errors.ingredients : ''}</p>

@@ -16,6 +16,10 @@ body {
     margin: 13px;
 }
 
+button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 /* Nav */
 
 .nav-container {
@@ -27,8 +31,8 @@ body {
 }
 
 #logo {
-    width: 230px;
-    height: 70px;
+    width: 180px;
+    height: 50px;
     border-radius: 10px;
     overflow: none;
 }
@@ -46,6 +50,7 @@ body {
     border-radius: 10px;
     border: none;
     font-size: 16px;
+    color: #757075;
 }
 
 .nav-profile-share > button:hover {
@@ -164,7 +169,7 @@ body {
 
 .search-div {
     display: flex;
-    width: 65%;
+    width: 70%;
     background-color:rgb(255, 246, 207);
     border-radius: 25px;
     height: 45px;
@@ -239,6 +244,11 @@ body {
     background-color: white;
 }
 
+.recipe-card-container > button > img:hover {
+    filter: brightness(50%);
+    z-index: -1;
+}
+
 .small-card-button {
     position: absolute;
     right: 17px;
@@ -247,6 +257,8 @@ body {
     height: 27px;
     border-radius: 10px;
     font-size: 17px;
+    color: #575357;
+    z-index: 2;
 }
 
 .unsave {
@@ -453,6 +465,7 @@ body {
     display: flex;
     justify-content: center;
     column-gap: 30px;
+    margin-top: 15px;
 }
 
 #cook-time,
@@ -466,7 +479,9 @@ body {
 
 .ingredient-headers {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
+    column-gap: 70px;
+    margin-bottom: 10px;
 }
 
 #amount {
@@ -495,7 +510,7 @@ body {
 
 .form-input:hover {
     border: 2.5px solid #f9c54d;
-    cursor: pointer;
+    cursor: text;
 }
 
 .form-input:focus {
@@ -531,7 +546,7 @@ body {
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
-    color: #878687;
+    color: #757075;
     border: none;
     align-self: center;
 }
@@ -545,6 +560,19 @@ body {
     color:#f9c54d;
     cursor: pointer;
 }
+
+.num-errors {
+    display: flex;
+    color: red;
+    font-size: 13px;
+    margin: 3px;
+}
+
+.no-num-errors {
+    display: flex;
+    margin: 13px, 0px;
+}
+
 /* profile page */
 
 .profile-main-container {

@@ -2,11 +2,9 @@ import { useSelector } from 'react-redux'
 import Instructions from './InstructionsSection'
 import Ingredients from './IngredientsSection'
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
-import { useEffect } from 'react'
 
 
-
-export default function RecipeDeatailsModal({ recipeId }) {
+export default function RecipeDetailsModal({ recipeId }) {
     const recipe = useSelector(state => state.recipes[recipeId])
 
     return (
