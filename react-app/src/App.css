@@ -178,6 +178,7 @@ button {
     column-gap: 5px;
     font-size: 18px;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 /* modals */
@@ -247,6 +248,7 @@ button {
 .recipe-card-container > button > img:hover {
     filter: brightness(50%);
     z-index: -1;
+    cursor: pointer;
 }
 
 .small-card-button {
@@ -259,6 +261,11 @@ button {
     font-size: 17px;
     color: #575357;
     z-index: 2;
+}
+
+.small-card-button:hover {
+    border: 2px solid #878687;
+    cursor: pointer;
 }
 
 .unsave {
@@ -477,6 +484,15 @@ button {
     font-size: 17px;
 }
 
+.ingredients-form-header {
+    font-size: 21px;
+    margin-bottom: 0px;
+}
+
+.instructions-form-header {
+    font-size: 21px;
+}
+
 .ingredient-headers {
     display: flex;
     /* justify-content: space-around; */
@@ -496,7 +512,15 @@ button {
 .ingredients-input-div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+.instructions-input-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .form-input {
