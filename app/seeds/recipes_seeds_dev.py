@@ -3,7 +3,7 @@ recipes = [
         'user_id': 1,
         'title':'German Potato Soup',
         'recipe_url': 'https://www.daringgourmet.com/german-potato-soup-kartoffelsuppe/#recipe',
-        'image': 'https://whipitupbucket.s3.amazonaws.com/whip-it-up-seed-images/German-Potato-Soup-5-cropped-lighter.jpeg',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/whip-it-up-seed-images/German+Potato+Soup.jpeg',
         'description': 'This German potato soup recipe is loaded with healthy veggies, savory bacon, and is absolutely JAM-PACKED with FLAVOR! And that flavor is ever better the next day so be sure to double recipe for leftovers!',
         'prep_time': 15,
         'cook_time': 30,
@@ -17,8 +17,7 @@ recipes = [
         'description': 'This tahini sauce adds irresistible creaminess and tang to anything it touches, whether that be fresh or roasted vegetables, salad, falafel or pita bread. When I set out to make tahini sauce, I read everything I could about the subject, like I do. Chef Michael Solomonov gave me some clues, via Serious Eats. (I don’t know the guy, but his techniques also guided my hummus recipe, which has been a smashing success.)',
         'prep_time': 20,
         'cook_time': 0,
-        'servings': 6,
-        # 'instructions': "1. In a medium bowl, combine the garlic and lemon juice. Let the mixture rest for 10 minutes, to give the garlic time to infuse the lemon juice with flavor. Pour the mixture through a fine-mesh sieve into another medium bowl. Press the garlic solids with a spatula to extract as much liquid as possible. Discard the garlic. Add the tahini, salt and cumin to the bowl. Whisk until the mixture is thoroughly blended. Add water 2 tablespoons at a time, whisking after each addition until smooth. (It may seize up, don’t worry.) After about 6 tablespoons, you will have a perfectly creamy and smooth, light-colored tahini sauce. If desired, thin with additional water for a more drizzly sauce. Adjust if necessary—if you’d like more tang, add more lemon, or for more overall flavor, add another pinch of salt. Your tahini sauce is ready to serve!"
+        'servings': 6
     },
     {
         'user_id': 1,
@@ -28,8 +27,7 @@ recipes = [
         'description': 'Our version of the classic cookie is based on a recipe from a California bakery called Hungry Bear. The chocolate chip cookie is big, thick and chewy',
         'prep_time': 35,
         'cook_time': 10,
-        'servings': 24,
-        # 'instructions': "In a large bowl, beat butter and sugars until blended. Beat in eggs and vanilla. In a small bowl, whisk flour, baking soda and salt; gradually beat into butter mixture. Stir in chocolate chips and walnuts. Shape 1/4 cupfuls of dough into balls. Flatten each to 3/4-in. thickness (2-1/2-in. diameter), smoothing edges as necessary. Place in an airtight container, separating layers with waxed paper or parchment; refrigerate, covered, overnight. To bake, place dough portions 2 in. apart on parchment-lined baking sheets; let stand at room temperature 30 minutes before baking. Preheat oven to 400°. Bake until edges are golden brown (centers will be light), 10-12 minutes. Cool on pans 2 minutes. Remove to wire racks to cool."
+        'servings': 24
     },
     {
         'user_id': 2,
@@ -39,8 +37,7 @@ recipes = [
         'description': "I found this pancake recipe in my Grandma's recipe book. Judging from the weathered look of this recipe card, this was a family favorite.",
         'prep_time': 5,
         'cook_time': 15,
-        'servings': 8,
-        # 'instructions': "Sift flour, baking powder, sugar, and salt together in a large bowl. Make a well in the center and add milk, melted butter, and egg; mix until smooth. Heat a lightly oiled griddle or pan over medium-high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake; cook until bubbles form and the edges are dry, about 2 to 3 minutes. Flip and cook until browned on the other side. Repeat with remaining batter."
+        'servings': 8
     },
     {
         'user_id': 2,
@@ -50,7 +47,76 @@ recipes = [
         'description': 'Breaded chicken breasts flavored with garlic and Parmesan cheese are baked until golden and crispy for the easiest chicken dish ever. Serve with a salad and pasta for a quick, scrumptious dinner.',
         'prep_time': 20,
         'cook_time': 0,
-        'servings': 6,
-        # 'instructions': "Gather all ingredients. Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x13 inch baking dish. In a bowl, blend the olive oil and garlic. In a separate bowl, mix the bread crumbs, Parmesan cheese, basil, and pepper. Dip each chicken breast in the oil mixture, then in the bread crumb mixture. Arrange the coated chicken breasts in the prepared baking dish, and top with any remaining bread crumb mixture. Bake 30 minutes in the preheated oven, or until chicken is no longer pink and juices run clear. Serve hot and enjoy!"
+        'servings': 6
+    },
+    {
+        'user_id': 3,
+        'title':'Garlic Butter Steak Bites',
+        'recipe_url': 'https://www.saltandlavender.com/garlic-butter-steak-bites/',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Steak+Bites+with+Garlic+Butter.jpeg',
+        'description': "This garlic butter steak bites recipe uses juicy sirloin steak cut into cubes that are pan seared and ready in just 20 minutes. They're paired with a simple garlic butter sauce!",
+        'prep_time': 10,
+        'cook_time': 10,
+        'servings': 4
+    },
+    {
+        'user_id': 3,
+        'title':'Fast and Easy Parmesan Crusted Tilapia',
+        'recipe_url': 'https://topteenrecipes.com/parmesan-crusted-tilapia/',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Fast+and+Easy+Parmesan+Crusted+Tilapia.jpeg',
+        'description': 'Tilapia is a very mild-tasting white flesh fish that really needs other ingredients to elevate its flavor. In this parmesan-crusted tilapia recipe, the breading is made especially flavorful by adding parmesan cheese, Italian seasoning, freshly chopped parsley, and garlic powder. Give this tilapia recipe parmesan a try!',
+        'prep_time': 10,
+        'cook_time': 20,
+        'servings': 4
+    },
+    {
+        'user_id': 1,
+        'title':'Garlic Herb Roasted Potatoes Carrots and Zucchini',
+        'recipe_url': 'https://www.eatwell101.com/roasted-potatoes-carrots-zucchini-recipe',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Garlic+Herb+Roasted+Potatoes+Carrots+and+Zucchini.jpeg',
+        'description': 'Garlic Herb Roasted Potatoes Carrots and Zucchini – These roasted vegetables make a great savory side dish that comes together in no time and pairs well with just about anything! This simple veggie blend of potatoes, carrots, and zucchini is seasoned with delicious garlic and fresh herb mix then roasted to maximum deliciousness. The roasted potatoes carrots and zucchini recipe is gluten-free, dairy-free, vegan, and whole30 compatible. Enjoy!',
+        'prep_time': 10,
+        'cook_time': 15,
+        'servings': 4
+    },
+    {
+        'user_id': 1,
+        'title':'Garlic Butter Steak and Potatoes Skillet',
+        'recipe_url': 'https://www.eatwell101.com/garlic-butter-steak-and-potatoes-recipe',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Garlic+Butter+Steak+and+Potatoes+Skillet.jpeg',
+        'description': 'Garlic Butter Steak Recipe with Potatoes Skillet – This easy one-pan steak and potatoes recipe is SO simple and SO flavorful. Juicy steak and crisp-golden potatoes are pan-seared and cooked to perfection with a luscious garlic, herbs, and butter sauce. The thing we love with flank is that it’s a lean, yet soft cut of beef, meaning this garlic butter steak recipe is nearly impossible to mess up. Ready in 30 minutes or less, this is the best Pan-Seared steak and potatoes you’ll ever have!',
+        'prep_time': 10,
+        'cook_time': 15,
+        'servings': 4
+    },
+    {
+        'user_id': 1,
+        'title':'World’s Easiest Yeast Bread recipe – Artisan, NO KNEAD crusty bread',
+        'recipe_url': 'https://www.recipetineats.com/easy-yeast-bread-recipe-no-knead/',
+        'image': "https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/World's+Easiest+Yeast+Bread+recipe+-+Artisan%2C+NO+KNEAD+crusty+bread.jpeg",
+        'description': 'This is a phenomenal bread recipe. The best, EASY yeast bread you will ever make, beginners love how simple it is while bread connoisseurs appreciate the Artisan bread qualities – the thick crispy crust and chewy crumb with big fat holes like sourdough!',
+        'prep_time': 5,
+        'cook_time': 40,
+        'servings': 10
+    },
+    {
+        'user_id': 1,
+        'title':'German Potato Pancakes (Reibekuchen)',
+        'recipe_url': 'https://www.recipesfromeurope.com/german-potato-pancakes/',
+        'image': "https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Authentic+German+Potato+Pancakes.jpeg",
+        'description': 'Searching for a great comfort food recipe? German potato pancakes are definitely one answer! Sometimes called Reibekuchen and sometimes Kartoffelpuffer, these hearty fried potato pancakes are delicious when hot and make for a filling meal!',
+        'prep_time': 10,
+        'cook_time': 20,
+        'servings': 8
+    },
+    {
+        'user_id': 1,
+        'title':'Mint Chocolate Chip Ice Cream',
+        'recipe_url': 'https://www.smalltownwoman.com/mint-chocolate-chip-ice-cream/',
+        'image': "https://whipitupbucket.s3.amazonaws.com/Mint+Chocolate+Chip+Ice+Cream.jpeg",
+        'description': 'This creamy Mint Chocolate Chip Ice Cream is made easily with seven ingredients like cream, mint flavoring, and chopped chocolate in your ice cream maker. This is my favorite ice cream flavor. Make this homemade ice cream recipe with natural flavors, and avoid all artificial flavors, guar gum, cellulose gum, and corn syrup.',
+        'prep_time': 5,
+        'cook_time': 25,
+        'servings': 8
     },
 ]

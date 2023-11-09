@@ -2,11 +2,9 @@ import { useSelector } from 'react-redux'
 import Instructions from './InstructionsSection'
 import Ingredients from './IngredientsSection'
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
-import { useEffect } from 'react'
 
 
-
-export default function RecipeDeatailsModal({ recipeId }) {
+export default function RecipeDetailsModal({ recipeId }) {
     const recipe = useSelector(state => state.recipes[recipeId])
 
     return (
@@ -18,7 +16,7 @@ export default function RecipeDeatailsModal({ recipeId }) {
                 <p>{recipe.url}</p>
                 <h2>{recipe.title}</h2>
                 <p>{recipe.totalTime} • {recipe.servings} servings</p>
-                <p>{recipe.description}</p>
+                <p className='details-description'>{recipe.description}</p>
                 <p>{recipe.author}</p>
                 <Ingredients recipeId={recipeId}/>
                 <Instructions recipeId={recipeId}/>

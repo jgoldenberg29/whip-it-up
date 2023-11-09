@@ -26,10 +26,11 @@ export default function Home() {
     const smallButtonClass = showButton ? "small-card-button" : "hide-button"
 
     const breakpoints = {
-        default: 6,
-        1315: 4,
-        1055: 3,
-        785: 2,
+        default: 5,
+        1415: 4,
+        1140: 3,
+        861: 2,
+        587: 1,
       };
 
       console.log(showButton)

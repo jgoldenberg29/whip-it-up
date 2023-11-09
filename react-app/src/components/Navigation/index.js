@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import OpenModalButton from '../OpenModalButton';
 import RecipeForm from '../RecipeForm';
-import logo from './logo/IMG_0275.png'
+import logo from './logo/logo.png'
 
 function Navigation({ isLoaded }){
 	const user = useSelector(state => state.session.user);
