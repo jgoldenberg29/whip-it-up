@@ -34,11 +34,11 @@ export default function SavedRecipes() {
     })
 
     const breakpoints = {
-        default: 6,
-        1200: 4,
-        950: 3,
-        700: 2,
-        500: 1
+        default: 5,
+        1415: 4,
+        1140: 3,
+        861: 2,
+        587: 1,
       };
 
     if (!user.savedRecipes.length) {

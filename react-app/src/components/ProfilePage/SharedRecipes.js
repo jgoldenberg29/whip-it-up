@@ -18,11 +18,11 @@ export default function SharedRecipes() {
     if (!Object.values(recipes).length) return null
 
     const breakpoints = {
-        default: 6,
-        1200: 4,
-        950: 3,
-        700: 2,
-        500: 1
+        default: 5,
+        1415: 4,
+        1140: 3,
+        861: 2,
+        587: 1,
       };
 
     const sharedRecipesMap = user.sharedRecipes.map(recipeId => {

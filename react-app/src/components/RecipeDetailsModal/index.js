@@ -18,7 +18,7 @@ export default function RecipeDeatailsModal({ recipeId }) {
                 <p>{recipe.url}</p>
                 <h2>{recipe.title}</h2>
                 <p>{recipe.totalTime} • {recipe.servings} servings</p>
-                <p>{recipe.description}</p>
+                <p className='details-description'>{recipe.description}</p>
                 <p>{recipe.author}</p>
                 <Ingredients recipeId={recipeId}/>
                 <Instructions recipeId={recipeId}/>

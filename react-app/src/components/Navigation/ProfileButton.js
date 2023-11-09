@@ -60,7 +60,6 @@ function ProfileButton({ user }) {
               Profile Page
               </NavLink>
             </li>
-            <li className="profile-dropdown-divider">   </li>
             <li>
               <button className="profile-dropdown-logout" onClick={handleLogout}>Log Out</button>
             </li>

@@ -2,14 +2,18 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #878687;
+    color: #757075;
 }
 
 .errors {
     color: red;
+    font-size: 13px;
+    margin: 3px;
 }
 
-
+.no-errors {
+    margin: 13px;
+}
 
 /* Nav */
 
@@ -48,6 +52,11 @@ body {
     cursor: pointer;
 }
 
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
 .profile-dropdown-button {
     height: 40px;
     width: 60px;
@@ -59,6 +68,22 @@ body {
 }
 
 .profile-dropdown-button:hover {
+    border: 3px solid #f9c54d;
+    cursor: pointer;
+}
+
+.profile-dropdown > button {
+    width: 90px;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    color:#f9c54d;
+    font-size: 16px;
+    background-color: #878687;
+}
+
+.profile-dropdown > button:hover {
     border: 3px solid #f9c54d;
     cursor: pointer;
 }
@@ -188,7 +213,7 @@ body {
     width: auto;
   }
   .my-masonry-grid_column {
-    padding-left: 0px; /* gutter size */
+    padding: 6px; /* gutter size */
     background-clip: padding-box;
     min-width: 265px;
   }
@@ -196,6 +221,7 @@ body {
   /* Style your items */
   .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
     margin-bottom: 10px;
+    margin: 15px;
   }
 
 /* Recipe Card */
@@ -273,7 +299,8 @@ body {
     column-gap: 20px;
     border-radius: 15px;
     overflow: hidden;
-    height: 600px
+    height: 600px;
+    color: #757075;
 }
 
 .details-image-container {
@@ -293,6 +320,56 @@ body {
     width: 48%;
 }
 
+.details-section-header{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.detials-ingredient-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: disc;
+    align-items: flex-start;
+    padding-left: 15px;
+    row-gap: 5px;
+}
+
+.detials-instructions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    row-gap: 10px;
+}
+
+/* signup form */
+
+.signup-modal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-size: 18px;
+}
+
+.signup-label-container {
+    display: flex;
+    font-size: 20px;
+    row-gap: 5px;
+    flex-direction: column;
+
+}
+
+.signup-button {
+    margin: 40px 0px 25px 0px;
+}
 
 /* recipe form */
 
@@ -520,7 +597,3 @@ body {
     align-self: center;
     margin-bottom: 10px;
 }
-
-
-
-/* global overwrites */

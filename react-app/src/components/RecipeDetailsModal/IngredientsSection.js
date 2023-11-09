@@ -9,13 +9,13 @@ export default function Ingredients({ recipeId }) {
 
     return (
         <>
-            <div>
+            <div className='details-section-header'>
             <h3>Ingredients</h3>
             <span onClick={e => setShowIngredients(!showIngredients)}>{showIngredients ? <i className="fa-sharp fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i> }</span>
             </div>
             {showIngredients && <div>
                 <h4>Refridgerated</h4>
-                <ul>
+                <ul className="detials-ingredient-list">
                     {recipe.ingredients.map(ingredient => {
                         if (ingredient.refridgerated) {
                             return (
@@ -27,7 +27,7 @@ export default function Ingredients({ recipeId }) {
                     })}
                 </ul>
                 <h4>Pantry</h4>
-                <ul>
+                <ul className="detials-ingredient-list">
                     {recipe.ingredients.map(ingredient => {
                         if (!ingredient.refridgerated) {
                             return (
