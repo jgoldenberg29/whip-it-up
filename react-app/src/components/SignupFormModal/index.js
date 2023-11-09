@@ -30,83 +30,92 @@ function SignupFormModal() {
 			]);
 		}
 	};
+
 	return (
-		<div className='form-modal-container'>
+		<div className='signup-modal-container'>
 			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
-				<p className='errors'>
+			<form className="signup-form" onSubmit={handleSubmit}>
+				<p className={errors?.message ? 'errors': 'no-errors'}>
 					{errors?.message ? errors?.message : ''}
 				</p>
-				<label>
+				<label className='form-label-container'>
 					First Name
 					<input
+						className='form-input'
 						type="text"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
 						required
 					/>
 				</label>
-				<p className='errors'>
+				<p className={errors?.first_name ? 'errors': 'no-errors'}>
 					{errors?.first_name ? errors?.first_name : ''}
 				</p>
-				<label>
+				<label className='signup-label-container'>
 					Last Name
 					<input
+						className='form-input'
 						type="text"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
 						required
 					/>
 				</label>
-				<p className='errors'>
+				<p className={errors?.last_name ? 'errors': 'no-errors'}>
 					{errors?.last_name ? errors?.last_name : ''}
 				</p>
-				<label>
+				<label className='signup-label-container'>
 					Email
 					<input
+						className='form-input'
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
 				</label>
-				<p className='errors'>
+				<p className={errors?.email ? 'errors': 'no-errors'}>
 					{errors?.email ? errors?.email : ''}
 				</p>
-				<label>
+				<label className='signup-label-container'>
 					Username
 					<input
+						className='form-input'
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
 					/>
 				</label>
-				<p className='errors'>
+				<p className={errors?.username ? 'errors': 'no-errors'}>
 					{errors?.username ? errors?.username : ''}
 				</p>
-				<label>
+				<label className='signup-label-container'>
 					Password
 					<input
+						className='form-input'
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
 					/>
 				</label>
-				<p className='errors'>
+				<p className={errors?.password ? 'errors': 'no-errors'}>
 					{errors?.password ? errors?.password : ''}
 				</p>
-				<label>
+				<label className='signup-label-container'>
 					Confirm Password
 					<input
+						className='form-input'
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
 				</label>
-				<button type="submit">Sign Up</button>
+				<button
+					className='submit-button signup-button'
+					type="submit">Sign Up</button>
 			</form>
 		</div>
 	);

@@ -53,7 +53,7 @@ class EditRecipeForm(FlaskForm):
     image = FileField('image', validators=[FileAllowed(list(ALLOWED_IMG_EXTENSIONS))])
     description = StringField('desciption', validators=[DataRequired(), Length(15,4000)])
     prep_time = IntegerField('prep_time', validators=[DataRequired(), NumberRange(1,10080)])
-    cook_time = IntegerField('cook_time', validators=[DataRequired(), NumberRange(0,5760)])
+    cook_time = IntegerField('cook_time', validators=[NumberRange(0,5760)])
     servings = IntegerField('servings', validators=[DataRequired(), NumberRange(1,1000)])
     ingredients = StringField('ingredients', validators=[DataRequired(), validate_ingredients])
     instructions = StringField('instructions', validators=[DataRequired(), validate_instructions])
