@@ -250,7 +250,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.title ? errors?.title : ''}</p>
+                <p className={errors?.title ? 'errors': 'no-errors'}>{errors?.title ? errors?.title : ''}</p>
                 <label className='form-label-container' htmlFor="image">
                     Choose a mouthwatering image
                     <input
@@ -262,7 +262,7 @@ export default function RecipeForm({ formType, recipe }){
                     required={formType==="create"}
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.image ? errors.image : ''}</p>
+                <p className={errors?.image ? 'errors': 'no-errors'}>{errors?.image ? errors.image : ''}</p>
                 <label className='form-label-container' htmlFor="recipeURL">
                     {'Share your recipe url (optional)'}
                     <input
@@ -273,7 +273,7 @@ export default function RecipeForm({ formType, recipe }){
                     onChange={e => setRecipeURL(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.recipe_url ? errors.recipe_url : ''}</p>
+                <p className={errors?.recipe_url ? 'errors': 'no-errors'}>{errors?.recipe_url ? errors.recipe_url : ''}</p>
                 <label className='form-label-container' htmlFor="description">
                     Tell us what makes this dish so delicious
                     <textarea
@@ -285,7 +285,7 @@ export default function RecipeForm({ formType, recipe }){
                     />
                 </label>
                 <div className='form-time-servings-div'>
-                <p className='create-form-errors errors'>{errors?.description ? errors.description : ''}</p>
+                <p className={errors?.description ? 'errors': 'no-errors'}>{errors?.description ? errors.description : ''}</p>
                 <label className='form-label-container' htmlFor="prep-time">
                     Prep Time
                     <input
@@ -298,7 +298,7 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.prep_time ? errors.prep_time : ''}</p>
+                <p className={errors?.prep_time ? 'errors': 'no-errors'}>{errors?.prep_time ? errors.prep_time : ''}</p>
                 <label className='form-label-container' htmlFor="cook-time">
                     Cook Time
                     <input
@@ -310,7 +310,7 @@ export default function RecipeForm({ formType, recipe }){
                     onChange={e => setCookTime(e.target.value)}
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.cook_time ? errors.cook_time : ''}</p>
+                <p className={errors?.cook_time ? 'errors': 'no-errors'}>{errors?.cook_time ? errors.cook_time : ''}</p>
                 <label className='form-label-container' htmlFor="servings">
                     Servings
                     <input
@@ -323,12 +323,12 @@ export default function RecipeForm({ formType, recipe }){
                     required
                     />
                 </label>
-                <p className='create-form-errors errors'>{errors?.servings ? errors.servings : ''}</p>
+                <p className={errors?.servings ? 'errors': 'no-errors'}>{errors?.servings ? errors.servings : ''}</p>
                 </div>
                 <h4 className='form-header'>Add ingredients to your recipe...</h4>
+                <p className={errors?.igredients ? 'errors': 'no-errors'}>{errors?.ingredients ? errors.ingredients : ''}</p>
                 <div className='ingredient-headers'>
-                <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
-                <p className='errors'>{errors?.ingredients ? errors.ingredients : ''}</p>
+                    <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
                 </div>
                 {ingredientInputs}
                 <div>
@@ -338,7 +338,7 @@ export default function RecipeForm({ formType, recipe }){
                 </div>
                 <div>
                 <h4 className='form-header'>Tell us how you make it...</h4>
-                    <p className='errors'>{errors?.instructions ? errors.instructions : ''}</p>
+                    <p className={errors?.instructions ? 'errors': 'no-errors'}>{errors?.instructions ? errors.instructions : ''}</p>
                 </div>
                 <div className='instructions-div'>
                   {instructionInputs}

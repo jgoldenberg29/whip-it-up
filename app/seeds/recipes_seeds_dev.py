@@ -3,7 +3,7 @@ recipes = [
         'user_id': 1,
         'title':'German Potato Soup',
         'recipe_url': 'https://www.daringgourmet.com/german-potato-soup-kartoffelsuppe/#recipe',
-        'image': 'https://whipitupbucket.s3.amazonaws.com/whip-it-up-seed-images/German-Potato-Soup-5-cropped-lighter.jpeg',
+        'image': 'https://whipitupbucket.s3.amazonaws.com/whip-it-up-seed-images/German+Potato+Soup.jpeg',
         'description': 'This German potato soup recipe is loaded with healthy veggies, savory bacon, and is absolutely JAM-PACKED with FLAVOR! And that flavor is ever better the next day so be sure to double recipe for leftovers!',
         'prep_time': 15,
         'cook_time': 30,
