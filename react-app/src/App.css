@@ -315,7 +315,9 @@ button {
 
 .details-main-container {
     display: flex;
-    max-width: 900px;
+    /* max-width: 900px;
+    min-width: 900px; */
+    width: 900px;
     max-height: 600px;
     column-gap: 20px;
     border-radius: 15px;
@@ -339,6 +341,7 @@ button {
 .details-info-container {
     overflow: scroll;
     width: 48%;
+    min-width: 290px;
 }
 
 .details-section-header{

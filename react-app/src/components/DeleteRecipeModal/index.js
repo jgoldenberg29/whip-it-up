@@ -22,7 +22,7 @@ export default function DeleteRecipeModal({ recipeId }) {
             <h1>Remove Recipe</h1>
             <p className='delete-prompt'>Are you sure you want to keep this recipe all to yourself?</p>
             <p className='errors'>{errors?.message ? errors.message : ''}</p>
-            <button class='delete-submit-button' onClick={handleDelete}>{'yes (remove)'}</button>
+            <button className='delete-submit-button' onClick={handleDelete}>{'yes (remove)'}</button>
             <button className='delete-submit-button' onClick={e => closeModal()}>{'No (keep)'}</button>
         </div>
     )

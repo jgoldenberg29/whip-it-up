@@ -45,7 +45,7 @@ function ProfileButton({ user }) {
       <button
       className="profile-dropdown-button"
       onClick={openMenu}>
-        <i class="fa-solid fa-carrot"></i>
+        <i className="fa-solid fa-carrot"></i>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -54,7 +54,7 @@ function ProfileButton({ user }) {
             <li className="profile-dropdown-email">{user.email}</li>
             <li className="profile-dropdown-item">
               <NavLink
-              class="profile-page-link"
+              className="profile-page-link"
               onClick={e => closeMenu()}
               exact to="/profile">
               Profile Page

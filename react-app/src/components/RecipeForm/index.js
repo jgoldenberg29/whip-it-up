@@ -346,6 +346,7 @@ export default function RecipeForm({ formType, recipe }){
                 className="add-a-step"
                 onClick={handleAddInstruction}>+ add a step</span>
                 </div>
+                <p className={Object.values(errors).length ? 'errors': 'no-errors'}>{Object.values(errors).length ? 'There is at least one invalid field that we need you to change.' : ''}</p>
             <button className="submit-button" type='submit'>{formType === 'edit' ? "Update" : "Share"} Recipe</button>
             </form>
         </div>
