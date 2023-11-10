@@ -304,4 +304,49 @@ instructions = [
         'text': "Spoon the ice cream into an airtight container and press plastic wrap right onto the top surface of the ice cream to prevent ice crystals from forming.  Freeze for several hours.",
         'step': 3
     },
+    {
+        'recipe_id': 13,
+        'text': "Preheat oven to 350°F (175°C) and grease a 9x5-inch loaf pan.",
+        'step': 1
+    },
+    {
+        'recipe_id': 13,
+        'text': "In a large bowl, mix softened cream cheese and sugar until creamy.",
+        'step': 2
+    },
+    {
+        'recipe_id': 13,
+        'text': " Add beaten egg and vanilla extract, stir to combine.",
+        'step': 3
+    },
+    {
+        'recipe_id': 13,
+        'text': " Mix in sour cream until smooth.",
+        'step': 4
+    },
+    {
+        'recipe_id': 13,
+        'text': "In a separate bowl, whisk flour, baking soda, and salt together. Gradually add dry ingredients to the wet mixture, mixing until well combined.",
+        'step': 5
+    },
+    {
+        'recipe_id': 13,
+        'text': "Fold in crushed pineapple, saving 2 tablespoons for the glaze.",
+        'step': 6
+    },
+    {
+        'recipe_id': 13,
+        'text': "Pour batter into greased loaf pan and smooth the top.",
+        'step': 7
+    },
+    {
+        'recipe_id': 13,
+        'text': "Bake for 60 minutes until a toothpick comes out clean.",
+        'step': 8
+    },
+    {
+        'recipe_id': 13,
+        'text': "Cool in the pan for 10 minutes, then transfer to a wire rack to cool completely.",
+        'step': 9
+    },
 ]
