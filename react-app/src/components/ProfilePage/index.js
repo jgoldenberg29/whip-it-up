@@ -5,11 +5,13 @@ import { NavLink } from "react-router-dom"
 import RecipeCard from "../Home/RecipeCard"
 import SavedRecipes from "./SavedRecipes"
 import SharedRecipes from "./SharedRecipes"
+import { useHistory } from "react-router-dom"
 
 
 
 export default function ProfilePage() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const recipes = useSelector(state => state.recipes)
     const [cardsToggle, setCardsToggle] = useState('saved')
@@ -35,8 +37,13 @@ export default function ProfilePage() {
         }
     }, [user, recipes])
 
-    if(!user || !Object.values(recipes).length){
+    if(!Object.values(recipes).length){
         dispatch(thunkGetAllRecipes())
+        return null
+    }
+
+    if(!user) {
+        history.push('/')
         return null
     }
 
