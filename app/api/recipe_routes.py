@@ -103,7 +103,6 @@ def edit_recipe(id):
 
     if form.validate_on_submit():
         data = form.data
-        ic(form.data)
 
         url = None
         if data['image'] != recipe.image and data['image'] != None:
@@ -127,11 +126,8 @@ def edit_recipe(id):
         [db.session.delete(instruction) for instruction in recipe.recipe_instructions]
         db.session.commit()
 
-        ic(recipe.to_dict())
-
         ingredient_rows = data['ingredients'].split('&')
         del ingredient_rows[-1]
-        ic(ingredient_rows)
         for row in ingredient_rows:
             seperated_row = row.split(',')
             updated_ingredient = Ingredient(
@@ -141,7 +137,6 @@ def edit_recipe(id):
                 item =seperated_row[2],
                 refridgerated = True if seperated_row[3] == 'True' else False,
             )
-            ic(updated_ingredient.to_dict())
             db.session.add(updated_ingredient)
         seperated_instructions = data['instructions'].split('&')
         del seperated_instructions[-1]
@@ -151,13 +146,10 @@ def edit_recipe(id):
                 text = seperated_instructions[i],
                 step = i+1
             )
-            ic(updated_instruction.to_dict())
             db.session.add(updated_instruction)
-            ic(updated_instruction.to_dict())
 
         db.session.commit()
         recipe = Recipe.query.get(id)
-        ic(recipe.to_dict())
         return {'recipe': recipe.to_dict(), 'user': current_user.to_dict()}
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400

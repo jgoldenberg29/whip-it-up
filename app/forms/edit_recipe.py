@@ -21,17 +21,12 @@ def validated_obj_string(form, field):
 
 def validate_ingredients(form, field):
     ingredients = field.data.split('&')
-    ic(ingredients)
     del ingredients[-1]
-    ic(ingredients)
     for row in ingredients:
         seperated_row = row.split(',')
-        ic(seperated_row)
         for chars in seperated_row[0].split('.'):
-            ic(chars)
             for i in range(len(chars)):
                 sep_chars = chars[i].split('/')
-                ic(sep_chars)
                 for char in sep_chars:
                     if char and not char.isdigit():
                         raise ValidationError('Amount must be a positive integer, decimal or fraction')

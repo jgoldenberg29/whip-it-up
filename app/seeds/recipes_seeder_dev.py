@@ -8,7 +8,6 @@ from .recipes_seeds_dev import recipes
 def seed_recipes():
 
     for recipe in recipes:
-        # ic(recipe)
         new_recipe = Recipe(
             user_id=recipe['user_id'],
             title=recipe['title'],

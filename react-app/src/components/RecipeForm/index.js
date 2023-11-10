@@ -53,25 +53,16 @@ export default function RecipeForm({ formType, recipe }){
         }
     }, [formType, recipe])
 
-    console.log(image)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('insubmit instructions', instructions)
-        console.log('insubmit ingredients', ingredients)
         const newRecipe = new FormData()
 
-
         let instructionsString = ''
-        console.log(instructions)
-        console.log(Object.values(instructions))
         for (let text of Object.values(instructions)) {
-            console.log(text)
-            console.log(instructionsString)
             instructionsString += `${text}&`
         }
         let ingredientsString = ''
         for (let ingredient of Object.values(ingredients)) {
-            console.log(ingredientsString)
             ingredientsString += `${ingredient.quantity},`
             ingredientsString += `${ingredient.measurement},`
             ingredientsString += `${ingredient.item},`
@@ -96,7 +87,6 @@ export default function RecipeForm({ formType, recipe }){
         if (stateFormType === 'create'){
             data = await dispatch(thunkCreateRecipe(newRecipe))
         } else {
-            console.log("🚀 ~ file: index.js:99 ~ handleSubmit ~ newRecipe:", newRecipe.get('ingredients'))
             data = await dispatch(thunkUpdateRecipe(newRecipe, recipe.id))
         }
         if (data) {
@@ -190,8 +180,6 @@ export default function RecipeForm({ formType, recipe }){
                     } else {
                         setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': false}})
                     }
-                    console.log(ingredients[key]?.refridgerated)
-                    console.log(ingredients)
                 }}
                 />
                 </label>
