@@ -33,8 +33,6 @@ export default function Home() {
         587: 1,
       };
 
-      console.log(showButton)
-
     return (
         <div className='landing-main-container'>
             <Masonry

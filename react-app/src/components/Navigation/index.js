@@ -18,7 +18,7 @@ function Navigation({ isLoaded }){
 			<div
 			onClick={() => window.alert('Search feature coming soon')}
 			className="search-div">
-			<i class="fa-solid fa-magnifying-glass"></i> Search
+			<i className="fa-solid fa-magnifying-glass"></i> Search
 			</div>
 			<div className='nav-profile-share'>
 				{user &&<OpenModalButton
