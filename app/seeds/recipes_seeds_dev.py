@@ -119,4 +119,24 @@ recipes = [
         'cook_time': 25,
         'servings': 8
     },
+    {
+        'user_id': 1,
+        'title':'Pineapple Quick Bread',
+        'recipe_url': 'https://cooktopcove.com/2023/01/31/this-recipe-only-lasted-30-mins-in-my-house/?src=fbfan_74371&t=fbsub_casserolekitchen_xp&fbclid=IwAR2xToTglwNt-s5TgWPiZhtt0cgO-FjfdHj9oNK12s_gTwi1UWiyPANwMfk_aem_AeZdH94zKzf_jMb7tTeeirvNBRfvNGMrlSfLtlM98KyLfTTSOhdObhZlNMAnCz3tA_4&epik=dj0yJnU9b1Q4THZRZTlaR1VkWXZNVWt3TmRQc0JCaHdJZUdSQVgmcD0wJm49UmFMWTdjSHBYLVkyV0RCQldhaXV6dyZ0PUFBQUFBR1ZPbFRN',
+        'image': "https://whipitupbucket.s3.amazonaws.com/This+recipe+only+lasted+30+mins+in+my+house.jpeg",
+        'description': 'Pineapple quick bread is a sweet and delicious treat that I have been making for years. It is a perfect blend of sweet pineapple, nutty pecans, and fluffy bread that creates a perfectly moist and satisfying loaf. This recipe holds a special place in my heart as it brings back memories of baking with my grandmother on lazy Sunday afternoons. We would spend hours in the kitchen, chatting and laughing as we measured out ingredients and stirred the batter. The smell of the bread baking in the oven was always the highlight of the day, filling our home with the sweet aroma of pineapple and baking spices.',
+        'prep_time': 10,
+        'cook_time': 60,
+        'servings': 8
+    },
+    {
+        'user_id': 2,
+        'title':'Winter Vegetable Salad with Butternut Squash, Brussels Sprouts, and Beets',
+        'recipe_url': 'https://juliasalbum.com/winter-vegetable-salad-with-butternut-squash-brussels-sprouts-and-beets/#recipe',
+        'image': "https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Winter+Vegetable+Salad+with+Roasted+Butternut+Squash%2C+Brussels+Sprouts%2C+and+Beets.jpeg",
+        'description': "Winter Vegetable Salad with Roasted Butternut Squash, Brussels Sprouts, and Beets is a great recipe for a cold Winter night! It's also a perfect and festive side dish for the holidays, such as Thanksgiving and Christmas. This recipe is healthy, vegetarian, gluten-free, and packed with fiber!",
+        'prep_time': 20,
+        'cook_time': 40,
+        'servings': 6
+    },
 ]
