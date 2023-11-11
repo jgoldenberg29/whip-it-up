@@ -122,7 +122,7 @@ recipes = [
     {
         'user_id': 1,
         'title':'Pineapple Quick Bread',
-        'recipe_url': 'https://cooktopcove.com/2023/01/31/this-recipe-only-lasted-30-mins-in-my-house/?src=fbfan_74371&t=fbsub_casserolekitchen_xp&fbclid=IwAR2xToTglwNt-s5TgWPiZhtt0cgO-FjfdHj9oNK12s_gTwi1UWiyPANwMfk_aem_AeZdH94zKzf_jMb7tTeeirvNBRfvNGMrlSfLtlM98KyLfTTSOhdObhZlNMAnCz3tA_4&epik=dj0yJnU9b1Q4THZRZTlaR1VkWXZNVWt3TmRQc0JCaHdJZUdSQVgmcD0wJm49UmFMWTdjSHBYLVkyV0RCQldhaXV6dyZ0PUFBQUFBR1ZPbFRN',
+        'recipe_url': 'https://www.thespruceeats.com/easy-pineapple-bread-recipe-305440',
         'image': "https://whipitupbucket.s3.amazonaws.com/This+recipe+only+lasted+30+mins+in+my+house.jpeg",
         'description': 'Pineapple quick bread is a sweet and delicious treat that I have been making for years. It is a perfect blend of sweet pineapple, nutty pecans, and fluffy bread that creates a perfectly moist and satisfying loaf. This recipe holds a special place in my heart as it brings back memories of baking with my grandmother on lazy Sunday afternoons. We would spend hours in the kitchen, chatting and laughing as we measured out ingredients and stirred the batter. The smell of the bread baking in the oven was always the highlight of the day, filling our home with the sweet aroma of pineapple and baking spices.',
         'prep_time': 10,
