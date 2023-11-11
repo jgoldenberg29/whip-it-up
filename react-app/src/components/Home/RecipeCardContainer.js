@@ -82,7 +82,9 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
                 <div
                 className='recipe-card-container'
                 key={recipeId}
-                onMouseEnter={() => setShowButton(true)}
+                onMouseEnter={() => {
+                    if (user) setShowButton(true)
+                }}
                 onMouseLeave={() => setShowButton(false)}
                 >
                     {user?.savedRecipes.indexOf(recipeId) !== -1 ? <button

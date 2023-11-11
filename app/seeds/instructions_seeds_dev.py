@@ -349,4 +349,84 @@ instructions = [
         'text': "Cool in the pan for 10 minutes, then transfer to a wire rack to cool completely.",
         'step': 9
     },
+    {
+        'recipe_id': 14,
+        'text': "Preheat oven to 375 F.  Line the baking sheet with parchment paper.",
+        'step': 1
+    },
+    {
+        'recipe_id': 14,
+        'text': "Trim ends of Brussels sprouts and remove yellow leaves.  Slice all Brussels sprouts in half. ",
+        'step': 2
+    },
+    {
+        'recipe_id': 14,
+        'text': "In a medium bowl, combine halved Brussels sprouts, 2 tablespoons of olive oil, salt (to taste), and toss to combine..",
+        'step': 3
+    },
+    {
+        'recipe_id': 14,
+        'text': "Place Brussels sprouts onto a parchment paper-lined baking sheet, cut side down, and roast in the oven at 375 F for about 20-25 minutes. Roast them longer if you'd like a softer texture. During the last 5-10 minutes of roasting, turn them over for even browning, the cut sides should be nicely and partially charred but not blackened.",
+        'step': 4
+    },
+    {
+        'recipe_id': 14,
+        'text': "In a medium bowl, combine cubed butternut squash (peeled and seeded), 2 tablespoons of olive oil, and salt, and toss to combine. Note: For more tips and details on how to peel, cut, and roast whole butternut squash, check out this article: How to Roast Butternut Squash.",
+        'step': 5
+    },
+    {
+        'recipe_id': 14,
+        'text': "Spread butternut squash in a single layer on the baking sheet. Bake for 20-25 minutes, turning once half-way through baking until softened.",
+        'step': 6
+    },
+    {
+        'recipe_id': 14,
+        'text': "Note: You can roast both Brussels sprouts and butternut squash on 2 separate baking sheets at the same time, on the same rack in the oven.",
+        'step': 7
+    },
+    {
+        'recipe_id': 14,
+        'text': "Add 2 beets to a medium-sized saucepan filled with water. Bring to a boil. Boil the beets on medium heat, half-covered (allowing some heat to escape), for about 30 or 40 minutes until soft (depending on the size of the beets). Remove from heat.",
+        'step': 8
+    },
+    {
+        'recipe_id': 14,
+        'text': "Using a large spoon or a ladle, carefully remove beets from hot water. Let them cool. When completely cooled, peel the beets and then dice them into small cubes.",
+        'step': 9
+    },
+     {
+        'recipe_id': 14,
+        'text': "Preheat the oven to 350 F. Line a baking sheet with parchment paper. Spread pecans in a single layer.",
+        'step': 10
+    },
+    {
+        'recipe_id': 14,
+        'text': "Toast the pecans for about 5 to 10 minutes in the preheated oven at 350 F until they get darker in color. ",
+        'step': 11
+    },
+    {
+        'recipe_id': 14,
+        'text': "Note: Pecans burn really fast, so make sure to check the nuts after 5 minutes and frequently afterward. ",
+        'step': 12
+    },
+    {
+        'recipe_id': 14,
+        'text': "Combine 1 cup of balsamic vinegar + ¼ cup of honey or brown sugar in a medium pan and cook it down, regularly stirring. The mixture should reduce by about half. Consistency should be thick enough to coat the back of the spoon but should not be overly thick.",
+        'step': 13
+    },
+    {
+        'recipe_id': 14,
+        'text': "In a large bowl, toss together roasted Brussels sprouts, roasted butternut squash, diced cooked beets, toasted pecans, and dried cranberries.",
+        'step': 14
+    },
+    {
+        'recipe_id': 14,
+        'text': "Drizzle with the balsamic glaze without mixing it with the salad.",
+        'step': 15
+    },
+    {
+        'recipe_id': 14,
+        'text': "IMPORTANT NOTE: If making this salad ahead, drizzle the balsamic glaze only right before serving, for presentation purposes. Otherwise, the salad might look dark and not as colorful.",
+        'step': 16
+    },
 ]

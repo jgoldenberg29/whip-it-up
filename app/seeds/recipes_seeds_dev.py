@@ -129,4 +129,14 @@ recipes = [
         'cook_time': 60,
         'servings': 8
     },
+    {
+        'user_id': 2,
+        'title':'Winter Vegetable Salad with Butternut Squash, Brussels Sprouts, and Beets',
+        'recipe_url': 'https://juliasalbum.com/winter-vegetable-salad-with-butternut-squash-brussels-sprouts-and-beets/#recipe',
+        'image': "https://whipitupbucket.s3.amazonaws.com/more+whip-it-up-images/Winter+Vegetable+Salad+with+Roasted+Butternut+Squash%2C+Brussels+Sprouts%2C+and+Beets.jpeg",
+        'description': "Winter Vegetable Salad with Roasted Butternut Squash, Brussels Sprouts, and Beets is a great recipe for a cold Winter night! It's also a perfect and festive side dish for the holidays, such as Thanksgiving and Christmas. This recipe is healthy, vegetarian, gluten-free, and packed with fiber!",
+        'prep_time': 20,
+        'cook_time': 40,
+        'servings': 6
+    },
 ]
