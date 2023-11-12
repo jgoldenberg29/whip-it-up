@@ -324,7 +324,7 @@ export default function RecipeForm({ formType, recipe }){
                     <span className={errors?.servings ? 'num-errors': 'no-num-errors'}>{errors?.servings ? errors.servings : ''}</span>
                 </div>
                 <h4 className='ingredients-form-header'>Add ingredients to your recipe...</h4>
-                <p className={errors?.igredients ? 'errors': 'no-errors'}>{errors?.ingredients ? errors.ingredients : ''}</p>
+                <p className={errors?.ingredients ? 'errors': 'no-errors'}>{errors?.ingredients ? errors.ingredients : ''}</p>
                 <div className='ingredient-headers'>
                     <span>Amount</span> <span>Unit</span> <span>Ingredient</span> <span>Refridgerated</span>
                 </div>
