@@ -139,78 +139,188 @@ recipes = [
         'cook_time': 40,
         'servings': 6
     },
-]
-
-
-recipes_list = [
     {
+        'user_id': 2,
         'title': 'Grilled Salmon with Lemon-Dill Sauce',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/grilled-salmon.jpeg',
         'description': "Delight your taste buds with this Grilled Salmon masterpiece. The succulent salmon fillets are expertly seasoned and charred to perfection on the grill, imparting a smoky flavor. Topped with a zesty Lemon-Dill Sauce, this dish offers a perfect balance of citrusy brightness and herb-infused richness.",
         'prep_time': 15,
         'cook_time': 10,
         'servings': 4
     },
     {
+        'user_id': 2,
         'title': 'Spaghetti Carbonara with Pancetta',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/spaghetti-carbonara.jpeg',
         'description': "Indulge in the classic Italian comfort of Spaghetti Carbonara with Pancetta. Al dente spaghetti is generously coated in a velvety sauce made with eggs, Pecorino Romano cheese, and crisped pancetta. The result is a creamy, flavorful pasta dish that's simple yet incredibly satisfying.",
         'prep_time': 10,
         'cook_time': 15,
         'servings': 4
     },
     {
+        'user_id': 2,
         'title': 'Vegetarian Chickpea Curry',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Vegan-Chickpea-Curry.jpeg',
         'description': "Experience a burst of exotic flavors with this Vegetarian Chickpea Curry. Hearty chickpeas mingle with an array of aromatic spices, tomatoes, and coconut milk, creating a luscious and satisfying curry. Served over fluffy rice, this dish is a celebration of vibrant, plant-based goodness.",
         'prep_time': 20,
         'cook_time': 30,
         'servings': 6
     },
     {
+        'user_id': 1,
         'title': 'Baked Ziti with Sausage and Ricotta',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Baked-Ziti.jpeg',
         'description': "A comforting classic, Baked Ziti with Sausage and Ricotta is a crowd-pleaser. Ziti pasta is layered with savory sausage, rich ricotta, and gooey melted mozzarella, then baked to golden perfection. Each bite is a harmonious blend of cheesy, meaty goodness.",
         'prep_time': 25,
         'cook_time': 30,
         'servings': 8
     },
     {
+        'user_id': 1,
         'title': 'Teriyaki Chicken Stir-Fry',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/teriyaki-chicken-stir-fry.jpeg',
         'description': "Elevate your stir-fry game with Teriyaki Chicken Stir-Fry. Tender chicken pieces are wok-tossed with a medley of colorful vegetables in a sweet and savory teriyaki sauce. This quick and flavorful dish brings the bold and irresistible taste of Asian cuisine to your table.",
         'prep_time': 15,
         'cook_time': 15,
         'servings': 4
     },
     {
+        'user_id': 1,
         'title': 'Quinoa Salad with Roasted Vegetables',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Quinoa-and-Roasted-Vegetable-Salad-In-content-2.jpg',
         'description': "Embrace a wholesome and nutritious meal with Quinoa Salad featuring a medley of roasted vegetables. The nutty quinoa serves as the perfect base for vibrant, oven-roasted veggies, creating a refreshing and hearty salad. Drizzled with a light vinaigrette, it's a delightful symphony of textures and flavors.",
         'prep_time': 15,
         'cook_time': 25,
         'servings': 6
     },
     {
+        'user_id': 1,
         'title': 'Shrimp Scampi with Garlic and Lemon',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/2cb9943f6db18c23f1806560475dbf17.jpg',
         'description': "Succulent shrimp take center stage in this Shrimp Scampi with Garlic and Lemon. Sautéed in a luscious garlic and lemon butter sauce, the shrimp boast a delicate balance of richness and citrusy brightness. Served over a bed of pasta, it's a quick and elegant seafood delight.",
         'prep_time': 20,
         'cook_time': 10,
         'servings': 4
     },
     {
+        'user_id': 3,
         'title': 'Butternut Squash and Sage Risotto',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/butternutSquash-risoto.jpeg',
         'description': "Fall in love with the cozy elegance of Butternut Squash and Sage Risotto. Creamy Arborio rice is infused with the velvety sweetness of roasted butternut squash and the earthy aroma of sage. This comforting risotto is a symphony of autumnal flavors in every spoonful.",
         'prep_time': 20,
         'cook_time': 30,
         'servings': 4
     },
     {
+        'user_id': 3,
         'title': 'Mexican Street Corn Salad',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Mexican-Street-Corn-Salad.jpeg',
         'description': "Experience the vibrant street food culture with Mexican Street Corn Salad. Grilled corn kernels are tossed with creamy mayo, tangy lime juice, and crumbled cotija cheese, creating a deconstructed version of the beloved elote. This salad is a burst of Mexican flavors in every bite.",
         'prep_time': 15,
         'cook_time': 10,
         'servings': 4
     },
     {
+        'user_id': 3,
         'title': 'Mediterranean Stuffed Bell Peppers',
+        'recipe_url': None,
+        'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Stuffed-Bell-Peppers.jpeg',
         'description': "Transport your taste buds to the shores of the Mediterranean with Stuffed Bell Peppers. Colorful bell peppers are filled with a tantalizing mixture of couscous, tomatoes, olives, and feta cheese. Baked to perfection, these stuffed peppers offer a delightful blend of Mediterranean herbs and wholesome ingredients.",
         'prep_time': 25,
         'cook_time': 35,
         'servings': 6
     },
 ]
+
+
+# recipes_list = [
+#     {
+#         'title': 'Grilled Salmon with Lemon-Dill Sauce',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/grilled-salmon.jpeg',
+#         'description': "Delight your taste buds with this Grilled Salmon masterpiece. The succulent salmon fillets are expertly seasoned and charred to perfection on the grill, imparting a smoky flavor. Topped with a zesty Lemon-Dill Sauce, this dish offers a perfect balance of citrusy brightness and herb-infused richness.",
+#         'prep_time': 15,
+#         'cook_time': 10,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Spaghetti Carbonara with Pancetta',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/spaghetti-carbonara.jpeg',
+#         'description': "Indulge in the classic Italian comfort of Spaghetti Carbonara with Pancetta. Al dente spaghetti is generously coated in a velvety sauce made with eggs, Pecorino Romano cheese, and crisped pancetta. The result is a creamy, flavorful pasta dish that's simple yet incredibly satisfying.",
+#         'prep_time': 10,
+#         'cook_time': 15,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Vegetarian Chickpea Curry',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Vegan-Chickpea-Curry.jpeg',
+#         'description': "Experience a burst of exotic flavors with this Vegetarian Chickpea Curry. Hearty chickpeas mingle with an array of aromatic spices, tomatoes, and coconut milk, creating a luscious and satisfying curry. Served over fluffy rice, this dish is a celebration of vibrant, plant-based goodness.",
+#         'prep_time': 20,
+#         'cook_time': 30,
+#         'servings': 6
+#     },
+#     {
+#         'title': 'Baked Ziti with Sausage and Ricotta',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Baked-Ziti.jpeg',
+#         'description': "A comforting classic, Baked Ziti with Sausage and Ricotta is a crowd-pleaser. Ziti pasta is layered with savory sausage, rich ricotta, and gooey melted mozzarella, then baked to golden perfection. Each bite is a harmonious blend of cheesy, meaty goodness.",
+#         'prep_time': 25,
+#         'cook_time': 30,
+#         'servings': 8
+#     },
+#     {
+#         'title': 'Teriyaki Chicken Stir-Fry',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/teriyaki-chicken-stir-fry.jpeg',
+#         'description': "Elevate your stir-fry game with Teriyaki Chicken Stir-Fry. Tender chicken pieces are wok-tossed with a medley of colorful vegetables in a sweet and savory teriyaki sauce. This quick and flavorful dish brings the bold and irresistible taste of Asian cuisine to your table.",
+#         'prep_time': 15,
+#         'cook_time': 15,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Quinoa Salad with Roasted Vegetables',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Quinoa-and-Roasted-Vegetable-Salad-In-content-2.jpg',
+#         'description': "Embrace a wholesome and nutritious meal with Quinoa Salad featuring a medley of roasted vegetables. The nutty quinoa serves as the perfect base for vibrant, oven-roasted veggies, creating a refreshing and hearty salad. Drizzled with a light vinaigrette, it's a delightful symphony of textures and flavors.",
+#         'prep_time': 15,
+#         'cook_time': 25,
+#         'servings': 6
+#     },
+#     {
+#         'title': 'Shrimp Scampi with Garlic and Lemon',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/2cb9943f6db18c23f1806560475dbf17.jpg',
+#         'description': "Succulent shrimp take center stage in this Shrimp Scampi with Garlic and Lemon. Sautéed in a luscious garlic and lemon butter sauce, the shrimp boast a delicate balance of richness and citrusy brightness. Served over a bed of pasta, it's a quick and elegant seafood delight.",
+#         'prep_time': 20,
+#         'cook_time': 10,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Butternut Squash and Sage Risotto',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/butternutSquash-risoto.jpeg',
+#         'description': "Fall in love with the cozy elegance of Butternut Squash and Sage Risotto. Creamy Arborio rice is infused with the velvety sweetness of roasted butternut squash and the earthy aroma of sage. This comforting risotto is a symphony of autumnal flavors in every spoonful.",
+#         'prep_time': 20,
+#         'cook_time': 30,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Mexican Street Corn Salad',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Mexican-Street-Corn-Salad.jpeg',
+#         'description': "Experience the vibrant street food culture with Mexican Street Corn Salad. Grilled corn kernels are tossed with creamy mayo, tangy lime juice, and crumbled cotija cheese, creating a deconstructed version of the beloved elote. This salad is a burst of Mexican flavors in every bite.",
+#         'prep_time': 15,
+#         'cook_time': 10,
+#         'servings': 4
+#     },
+#     {
+#         'title': 'Mediterranean Stuffed Bell Peppers',
+#         'image': 'https://whipitupbucket.s3.amazonaws.com/greenlit-seeds-whip-it-up/Stuffed-Bell-Peppers.jpeg',
+#         'description': "Transport your taste buds to the shores of the Mediterranean with Stuffed Bell Peppers. Colorful bell peppers are filled with a tantalizing mixture of couscous, tomatoes, olives, and feta cheese. Baked to perfection, these stuffed peppers offer a delightful blend of Mediterranean herbs and wholesome ingredients.",
+#         'prep_time': 25,
+#         'cook_time': 35,
+#         'servings': 6
+#     },
+# ]
