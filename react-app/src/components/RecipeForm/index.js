@@ -133,6 +133,7 @@ export default function RecipeForm({ formType, recipe }){
                     <option value="">choose one</option>
                     <option value="whole item">whole item</option>
                     <option value="bulb">bulb</option>
+                    <option value="can">can</option>
                     <option value="clove">clove</option>
                     <option value="cup">cup</option>
                     <option value="drop">drop</option>

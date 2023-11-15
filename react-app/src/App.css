@@ -32,7 +32,7 @@ button {
 
 #logo {
     width: 180px;
-    height: 50px;
+    height: 45px;
     border-radius: 10px;
     overflow: none;
 }
@@ -169,7 +169,7 @@ button {
 
 .search-div {
     display: flex;
-    width: 70%;
+    width: 72%;
     background-color:rgb(255, 246, 207);
     border-radius: 25px;
     height: 45px;
