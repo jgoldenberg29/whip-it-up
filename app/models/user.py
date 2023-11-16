@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
 
     shared_recipes = db.relationship('Recipe', back_populates = 'author')
     saved_recipes = db.relationship('Recipe', secondary = saves, back_populates = 'saved_by')
+    user_comments = db.relationship('Comment', back_populates='user')
 
     @property
     def password(self):

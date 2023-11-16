@@ -17,12 +17,13 @@ class Recipe(db.Model):
     prep_time = db.Column(db.Integer, nullable=False)
     cook_time = db.Column(db.Integer, nullable=False)
     servings = db.Column(db.Integer, nullable=False)
-    # instructions = db.Column(db.Text, nullable=False)
 
     author = db.relationship('User', back_populates = 'shared_recipes')
     saved_by = db.relationship('User', secondary=saves, back_populates='saved_recipes')
     recipe_ingredients = db.relationship('Ingredient', back_populates='used_in')
     recipe_instructions = db.relationship('Instruction', back_populates = 'instructions_for')
+    recipe_comments = db.relationship('Comment', back_populates='recipe')
+
 
     def to_dict(self):
         return {
@@ -38,7 +39,8 @@ class Recipe(db.Model):
             'servings': self.servings,
             'author': self.author.first_name,
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
-            'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step'])
+            'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step']),
+            'comments': [comment.to_dict() for comment in self.recipe_comments]
         }
 
 
