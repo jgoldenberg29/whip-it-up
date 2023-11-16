@@ -12,7 +12,6 @@ class Comment(db.Model):
     recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')))
     text = db.Column(db.Text, nullable=False)
 
-    instructions_for = db.relationship('Recipe', back_populates = 'recipe_instructions')
     recipe = db.relationship('Recipe', back_populates= 'recipe_comments')
     user = db.relationship('User', back_populates='user_comments')
 
@@ -22,5 +21,5 @@ class Comment(db.Model):
             'user_id': self.user_id,
             'recipeId': self.recipe_id,
             'text': self.text,
-            'user': self.user[0].to_dict()
+            'user': self.user.to_dict()
         }
