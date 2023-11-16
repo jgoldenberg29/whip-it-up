@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import Instructions from './InstructionsSection'
 import Ingredients from './IngredientsSection'
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
+import Comments from '../comments'
 
 
 export default function RecipeDetailsModal({ recipeId }) {
@@ -17,9 +18,10 @@ export default function RecipeDetailsModal({ recipeId }) {
                 <h2>{recipe.title}</h2>
                 <p>{recipe.totalTime} • {recipe.servings} servings</p>
                 <p className='details-description'>{recipe.description}</p>
-                <p>{recipe.author}</p>
+                <p style={{fontWeight: 'bold'}}>{recipe.author}</p>
                 <Ingredients recipeId={recipeId}/>
                 <Instructions recipeId={recipeId}/>
+                <Comments recipeId={recipeId}/>
             </div>
         </div>
     )
