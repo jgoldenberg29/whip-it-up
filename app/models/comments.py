@@ -14,7 +14,7 @@ class Comment(db.Model):
 
     instructions_for = db.relationship('Recipe', back_populates = 'recipe_instructions')
     recipe = db.relationship('Recipe', back_populates= 'recipe_comments')
-    user = db.relationship('Recipe', back_populates='user_comments')
+    user = db.relationship('User', back_populates='user_comments')
 
     def to_dict(self):
         return {
