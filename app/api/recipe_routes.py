@@ -1,11 +1,10 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, User, Recipe, Ingredient, Instruction
+from app.models import db, User, Recipe, Ingredient, Instruction, Comment
 from icecream import ic
 from ..forms.recipe import RecipeForm
 from ..forms.edit_recipe import EditRecipeForm
-# from ..forms.ingredients import IngredientForm
-# from ..forms.instructions import InstructionForm
+from ..forms.post_comment import CommentForm
 from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from random import choice
 from .default_images import default_recipe_images
@@ -191,3 +190,28 @@ def unsave_recipe(id):
     db.session.commit()
 
     return {'user': current_user.to_dict()}
+
+
+@recipe_routes.route('/<int:id>/comments', methods=['POST'])
+@login_required
+def post_comment(id):
+
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    recipe = Recipe.query.get(id)
+
+    if form.validate_on_submit():
+        data = form.data
+        newComment = Comment(
+            user_id = current_user.id,
+            recipe_id = id,
+            text = data['text']
+        )
+        db.session.add(newComment)
+        db.session.commit()
+
+        recipe = Recipe.query.get(id)
+
+        return {'recipe': recipe.to_dict()}
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
