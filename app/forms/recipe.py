@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, IntegerField, BooleanField, SelectField, DecimalField, Field
 from wtforms.validators import DataRequired, ValidationError, Length, NumberRange, URL
-from werkzeug.datastructures import MultiDict, TypeConversionDict
 from ..api.AWS_helpers import ALLOWED_IMG_EXTENSIONS
 from .measurement_types import measurement_types
 from ..models import Recipe

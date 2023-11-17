@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 export default function Ingredients({ recipeId }) {
     const recipe = useSelector(state => state.recipes[recipeId])
-    const [showIngredients, setShowIngredients] = useState()
+    const [showIngredients, setShowIngredients] = useState(true)
 
 
     return (
