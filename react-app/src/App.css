@@ -243,6 +243,7 @@ button {
 .recipe-card-container > button {
     border: none;
     background-color: white;
+    width: 100%;
 }
 
 .recipe-card-container > button > img:hover {
@@ -306,7 +307,7 @@ button {
 }
 
 .recipecard-image-button {
-    width: 205px;
+    width: 265px;
     border: none;
 }
 
