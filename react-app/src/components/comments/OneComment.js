@@ -43,9 +43,8 @@ export default function OneComment({ recipeId, comment }) {
                     onChange={e => setText(e.target.value)}
                     />
                     <button>update</button>
-                    <button>cancel</button>
+                    <button onClick={() => setEdditing(false)}>cancel</button>
                 </form>
-
             </>
         )
     }
