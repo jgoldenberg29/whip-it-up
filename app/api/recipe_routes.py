@@ -200,6 +200,11 @@ def post_comment(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     recipe = Recipe.query.get(id)
 
+    if not recipe:
+        return {'errors': {'message': 'recipe does not exist'}}, 401
+    if recipe.user_id != current_user.id:
+        return {'errors': {'message': 'forbidden'}}, 403
+
     if form.validate_on_submit():
         data = form.data
         newComment = Comment(

@@ -25,6 +25,7 @@ export default function PostComment({recipeId}) {
         <>
             <div className="errors">{errors?.text ? errors.text : ''}</div>
             <form onSubmit={handleSubmit}>
+            <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
                 <input
                     className="form-input"
                     placeholder="Tell us what you think..."
