@@ -93,6 +93,54 @@ export const thunkDeleteRecipe = (id) => async dispatch => {
         const data = await res.json()
         dispatch(deleteRecipe(id))
         dispatch(setUser(data.user))
+        return null
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
+export const thunkPostComment = (comment, recipeId) => async dispatch => {
+    const res = await fetch(`/api/recipes/${recipeId}/comments`, {
+        method: 'POST',
+        body: comment,
+    })
+
+    if(res.ok) {
+        const data = await res.json()
+        dispatch(editRecipe(data.recipe))
+        return null
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
+export const thunkEditComment = (comment, commentId) => async dispatch => {
+    const res = await fetch(`/api/comments/${commentId}`, {
+        method: 'PUT',
+        body: comment,
+    })
+
+    if(res.ok) {
+        const data = await res.json()
+        dispatch(editRecipe(data.recipe))
+        return null
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
+export const thunkDeleteComment = (commentId) => async dispatch => {
+    const res = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE"
+    })
+
+    if(res.ok) {
+        const data = await res.json()
+        dispatch(editRecipe(data.recipe))
+        return null
     } else {
         const data = await res.json()
         return data

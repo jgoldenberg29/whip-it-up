@@ -9,7 +9,7 @@ import logo from './logo/WHIP-IT-UP2.png'
 
 function Navigation({ isLoaded }){
 	const user = useSelector(state => state.session.user);
-
+	
 	return (
 		<div className='nav-container'>
 			<span>

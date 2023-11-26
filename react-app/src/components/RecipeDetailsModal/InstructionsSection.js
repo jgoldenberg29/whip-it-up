@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 export default function Instructions({ recipeId }) {
     const recipe = useSelector(state => state.recipes[recipeId])
-    const [showInstructions, setShowInstructions] = useState()
+    const [showInstructions, setShowInstructions] = useState(true)
     return (
         <>
             <div className='details-section-header'>

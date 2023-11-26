@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: d89319a85710
+Revision ID: 3d76c424ec7b
 Revises:
-Create Date: 2023-11-10 20:56:07.340187
+Create Date: 2023-11-16 11:20:51.879585
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = 'd89319a85710'
+revision = '3d76c424ec7b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,6 +47,15 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('image'),
     sa.UniqueConstraint('recipe_url')
+    )
+    op.create_table('comments',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('recipe_id', sa.Integer(), nullable=True),
+    sa.Column('text', sa.Text(), nullable=False),
+    sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -83,7 +92,10 @@ def upgrade():
     if environment == "production":
             op.execute(f"ALTER TABLE instructions SET SCHEMA {SCHEMA};")
     if environment == "production":
+            op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
+    if environment == "production":
             op.execute(f"ALTER TABLE saves SET SCHEMA {SCHEMA};")
+
     # ### end Alembic commands ###
 
 
@@ -92,6 +104,7 @@ def downgrade():
     op.drop_table('saves')
     op.drop_table('instructions')
     op.drop_table('ingredients')
+    op.drop_table('comments')
     op.drop_table('recipes')
     op.drop_table('users')
     # ### end Alembic commands ###
