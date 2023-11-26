@@ -41,10 +41,10 @@ def seed_users():
         username='jessica', email='jessica@email.com', password='jessicapw', first_name='Jessica', last_name='Jackson')
 
     user11 = User(
-    username='sakura', email='sakura@email.com', password='sakura123', first_name='Sakura', last_name='Yamamoto')
+    username='ethan25', email='sakura@email.com', password='sakura123', first_name='Ethan', last_name='Rodriguez')
 
     user12 = User(
-        username='mohammed', email='mohammed@email.com', password='mohammedpass', first_name='Mohammed', last_name='Khan')
+        username='malik24', email='mohammed@email.com', password='mohammedpass', first_name='Malik', last_name='Khan')
 
     user13 = User(
         username='leila', email='leila@email.com', password='leilapw', first_name='Leila', last_name='Khouri')
@@ -56,19 +56,19 @@ def seed_users():
         username='ali', email='ali@email.com', password='alipass', first_name='Ali', last_name='Choudhury')
 
     user16 = User(
-        username='ximena', email='ximena@email.com', password='ximenapw', first_name='Ximena', last_name='Lopez')
+        username='Ava', email='ximena@email.com', password='ximenapw', first_name='Ximena', last_name='Lopez')
 
     user17 = User(
-        username='rafiq', email='rafiq@email.com', password='rafiqpass', first_name='Rafiq', last_name='Abdullah')
+        username='lucas', email='rafiq@email.com', password='rafiqpass', first_name='Lucas', last_name='Johnson')
 
     user18 = User(
-        username='lakisha', email='lakisha@email.com', password='lakishapw', first_name='LaKisha', last_name='Jones')
+        username='isabella', email='lakisha@email.com', password='Isabella', first_name='LaKisha', last_name='Jones')
 
     user19 = User(
-        username='amara', email='amara@email.com', password='amarapass', first_name='Amara', last_name='Nwosu')
+        username='sophia', email='amara@email.com', password='amarapass', first_name='Sophia', last_name='Chang')
 
     user20 = User(
-        username='ji-won', email='jiwon@email.com', password='jiwonpass', first_name='Ji-Won', last_name='Kim')
+        username='mia', email='jiwon@email.com', password='jiwonpass', first_name='Mia', last_name='Hernandez')
 
 
 
