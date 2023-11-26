@@ -34,11 +34,12 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    setShowMenu(false)
     history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-  const closeMenu = () => setShowMenu(false);
+  const hideMenuOnClick = () => setShowMenu(false)
 
   return (
     <>
@@ -55,7 +56,7 @@ function ProfileButton({ user }) {
             <li className="profile-dropdown-item">
               <NavLink
               className="profile-page-link"
-              onClick={e => closeMenu()}
+              onClick={e => setShowMenu(false)}
               exact to="/profile">
               Profile Page
               </NavLink>
@@ -68,13 +69,13 @@ function ProfileButton({ user }) {
           <>
             <OpenModalButton
               buttonText="Log In"
-              onItemClick={closeMenu}
+              onButtonClick={hideMenuOnClick}
               modalComponent={<LoginFormModal />}
             />
 
             <OpenModalButton
               buttonText="Sign Up"
-              onItemClick={closeMenu}
+              onButtonClick={hideMenuOnClick}
               modalComponent={<SignupFormModal />}
             />
           </>
