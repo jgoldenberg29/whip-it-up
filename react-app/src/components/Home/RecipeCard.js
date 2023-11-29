@@ -11,8 +11,9 @@ export default function RecipeCard({ recipeId }) {
     return (
         <>
             <OpenModalButton
+            id="recipecard-image-button"
             className='recipecard-image-button'
-            style={{border: 'none'}}
+            style={{border: 'none', background: 'none', width: '100%'}}
             buttonText={<img className='recipecard-image' src={recipe?.image} alt='tasty food'/>}
             modalComponent={<RecipeDeatailsModal recipeId={recipeId}/>}
             />

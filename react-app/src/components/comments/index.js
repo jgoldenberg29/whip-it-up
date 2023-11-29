@@ -16,7 +16,7 @@ export default function Comments({ recipeId }) {
             <span onClick={e => setShowComments(!showComments)}>{showComments ? <i className="fa-sharp fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i> }</span>
             </div>
             {showComments && <div>
-                <ul className="detials-ingredient-list">
+                <ul className="details-comments-list">
                     {recipe.comments.map(comment => {
                             return (
                                 <OneComment comment={comment}/>

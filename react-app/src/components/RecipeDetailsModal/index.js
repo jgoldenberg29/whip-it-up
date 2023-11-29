@@ -7,6 +7,7 @@ import PostComment from '../comments/PostComment'
 
 
 export default function RecipeDetailsModal({ recipeId }) {
+    const user = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[recipeId])
     const comments = useSelector(state => state.recipes[recipeId].comments)
 
@@ -26,9 +27,9 @@ export default function RecipeDetailsModal({ recipeId }) {
                     <Instructions recipeId={recipeId}/>
                     <Comments recipeId={recipeId}/>
                 </div>
-                <div>
-                    <p>{comments.length} Comments</p>
-                    <PostComment recipeId={recipe.id}/>
+                <div className="comment-input-container">
+                    <p className='total-comments'>{comments.length} Comments</p>
+                    {user && <PostComment recipeId={recipe.id}/>}
                 </div>
             </div>
         </div>
