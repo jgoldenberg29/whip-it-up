@@ -23,17 +23,23 @@ export default function PostComment({recipeId}) {
 
     return (
         <>
-            <div className="errors">{errors?.text ? errors.text : ''}</div>
-            <form onSubmit={handleSubmit}>
-            <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
-                <input
-                    className="form-input"
+            <span className={errors?.text ? 'errors': 'no-comment-errors'}>{errors?.text || errors?.message ? `${errors?.text}${errors?.message}` : ''}</span>
+            <form
+            className="comment-form"
+            onSubmit={handleSubmit}>
+                <textarea
+                    className="form-input create-comment-input"
                     placeholder="Tell us what you think..."
                     type='text'
                     value={comment}
                     onChange={e => setComment(e.target.value)}
                 />
-                <button type='submit'><i class="fa-solid fa-paper-plane"></i></button>
+                <button
+                type='submit'
+                className="submit-comment-button"
+                >
+                    <i className="fa-solid fa-paper-plane"></i>
+                </button>
             </form>
         </>
     )
