@@ -16,11 +16,6 @@ function Navigation({ isLoaded }){
 			<span>
 				<NavLink exact to="/"><img id="logo" src={logo}/></NavLink>
 			</span>
-			{/* <div
-			onClick={() => window.alert('Search feature coming soon')}
-			className="search-div">
-			<i className="fa-solid fa-magnifying-glass"></i> Search
-			</div> */}
 			<Search />
 			<div className='nav-profile-share'>
 				{user &&<OpenModalButton

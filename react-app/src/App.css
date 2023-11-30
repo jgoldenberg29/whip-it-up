@@ -86,8 +86,8 @@ button {
 }
 
 .search-button {
-    height: 37px;
-    width: 37px;
+    height: 36px;
+    width: 40px;
     border-radius: 23px;
     border: none;
     font-size: 18px;
@@ -95,7 +95,7 @@ button {
     color:#f9c54d;
     position: absolute;
     right: 0;
-    margin: 5px 16px 0px 0px;
+    margin: 5px 17px 0px 0px;
 }
 
 .search-button-hidden {
