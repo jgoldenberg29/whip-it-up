@@ -51,16 +51,18 @@ export default function OneComment({ recipeId, comment }) {
 
     return (
         <>
-            <li key={comment.id} style={{listStyleType: 'none', marginBottom: '5px'}}>
+            <li key={comment.id} className ="single-comment">
                 <span style={{fontWeight: 'bold'}}>{comment.user.firstName} </span>
                 <span>{comment.text}</span>
                 {comment.user.id === user?.id &&
-                    <div>
+                    <div className='edit-delete-comment-div'>
                         <button
+                        className='edit-comment-button'
                         onClick={() => setEdditing(true)}
                         ><i className="fa-solid fa-pen-to-square"></i></button>
-                        <button onClick={() => handleDelete(comment.id)}><i className="fa-solid fa-trash-can"></i></button>
-
+                        <button
+                        className='delete-comment-button'
+                        onClick={() => handleDelete(comment.id)}><i className="fa-solid fa-trash-can"></i></button>
                     </div>
                 }
             </li>

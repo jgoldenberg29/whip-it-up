@@ -11,6 +11,7 @@ export default function RecipeDetailsModal({ recipeId }) {
     const recipe = useSelector(state => state.recipes[recipeId])
     const comments = useSelector(state => state.recipes[recipeId].comments)
 
+
     return (
         <div className="details-main-container">
             <div className="details-image-container">
@@ -28,7 +29,7 @@ export default function RecipeDetailsModal({ recipeId }) {
                     <Comments recipeId={recipeId}/>
                 </div>
                 <div className="comment-input-container">
-                    <p className='total-comments'>{comments.length} Comments</p>
+                    <p className={`total-comments ${!user ? 'no-user-total-comments' : ''}`}>{comments.length} Comments</p>
                     {user && <PostComment recipeId={recipe.id}/>}
                 </div>
             </div>
