@@ -1,148 +1,241 @@
-# Flask React Project
+# Whip it up
+### Share your favorite recipes with the world
 
-This is the starter for the Flask React project.
+#Description
+_Whip it up_ is a full stack web application for sharing discovering recipes. When a user visits the home page they will find recipes for any occasion or pallet. Inspired by pinterest, upon signing or logging in, a user can additionally share recipes, save recipes to their profile, and comment on recipes shared by others.
 
-## Getting started
-1. Clone this repository (only this branch)
+## Overview
 
-2. Install dependencies
+Whip It Up is a delightful full-stack web application designed to make your culinary journey even more enjoyable. With a robust Python, Flask, and SQLAlchemy backend paired with a dynamic React frontend, this application offers three key features: Recipes, Saves, and Comments.
 
-      ```bash
-      pipenv install -r requirements.txt
+## Features
+
+- Users are authenticated using hashed passwords in order to ensure the security of the user's data. Their security is further enhanced through the use of an SQLAlchemy ORM (Object Relational Mapper) and toolkit in our API.
+- The full functionality of the site can be experienced through signing up or logging, as well as through our "Demo User".  
+
+### 1. Recipes
+
+Recipes allow users to explore a diverse collection of culinary delights contributed by the community. Each recipe provides a detailed description, as well as lists of ingredients, and step-by-step instructions to guide them through the cooking process. Whether you're a seasoned chef or a kitchen novice, Whip It Up's Recipes are your go-to resource for culinary inspiration. A user can view all recipes on the site as well as create, edit and delete their own recipes. The collection of the recipes a user has shared can be viewed on their profile page
+
+### 2. Saves
+
+Never lose track of your favorite recipes again! The Saves feature allows users to bookmark their preferred recipes for easy access. With a simple click, users can add or remove a recipe to their saved collection. Users saved recipes are stored and viewed through their profile page along side their shared collection. users can toggle back and forth between shared and saved recipes with a single click so all their recipes are easily accessible.
+
+### 3. Comments
+
+Engage with others in the community through the Comments feature! Share your thoughts, tips, and experiences with fellow chefs by leaving comments on specific recipes. Whether you've added your unique twist to a recipe or want to express your appreciation, Comments provide a space for users to collaborate and celebrate the joy of cooking together. Users can view comments from other chefs as well as add, edit and delete their own. 
+
+## Getting Started
+
+To experience the magic of Whip It Up in production visit:
+
+ https://whipitup.onrender.com/
+
+To get a look behind the scenes on your local machine:
+
+1. **Clone the Repository:**
+   ```
+   git clone https://github.com/yourusername/whip-it-up.git](https://github.com/jgoldenberg29/whip-it-up.git
+   ```
+
+2. **Backend Setup:**
+   - From the 'root' directory:
+
+     - install dependencies, enter the pipenv shell:
+      ```
+      pipenv install
+      pipenv shell
+      ```
+     - Set up the local database:
+      ```
+      flask db init
+      flask db migrate
+      flask db upgrade
+      flask seed all
+      ```
+     - Run the Flask server:
+      ```
+      flask run
       ```
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+3. **Frontend Setup:**
+   - Navigate to the `react-app` directory and install dependencies:
+     ```
+     cd react-app
+     npm install
+     ```
+   - Run the React frontend:
+     ```
+     npm start
+     ```
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+4. **Access Whip It Up:**
+   - Open your web browser and visit http://localhost:3000 to view the site locally
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+## Notable Functionality and Code
+1. Share Recipe Form with variable number of input fields:
+   - The Whip it up recipes are organized into three distinct tables, Recipes, Ingredients and Instructions. This allows users to enter recipe information in the simpliest most hassle free form and still allow for control for clean and efficient rendering of the data once it has been added. The Share Recipe form has variable inputs for ingredients and instructions allowing users to add and remove rows to the form with the click of a button.
+   - This required:
+     - Controlling an unknown number of inputs with nested objects in the react form, which I accomplished through a system based on the redux store and reducer functionality
+     - Converting the objects to character seperated strings in order to transfer the data from the React/Javascript frontend to the Python/Flask backend where they could be parsed and stored in the database.
+       ```js
+       const ingredientInputs = ingredientCounter.map(key => { 
+        return (
+            <div className='ingredients-input-div' key={key}>
+                <label htmlFor='amount'>
+                <input
+                type='text'
+                value={ingredients[key]?.quantity ? ingredients[key]?.quantity : ''}
+                id='amount'
+                className='form-input'
+                required
+                onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'quantity': e.target.value}})}
+                />
+                </label>
+                <label htmlFor='unit'>
+                <select
+                value={ingredients[key]?.measurement ? ingredients[key]?.measurement : ''}
+                id='unit'
+                required
+                className='select-field form-input'
+                onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'measurement': e.target.value}})}
+                name="measurement">
+                    <option value="">choose one</option>
+                    <option value="whole item">whole item</option>
+                    <option value="bulb">bulb</option>
+                    <option value="can">can</option>
+                    <option value="clove">clove</option>
+                    <option value="cup">cup</option>
+                    <option value="drop">drop</option>
+                    <option value="fluid ounce">fluid ounce</option>
+                    <option value="gram">gram</option>
+                    <option value="head">head</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="large">large</option>
+                    <option value="liter">liter</option>
+                    <option value="medium">medium</option>
+                    <option value="milligram">milligram</option>
+                    <option value="milliliter">milliliter</option>
+                    <option value="ounce">ounce</option>
+                    <option value="pinch">pinch</option>
+                    <option value="pint">pint</option>
+                    <option value="pound">pound</option>
+                    <option value="quart">quart</option>
+                    <option value="small">small</option>
+                    <option value="stalk">stalk</option>
+                    <option value="stick">stick</option>
+                    <option value="tablespoon">tablespoon</option>
+                    <option value="teaspoon">teaspoon</option>
+                </select>
+                </label>
+                <label htmlFor='ingredient'>
+                <input
+                type='text'
+                value={ingredients[key]?.item}
+                id='ingredient'
+                className='form-input'
+                required
+                onChange={e => setIngredients({...ingredients, [key]: {...ingredients[key], 'item': e.target.value} })}
+                />
+                </label>
+                <label htmlFor='refridgerated'>
+                <input
+                type='checkbox'
+                value={ingredients[key]?.refridgerated}
+                id='refridgerated'
+                className='check-box'
+                checked={ingredients[key]?.refridgerated === true}
+                onChange={e => {
+                    if(!ingredients[key]?.refridgerated){
+                        setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': true}})
+                    } else {
+                        setIngredients({...ingredients, [key]: {...ingredients[key], 'refridgerated': false}})
+                    }
+                }}
+                />
+                </label>
+                <span
+                className="remove-add-row"
+                onClick={e => removeIngredientRow(key)}>remove</span>
+            </div>
+           )
+         })
+          ```
+         - To see more code from my recipe form, please visit the file at: https://github.com/jgoldenberg29/whip-it-up/blob/main/react-app/src/components/RecipeForm/index.js
+2. The Whip it up is comprised of a clean collection of nested components to maximize the the simplicity, readability and ease of maintenance for the applications code base. A good example of this is the comments section of our Recipes, which nests a comments component and then a single comment component. keeping both of the nested component files to less than 15 lines of straightforward and jsx that is comprehensible on first read.
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+   Recipe Details Modal
+   ```js
+       <div className="details-main-container">
+            <div className="details-image-container">
+                <img src={recipe.image} alt='tasty food'/>
+            </div>
+            <div className="details-info-container">
+                    {user?.savedRecipes.indexOf(recipeId) !== -1 ? <button
+                    style={{backgroundColor: '#f9c54d',}} className='details-save-unsave' onClick={e => handleUnsave(recipeId)}>unsave</button> : <button
+                    style={{backgroundColor: '#f9c54d',}} className='details-save-unsave' onClick={e => handleSave(recipeId)}>save</button>}
+                <div>
+                    {/* <p>{recipe.recipeURL}</p> */}
+                    <h2>{recipe.title}</h2>
+                    <p>{recipe.totalTime} • {recipe.servings} servings</p>
+                    <p className='details-description'>{recipe.description}</p>
+                    {/* <p style={{fontWeight: 'bold'}}>{recipe.author}</p> */}
+                    <Ingredients recipeId={recipeId}/>
+                    <Instructions recipeId={recipeId}/>
+                    <Comments recipeId={recipeId}/>
+                </div>
+                <div className="comment-input-container">
+                    <p className={`total-comments ${!user ? 'no-user-total-comments' : ''}`}>{comments.length} Comments</p>
+                    {user && <PostComment recipeId={recipe.id}/>}
+                </div>
+            </div>
+        </div>
+     ```
 
-   ```bash
-   pipenv shell
-   ```
+      Comments
+     ```js
+         <>
+            <div className='details-section-header'>
+            <h3>Comments</h3>
+            <span onClick={e => setShowComments(!showComments)}>{showComments ? <i className="fa-sharp fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i> }</span>
+            </div>
+            {showComments && <div>
+                <ul className="details-comments-list">
+                    {recipe.comments.map(comment => {
+                            return (
+                                <OneComment comment={comment}/>
+                            )
+                    })}
+                </ul>
+            </div>}
+        </>
+     ```
+      One Comment
+     ```js
+         <>
+            <li key={comment.id} className ="single-comment">
+                <span style={{fontWeight: 'bold'}}>{comment.user.firstName} </span>
+                <span>{comment.text}</span>
+                {comment.user.id === user?.id &&
+                    <div className='edit-delete-comment-div'>
+                        <button
+                        className='edit-comment-button'
+                        onClick={() => setEdditing(true)}
+                        ><i className="fa-solid fa-pen-to-square"></i></button>
+                        <button
+                        className='delete-comment-button'
+                        onClick={() => handleDelete(comment.id)}><i className="fa-solid fa-trash-can"></i></button>
+                    </div>
+                }
+            </li>
+        </>
+     ```
+   
 
-   ```bash
-   flask db upgrade
-   ```
+## Feedback and Support
 
-   ```bash
-   flask seed all
-   ```
+We love hearing from our users! If you have any feedback, suggestions, or encounter issues, please don't hesitate to reach out. Visit our [issue tracker](https://github.com/yourusername/whip-it-up/issues) to report bugs or propose new features.
 
-   ```bash
-   flask run
-   ```
+Thank you for making Whip It Up a flavorful and thriving community. Happy cooking!
 
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-
-## Deployment through Render.com
-
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
-
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
-
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
-
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
-
-### Part A: Configure the Start and Build Commands
-
-Start by giving your application a name.
-
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
-
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
-
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
-
-For your Flask project, enter the following command into the Build field, all in
-one line:
-
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
-
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
-
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
-```
-
-_If you are using websockets, use the following start command instead for increased performance:_
-
-`gunicorn --worker-class eventlet -w 1 app:app`
-
-### Part B: Add the Environment Variables
-
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
-
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+👩‍🍳👨‍🍳🍽️
