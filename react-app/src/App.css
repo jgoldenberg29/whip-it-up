@@ -365,10 +365,31 @@ button {
     width: 100%;
 }
 
+.details-save-unsave {
+    background-color: #f9c54d;
+    padding: 10px 0px;
+    width: 85px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    color: #757075;
+    margin: 15px 20px 3px 0px;
+    align-self: flex-end;
+}
+
+.details-save-unsave:hover {
+    border: 3px solid #878687;
+    cursor: pointer;
+    margin-bottom: 0px;
+    padding: 8.5px 0px;
+}
+
 .details-info-container {
     overflow: scroll;
     width: 48%;
     min-width: 290px;
+    display: flex;
+    flex-direction: column;
 }
 
 .details-section-header{
@@ -380,18 +401,31 @@ button {
 .details-ingredient-list {
     display: flex;
     flex-direction: column;
-    list-style-type: disc;
+    list-style-type: none;
     align-items: flex-start;
-    padding-left: 15px;
-    row-gap: 5px;
+    padding-left: 20px;
+    row-gap: 8px;
+}
+
+.details-ingredient-list > li:before {
+    content: "\f7fb";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 8px;
+    color:#878687;
 }
 
 .details-instructions-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 20px;
-    row-gap: 10px;
+    row-gap: 30px;
+}
+
+
+.single-instruction {
+    margin: 8px 0px;
 }
 
 /* login form */
@@ -824,6 +858,47 @@ button {
 }
 
 .delete-comment-button {
+    height: 20px;
+    width: 27px;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    background-color: #878687;
+    color:#f9c54d;
+}
+
+.edit-comment-form {
+    display: flex;
+    column-gap: 5px;
+    margin: 0px 0px 5px 2px;
+    padding-left: 0px;
+    width: 390px;
+    overflow-x: hidden;
+}
+
+.edit-comment-input {
+    min-height: 34px;
+    width: 90%;
+}
+
+.cancel-submit-edit-comment-div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    justify-content: flex-end;
+}
+
+.submit-edit-comment-button {
+    height: 20px;
+    width: 27px;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    background-color: #878687;
+    color:#f9c54d;
+}
+
+.cancel-edit-comment-button {
     height: 20px;
     width: 27px;
     border-radius: 5px;

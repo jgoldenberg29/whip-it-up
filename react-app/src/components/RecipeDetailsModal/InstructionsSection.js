@@ -15,7 +15,9 @@ export default function Instructions({ recipeId }) {
                 <ol className="detials-instructions-list">
                     {recipe.instructions.map(instruction => {
                             return (
-                                <li key={instruction.id}>
+                                <li
+                                className="single-instruction"
+                                key={instruction.id}>
                                     <span>{instruction.text}</span>
                                 </li>
                             )

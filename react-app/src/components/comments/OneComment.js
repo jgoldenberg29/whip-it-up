@@ -33,19 +33,23 @@ export default function OneComment({ recipeId, comment }) {
 
     if (editting) {
         return (
-            <>
-                <form onSubmit={handleUpdate}>
-                    <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
+            <div className='edit-comment-container'>
+                <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
                     <span className={errors?.message ? 'errors': 'no-errors'}>{errors?.message ? errors.message : ''}</span>
+                <form
+                className='edit-comment-form'
+                onSubmit={handleUpdate}>
                     <textarea
-                    className="form-input"
+                    className="form-input edit-comment-input"
                     value={text}
                     onChange={e => setText(e.target.value)}
                     />
-                    <button>update</button>
-                    <button onClick={() => setEdditing(false)}>cancel</button>
+                    <div className='cancel-submit-edit-comment-div'>
+                        <button className='submit-edit-comment-button'><i className="fa-solid fa-paper-plane"></i></button>
+                        <button className='cancel-edit-comment-button'onClick={() => setEdditing(false)}><i className="fa-solid fa-ban"></i></button>
+                    </div>
                 </form>
-            </>
+            </div>
         )
     }
 
