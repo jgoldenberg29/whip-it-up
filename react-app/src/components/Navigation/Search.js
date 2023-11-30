@@ -11,7 +11,9 @@ export default function Search() {
         searchResults,
         setSearchResults,
         showSearch,
-        setShowSearch
+        setShowSearch,
+        noSearchResults,
+        setNoSearchResults
     } = useSearch()
 
     useEffect(() => {
@@ -30,18 +32,26 @@ export default function Search() {
 
       const handleSubmit = e => {
         e.preventDefault()
-        const localSearchResults = {}
+        const localSearchResults = []
         Object.values(recipes).forEach(recipe => {
             const title = recipe.title.toLowerCase()
             if (title.includes(searchInput.toLowerCase())) {
-                searchResults[recipe.id] = recipes[recipe.id]
+                localSearchResults.push(recipe)
             }
         })
-        setSearchResults(localSearchResults)
-        setShowSearch(true)
-        console.log(searchResults)
-      }
+        console.log(localSearchResults)
+        if (localSearchResults.length) {
+            setSearchResults([...localSearchResults])
+            setShowSearch(true)
+            setNoSearchResults(false)
+        } else {
+            setNoSearchResults(true)
+        }
 
+
+    }
+
+      console.log("searchResults", searchResults)
       const searchButtonClass = searchFocus ? 'search-button' : 'search-button-hidden'
 
     return (
@@ -51,15 +61,19 @@ export default function Search() {
             onSubmit={handleSubmit}
             >
                 <input
-                ref={searchRef}
-                className="search-input"
-                type="text"
-                value={searchInput}
-                onChange={e => setSearchInput(e.target.value)}
-                placeholder= " Discover new recipes..."
-                onClick={() => setSearchFocus(true)}
+                    ref={searchRef}
+                    className="search-input"
+                    type="text"
+                    value={searchInput}
+                    onChange={e => setSearchInput(e.target.value)}
+                    placeholder= " Discover new recipes..."
+                    onClick={() => setSearchFocus(true)}
                 />
-                <button className={searchButtonClass}><i className="fa-solid fa-magnifying-glass"></i></button>
+                <button
+                    // ref={searchRef}
+                    className={searchButtonClass}>
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
             </form>
         </>
     )

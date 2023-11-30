@@ -6,6 +6,7 @@ import RecipeCard from "./RecipeCard";
 import { thunkSaveRecipe } from "../../store/session";
 import Masonry from 'react-masonry-css'
 import RecipeCardContainer from "./RecipeCardContainer";
+import { useSearch } from "../../context/Search";
 
 
 
@@ -15,6 +16,12 @@ export default function Home() {
     const dispatch = useDispatch()
     const [errors, setErrors] = useState()
     const [showButton, setShowButton] = useState(false)
+    const {
+        searchResults,
+        setSearchResults,
+        showSearch,
+        setShowSearch
+    } = useSearch()
 
     useEffect(() => {
         dispatch(thunkGetAllRecipes())
@@ -39,11 +46,24 @@ export default function Home() {
             breakpointCols={breakpoints}
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
-            {recipesArr.map(recipe => {
+            {showSearch ?
+                searchResults.map(recipe => {
+                    return (
+                    <RecipeCardContainer recipeId={recipe.id}/>
+                    )
+                })
+            :
+                recipesArr.map(recipe => {
+                    return (
+                    <RecipeCardContainer recipeId={recipe.id}/>
+                    )
+                })
+            }
+            {/* {recipesArr.map(recipe => {
                 return (
                 <RecipeCardContainer recipeId={recipe.id}/>
                 )
-            })}
+            })} */}
             </Masonry>
         </div>
     )
