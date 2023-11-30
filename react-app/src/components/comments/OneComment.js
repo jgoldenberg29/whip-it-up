@@ -7,7 +7,7 @@ export default function OneComment({ recipeId, comment }) {
     const dispatch = useDispatch()
     // const recipe = useSelector(state => state.recipes[recipeId])
     const user = useSelector(state => state.session.user)
-    const [editting, setEdditing] = useState(false)
+    const [editting, setEditing] = useState(false)
     const [text, setText] = useState(comment.text)
     const [errors, setErrors] = useState({})
 
@@ -62,7 +62,7 @@ export default function OneComment({ recipeId, comment }) {
                     <div className='edit-delete-comment-div'>
                         <button
                         className='edit-comment-button'
-                        onClick={() => setEdditing(true)}
+                        onClick={() => setEditing(true)}
                         ><i className="fa-solid fa-pen-to-square"></i></button>
                         <button
                         className='delete-comment-button'
