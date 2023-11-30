@@ -1,4 +1,4 @@
-#Whip it up!
+# Whip it up
 ### Share your favorite recipes with the world
 
 #Description
