@@ -27,7 +27,7 @@ export default function OneComment({ recipeId, comment }) {
         if (data) {
             setErrors(data.errors)
         } else {
-            setEdditing(false)
+            setEditing(false)
         }
     }
 
@@ -46,7 +46,7 @@ export default function OneComment({ recipeId, comment }) {
                     />
                     <div className='cancel-submit-edit-comment-div'>
                         <button className='submit-edit-comment-button'><i className="fa-solid fa-paper-plane"></i></button>
-                        <button className='cancel-edit-comment-button'onClick={() => setEdditing(false)}><i className="fa-solid fa-ban"></i></button>
+                        <button className='cancel-edit-comment-button'onClick={() => setEditing(false)}><i className="fa-solid fa-ban"></i></button>
                     </div>
                 </form>
             </div>

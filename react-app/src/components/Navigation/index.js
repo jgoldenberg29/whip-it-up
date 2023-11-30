@@ -6,20 +6,22 @@ import './Navigation.css';
 import OpenModalButton from '../OpenModalButton';
 import RecipeForm from '../RecipeForm';
 import logo from './logo/WHIP-IT-UP2.png'
+import Search from './Search';
 
 function Navigation({ isLoaded }){
 	const user = useSelector(state => state.session.user);
-	
+
 	return (
 		<div className='nav-container'>
 			<span>
 				<NavLink exact to="/"><img id="logo" src={logo}/></NavLink>
 			</span>
-			<div
+			{/* <div
 			onClick={() => window.alert('Search feature coming soon')}
 			className="search-div">
 			<i className="fa-solid fa-magnifying-glass"></i> Search
-			</div>
+			</div> */}
+			<Search />
 			<div className='nav-profile-share'>
 				{user &&<OpenModalButton
 					buttonText='Share Recipe'

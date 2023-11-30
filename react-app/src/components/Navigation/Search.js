@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 
-
-
 export default function Search() {
     const [searchInput, setSearchInput] = useState('')
     const [searchFocus, setSearchFocus] = useState(false)
@@ -10,30 +8,32 @@ export default function Search() {
     useEffect(() => {
         if (!searchFocus) return;
 
-        const closeMenu = (e) => {
+        const unfocus = (e) => {
           if (!searchRef.current.contains(e.target)) {
-            searchFocus(false);
+            setSearchFocus(false);
           }
         };
 
-        document.addEventListener("click", closeMenu);
+        document.addEventListener("click", unfocus);
 
-        return () => document.removeEventListener("click", closeMenu);
-      }, [showMenu]);
+        return () => document.removeEventListener("click", unfocus);
+      }, [searchFocus]);
+
+      const searchButtonClass = searchFocus ? 'search-button' : 'search-button-hidden'
 
     return (
         <>
-            <form>
+            <form className="search-form">
                 <input
                 ref={searchRef}
-                className="form-input search-input"
+                className="search-input"
                 type="text"
                 value={searchInput}
                 onChange={e => setSearchInput(e.target.value)}
                 placeholder={`${<i className="fa-solid fa-magnifying-glass"></i>} Find a recipe...`}
                 onClick={() => setSearchFocus(true)}
                 />
-                <button><i className="fa-solid fa-magnifying-glass"></i></button>
+                <button className={searchButtonClass}><i className="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </>
     )
