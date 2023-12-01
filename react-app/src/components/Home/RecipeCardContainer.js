@@ -40,24 +40,31 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
 
     const editDeleteDivClass = showButton ? "edit-delete-container" : "hide-container"
 
+    const recipeCardContainerClass = user ? "recipe-card-container-user" : "recipe-card-container-no-user"
+
     if (pageType === 'saved') {
         return (
             <div
-                className='recipe-card-container'
+                className={recipeCardContainerClass}
                 key={recipeId}
                 onMouseEnter={() => setShowButton(true)}
                 onMouseLeave={() => setShowButton(false)}
                 >
                     <button
-                    style={{backgroundColor: '#f9c54d',}} className={unsaveButtonClass} onClick={e => handleUnsave(recipeId)}>unsave</button>
+                    style={{backgroundColor: '#f9c54d',}}
+                    className={unsaveButtonClass}
+                    onClick={e => handleUnsave(recipeId)}>
+                        unsave
+                    </button>
                     <RecipeCard recipeId={recipeId}></RecipeCard>
+                    <p className="recipe-card-title">{recipes[recipeId].title}</p>
                 </div>
         )
     } else if (pageType === 'shared') {
         const recipe = recipes[recipeId]
         return (
             <div
-            className='recipe-card-container'
+            className={recipeCardContainerClass}
             key={recipeId}
             onMouseEnter={() => setShowButton(true)}
             onMouseLeave={() => setShowButton(false)}
@@ -73,6 +80,7 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
                         modalComponent={<DeleteRecipeModal recipeId={recipeId}/>}
 
                     />
+                    <p className="recipe-card-title">{recipes[recipeId].title}</p>
                 </div>
             </div>
         )
@@ -80,17 +88,26 @@ export default function RecipeCardContainer({ pageType, recipeId }) {
 
     return (
                 <div
-                className='recipe-card-container'
+                className={recipeCardContainerClass}
                 key={recipeId}
                 onMouseEnter={() => {
                     if (user) setShowButton(true)
                 }}
                 onMouseLeave={() => setShowButton(false)}
                 >
-                    {user?.savedRecipes.indexOf(recipeId) !== -1 ? <button
-                    style={{backgroundColor: '#f9c54d',}} className={unsaveButtonClass} onClick={e => handleUnsave(recipeId)}>unsave</button> : <button
-                    style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleSave(recipeId)}>save</button>}
+                    {user?.savedRecipes.indexOf(recipeId) !== -1 ?
+                        <button
+                        style={{backgroundColor: '#f9c54d',}}
+                        className={unsaveButtonClass}
+                        onClick={e => handleUnsave(recipeId)}>
+                            unsave
+                        </button>
+                    :
+                        <button
+                        style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleSave(recipeId)}>save</button>
+                    }
                     <RecipeCard recipeId={recipeId}></RecipeCard>
+                    <p className="recipe-card-title">{recipes[recipeId].title}</p>
                 </div>
     )
 }

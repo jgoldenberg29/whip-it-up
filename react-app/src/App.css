@@ -55,6 +55,7 @@ button {
     height: 60px;
     border-radius: 10px;
     overflow: none;
+    margin-right: 3px;
 }
 
 .search-form {
@@ -116,13 +117,14 @@ button {
 .nav-profile-share {
     display: flex;
     justify-content: space-between;
-    column-gap: 35px;
+    column-gap: 20px;
 }
 
 .nav-profile-share > button {
     background-color: #f9c54d;
     height: 40px;
     width: 120px;
+    margin-left: 7px;
     border-radius: 10px;
     border: none;
     font-size: 16px;
@@ -311,16 +313,25 @@ button {
 
 /* Recipe Card */
 
-.recipe-card-container {
+.recipe-card-container-user {
+    position: relative;
+    width: 100%;
+    min-width: 265px;
+}
+.recipe-card-container-no-user {
     position: relative;
     width: 100%;
     min-width: 265px;
 }
 
-.recipe-card-container > button {
+.recipe-card-container-user > button {
     border: none;
     background-color: white;
-    /* width: 100%; */
+}
+
+.recipe-card-container-no-user > button {
+    border: none;
+    background-color: white;
 }
 
 #recipecard-image-button {
@@ -329,10 +340,27 @@ button {
     width: 100%;
 }
 
-.recipe-card-container > button > img:hover {
+.recipe-card-container-user > button > img:hover {
     filter: brightness(50%);
     z-index: -1;
     cursor: pointer;
+}
+
+.recipe-card-container-no-user > button > img:hover {
+    cursor: pointer;
+    border: 5px solid #f9c54d;
+    box-shadow: 5px 3px 3px #878687;
+}
+
+.recipe-card-title {
+    height: 27px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #575357;
+    z-index: 2;
+    text-align: center;
+    margin: 5px 0px 35px 0px;
 }
 
 .small-card-button {
