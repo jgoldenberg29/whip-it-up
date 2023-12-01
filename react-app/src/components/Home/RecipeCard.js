@@ -14,7 +14,8 @@ export default function RecipeCard({ recipeId }) {
             id="recipecard-image-button"
             className='recipecard-image-button'
             style={{border: 'none', background: 'none', width: '100%'}}
-            buttonText={<img className='recipecard-image' src={recipe?.image} alt='tasty food'/>}
+            buttonText={
+                <img className='recipecard-image' src={recipe?.image} alt='tasty food'/>}
             modalComponent={<RecipeDeatailsModal recipeId={recipeId}/>}
             />
         </>
