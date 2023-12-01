@@ -19,7 +19,7 @@ export default function ProfilePage() {
     const [cardsToggle, setCardsToggle] = useState('saved')
     const [savedRecipes, setSavedRecipes] = useState([])
     const [sharedRecipes, setSharedRecipes] = useState([])
-    const {setOnHomePage} = useSearch()
+    const {setOnHomePage,setShowSearch} = useSearch()
 
     useEffect(() => {
         if(user) {
@@ -42,6 +42,7 @@ export default function ProfilePage() {
 
     useEffect(() => {
         setOnHomePage(false)
+        setShowSearch(false)
     }, [])
 
     if(!Object.values(recipes).length){
