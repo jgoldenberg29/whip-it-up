@@ -33,8 +33,6 @@ export default function Home() {
     const recipesArr = Object.values(recipes)
     if(!recipesArr.length) return null;
 
-    const smallButtonClass = showButton ? "small-card-button" : "hide-button"
-
     const breakpoints = {
         default: 5,
         1415: 4,
