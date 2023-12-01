@@ -109,7 +109,6 @@ export default function RecipeForm({ formType, recipe }){
     }
 
     const ingredientInputs = ingredientCounter.map(key => {
-        // ingredients[key] = {'quantity': 0, 'item':'', refridgerated: false}
         return (
             <div className='ingredients-input-div' key={key}>
                 <label htmlFor='amount'>

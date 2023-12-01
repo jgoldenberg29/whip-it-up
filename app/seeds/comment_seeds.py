@@ -190,6 +190,3 @@ for _ in range(34):  # Continuing to reach a total of 100 comments
     }
     comments.append(comment)
 
-# Displaying the first few comments for illustration
-for i in range(5):
-    print(comments[i])

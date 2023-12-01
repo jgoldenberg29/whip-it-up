@@ -54,20 +54,17 @@ export default function Search() {
                 localSearchResults.push(recipe)
             }
         })
-        console.log(localSearchResults)
         if (localSearchResults.length) {
             setSearchResults([...localSearchResults])
             setShowSearch(true)
             setNoSearchResults(false)
         } else {
             setNoSearchResults(true)
-            console.log(noSearchResults)
         }
         if(!onHomePage) history.push('/')
         setSearchInput('')
     }
 
-      console.log("searchResults", searchResults)
       const searchButtonClass = searchFocus ? 'search-button' : 'search-button-hidden'
 
     return (
@@ -86,7 +83,6 @@ export default function Search() {
                     onClick={() => setSearchFocus(true)}
                 />
                 <button
-                    // ref={searchRef}
                     className={searchButtonClass}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
