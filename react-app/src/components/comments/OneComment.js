@@ -5,7 +5,6 @@ import { thunkDeleteComment, thunkEditComment } from '../../store/recipes'
 
 export default function OneComment({ recipeId, comment }) {
     const dispatch = useDispatch()
-    // const recipe = useSelector(state => state.recipes[recipeId])
     const user = useSelector(state => state.session.user)
     const [editting, setEditing] = useState(false)
     const [text, setText] = useState(comment.text)

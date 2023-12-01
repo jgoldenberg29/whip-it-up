@@ -52,7 +52,6 @@ export const thunkGetAllRecipes = () => async dispatch => {
 export const thunkCreateRecipe = (recipe) => async dispatch => {
     const res = await fetch('/api/recipes', {
         method: "POST",
-        // headers:{"Content-Type":"multipart/form-data"},
         body: recipe
     })
 

@@ -15,15 +15,30 @@ Whip It Up is a delightful full-stack web application designed to make your culi
 
 ### 1. Recipes
 
-Recipes allow users to explore a diverse collection of culinary delights contributed by the community. Each recipe provides a detailed description, as well as lists of ingredients, and step-by-step instructions to guide them through the cooking process. Whether you're a seasoned chef or a kitchen novice, Whip It Up's Recipes are your go-to resource for culinary inspiration. A user can view all recipes on the site as well as create, edit and delete their own recipes. The collection of the recipes a user has shared can be viewed on their profile page
+Recipes allow users to explore a diverse collection of culinary delights contributed by the community. Each recipe provides a detailed description, as well as lists of ingredients, and step-by-step instructions to guide them through the cooking process. Whether you're a seasoned chef or a kitchen novice, Whip It Up's Recipes are your go-to resource for culinary inspiration. A user can view all recipes on the site as well as create, edit and delete their own recipes. The collection of the recipes a user has shared can be viewed on their profile page.
+
+- Users can share(create) a new recipe.
+- Users can view(read) all recipes.
+- Users can view(read) their shared recipes
+- Users can edit(update) their shared recipes.
+- Users can remove(delete) their recipes.
 
 ### 2. Saves
 
 Never lose track of your favorite recipes again! The Saves feature allows users to bookmark their preferred recipes for easy access. With a simple click, users can add or remove a recipe to their saved collection. Users saved recipes are stored and viewed through their profile page along side their shared collection. users can toggle back and forth between shared and saved recipes with a single click so all their recipes are easily accessible.
 
+- User can save(create) any recipe.
+- User can view(read) their saved recipes.
+- User can unsave(delete) a saved recipe.
+
 ### 3. Comments
 
-Engage with others in the community through the Comments feature! Share your thoughts, tips, and experiences with fellow chefs by leaving comments on specific recipes. Whether you've added your unique twist to a recipe or want to express your appreciation, Comments provide a space for users to collaborate and celebrate the joy of cooking together. Users can view comments from other chefs as well as add, edit and delete their own. 
+Engage with others in the community through the Comments feature! Share your thoughts, tips, and experiences with fellow chefs by leaving comments on specific recipes. Whether you've added your unique twist to a recipe or want to express your appreciation, Comments provide a space for users to collaborate and celebrate the joy of cooking together. Users can view comments from other chefs as well as add, edit and delete their own.
+
+- User can view(create) a new comment.
+- User can view(read) all comments.
+- User can edit(update) their comments.
+- User can remove(delete) their recipes.
 
 ## Getting Started
 
