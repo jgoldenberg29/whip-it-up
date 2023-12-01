@@ -9,6 +9,7 @@ export function SearchProvider({ children }) {
     const [showSearch, setShowSearch] = useState(false)
     const [noSearchResults, setNoSearchResults] = useState('')
     const [searchInput, setSearchInput] = useState('')
+    const [onHomePage, setOnHomePage] = useState(true)
 
     const contextValue = {
       searchResults,
@@ -18,7 +19,9 @@ export function SearchProvider({ children }) {
       noSearchResults,
       setNoSearchResults,
       searchInput,
-      setSearchInput
+      setSearchInput,
+      onHomePage,
+      setOnHomePage
     };
 
     return (
