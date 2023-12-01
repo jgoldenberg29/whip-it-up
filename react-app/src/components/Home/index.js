@@ -21,10 +21,12 @@ export default function Home() {
         setSearchResults,
         showSearch,
         setShowSearch,
-        noSearchResults
+        noSearchResults,
+        setOnHomePage
     } = useSearch()
 
     useEffect(() => {
+        setOnHomePage(true)
         dispatch(thunkGetAllRecipes())
     }, [])
 

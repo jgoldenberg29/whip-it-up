@@ -731,13 +731,20 @@ button {
 .profile-user-info {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
     text-align: center;
-    margin: 30px;
+    margin: 20px 0px 0px 0px;
+}
+
+.profile-image {
+    width: 160px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .profile-name {
-    font-size: 30px;
+    font-size: 25px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .shared-saved-div {

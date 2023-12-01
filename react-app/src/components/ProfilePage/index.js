@@ -6,6 +6,8 @@ import RecipeCard from "../Home/RecipeCard"
 import SavedRecipes from "./SavedRecipes"
 import SharedRecipes from "./SharedRecipes"
 import { useHistory } from "react-router-dom"
+import { useSearch } from "../../context/Search"
+import profileImage from './tempProfileImage.png'
 
 
 
@@ -17,6 +19,7 @@ export default function ProfilePage() {
     const [cardsToggle, setCardsToggle] = useState('saved')
     const [savedRecipes, setSavedRecipes] = useState([])
     const [sharedRecipes, setSharedRecipes] = useState([])
+    const {setOnHomePage,setShowSearch} = useSearch()
 
     useEffect(() => {
         if(user) {
@@ -37,6 +40,11 @@ export default function ProfilePage() {
         }
     }, [user, recipes])
 
+    useEffect(() => {
+        setOnHomePage(false)
+        setShowSearch(false)
+    }, [])
+
     if(!Object.values(recipes).length){
         dispatch(thunkGetAllRecipes())
         return null
@@ -53,8 +61,9 @@ export default function ProfilePage() {
     return (
         <div className='profile-main-container'>
             <div className='profile-user-info'>
+                <img className="profile-image" src={profileImage} alt='chef icon' />
                 <h2 className="profile-name">{user.firstName} {user.lastName}</h2>
-                <p>{user.username}</p>
+                <p>@{user.username}</p>
             </div>
             <div className='shared-saved-div'>
                 {/* create class highlighting the chosen category */}

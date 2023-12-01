@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { useSearch } from "../../context/Search"
+import { useHistory } from "react-router-dom"
 
 export default function Search() {
-    // const [searchInput, setSearchInput] = useState('')
+    const history = useHistory()
     const [searchFocus, setSearchFocus] = useState(false)
     const searchRef = useRef()
     const recipes = useSelector(state => state.recipes)
@@ -15,15 +16,19 @@ export default function Search() {
         noSearchResults,
         setNoSearchResults,
         searchInput,
-        setSearchInput
+        setSearchInput,
+        onHomePage,
     } = useSearch()
 
     useEffect(() => {
         if(noSearchResults) {
-            setTimeout(() => {
+           let noResultsMessage = setTimeout(() => {
                 setNoSearchResults(false)
             }, 3000);
         }
+
+        return clearTimeout(noSearchResults)
+
     }, [noSearchResults])
 
     useEffect(() => {
@@ -58,6 +63,7 @@ export default function Search() {
             setNoSearchResults(true)
             console.log(noSearchResults)
         }
+        if(!onHomePage) history.push('/')
         setSearchInput('')
     }
 
