@@ -972,3 +972,48 @@ button {
     background-color: #878687;
     color:#f9c54d;
 }
+
+
+/* footer */
+
+.footer-container {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    height: 40px;
+    background: #ffffff;
+    width: 100vw;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin: 10px 30px;
+    background-color: none;
+}
+
+.footer-icon {
+    height: 25px;
+    font-size: 25px;
+    color: #f9c54d;
+    /* background-color: #878687; */
+    border-radius: 5px;
+    overflow: none;
+    text-decoration: none;
+}
+
+.footer-icon-portfolio {
+    font-size: 22px;
+    color: #f9c54d;
+    /* background-color: #878687; */
+    border-radius: 5px;
+    overflow: none;
+    text-decoration: none;
+}
+
+.footer-text {
+    font-size: 17px;
+}

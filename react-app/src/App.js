@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import './App.css'
 import Home from "./components/Home";
 import ProfilePage from "./components/ProfilePage";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
