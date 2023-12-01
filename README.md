@@ -23,12 +23,6 @@ Recipes allow users to explore a diverse collection of culinary delights contrib
 - Users can edit(update) their shared recipes.
 - Users can remove(delete) their recipes.
 
-- Users can share(create) a new recipe.
-- Users can view(read) all recipes.
-- Users can view(read) their shared recipes
-- Users can edit(update) their shared recipes.
-- Users can remove(delete) their recipes.
-
 ### 2. Saves
 
 Never lose track of your favorite recipes again! The Saves feature allows users to bookmark their preferred recipes for easy access. With a simple click, users can add or remove a recipe to their saved collection. Users saved recipes are stored and viewed through their profile page along side their shared collection. users can toggle back and forth between shared and saved recipes with a single click so all their recipes are easily accessible.
