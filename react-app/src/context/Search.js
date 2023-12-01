@@ -7,7 +7,8 @@ export const useSearch = () => useContext(SearchContext)
 export function SearchProvider({ children }) {
     const [searchResults, setSearchResults] = useState([])
     const [showSearch, setShowSearch] = useState(false)
-    const [noSearchResults, setSearchNoResults] = useState('')
+    const [noSearchResults, setNoSearchResults] = useState('')
+    const [searchInput, setSearchInput] = useState('')
 
     const contextValue = {
       searchResults,
@@ -15,7 +16,9 @@ export function SearchProvider({ children }) {
       showSearch,
       setShowSearch,
       noSearchResults,
-      setSearchNoResults
+      setNoSearchResults,
+      searchInput,
+      setSearchInput
     };
 
     return (

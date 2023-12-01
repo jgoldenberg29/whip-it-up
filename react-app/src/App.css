@@ -46,6 +46,7 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 25px;
+    padding: 25px 25px 5px 25px;
     /* height: 75px; */
 }
 
@@ -102,6 +103,16 @@ button {
     display: none;
 }
 
+.no-search-results {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hidden-search-message {
+    margin: 39px
+}
+
 .nav-profile-share {
     display: flex;
     justify-content: space-between;
@@ -126,6 +137,7 @@ button {
 .profile-dropdown {
     display: flex;
     flex-direction: column;
+    position: absolute;
 }
 
 .profile-dropdown-button {

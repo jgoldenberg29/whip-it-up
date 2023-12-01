@@ -20,7 +20,8 @@ export default function Home() {
         searchResults,
         setSearchResults,
         showSearch,
-        setShowSearch
+        setShowSearch,
+        noSearchResults
     } = useSearch()
 
     useEffect(() => {
@@ -41,30 +42,33 @@ export default function Home() {
       };
 
     return (
-        <div className='landing-main-container'>
-            <Masonry
-            breakpointCols={breakpoints}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column">
-            {showSearch ?
-                searchResults.map(recipe => {
+        <div>
+            <p className={noSearchResults ? 'no-search-results' : 'hidden-search-message'}>{noSearchResults ? 'No results found' : ' '}</p>
+            <div className='landing-main-container'>
+                <Masonry
+                breakpointCols={breakpoints}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
+                {showSearch ?
+                    searchResults.map(recipe => {
+                        return (
+                        <RecipeCardContainer recipeId={recipe.id}/>
+                        )
+                    })
+                :
+                    recipesArr.map(recipe => {
+                        return (
+                        <RecipeCardContainer recipeId={recipe.id}/>
+                        )
+                    })
+                }
+                {/* {recipesArr.map(recipe => {
                     return (
                     <RecipeCardContainer recipeId={recipe.id}/>
                     )
-                })
-            :
-                recipesArr.map(recipe => {
-                    return (
-                    <RecipeCardContainer recipeId={recipe.id}/>
-                    )
-                })
-            }
-            {/* {recipesArr.map(recipe => {
-                return (
-                <RecipeCardContainer recipeId={recipe.id}/>
-                )
-            })} */}
-            </Masonry>
+                })} */}
+                </Masonry>
+            </div>
         </div>
     )
 }

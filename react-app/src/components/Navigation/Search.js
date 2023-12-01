@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { useSearch } from "../../context/Search"
 
 export default function Search() {
-    const [searchInput, setSearchInput] = useState('')
+    // const [searchInput, setSearchInput] = useState('')
     const [searchFocus, setSearchFocus] = useState(false)
     const searchRef = useRef()
     const recipes = useSelector(state => state.recipes)
@@ -13,8 +13,18 @@ export default function Search() {
         showSearch,
         setShowSearch,
         noSearchResults,
-        setNoSearchResults
+        setNoSearchResults,
+        searchInput,
+        setSearchInput
     } = useSearch()
+
+    useEffect(() => {
+        if(noSearchResults) {
+            setTimeout(() => {
+                setNoSearchResults(false)
+            }, 3000);
+        }
+    }, [noSearchResults])
 
     useEffect(() => {
         if (!searchFocus) return;
@@ -46,9 +56,9 @@ export default function Search() {
             setNoSearchResults(false)
         } else {
             setNoSearchResults(true)
+            console.log(noSearchResults)
         }
-
-
+        setSearchInput('')
     }
 
       console.log("searchResults", searchResults)
