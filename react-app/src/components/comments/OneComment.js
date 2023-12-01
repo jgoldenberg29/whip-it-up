@@ -7,7 +7,7 @@ export default function OneComment({ recipeId, comment }) {
     const dispatch = useDispatch()
     // const recipe = useSelector(state => state.recipes[recipeId])
     const user = useSelector(state => state.session.user)
-    const [editting, setEdditing] = useState(false)
+    const [editting, setEditing] = useState(false)
     const [text, setText] = useState(comment.text)
     const [errors, setErrors] = useState({})
 
@@ -27,40 +27,46 @@ export default function OneComment({ recipeId, comment }) {
         if (data) {
             setErrors(data.errors)
         } else {
-            setEdditing(false)
+            setEditing(false)
         }
     }
 
     if (editting) {
         return (
-            <>
-                <form onSubmit={handleUpdate}>
-                    <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
+            <div className='edit-comment-container'>
+                <span className={errors?.text ? 'errors': 'no-errors'}>{errors?.text ? errors.text : ''}</span>
                     <span className={errors?.message ? 'errors': 'no-errors'}>{errors?.message ? errors.message : ''}</span>
+                <form
+                className='edit-comment-form'
+                onSubmit={handleUpdate}>
                     <textarea
-                    className="form-input"
+                    className="form-input edit-comment-input"
                     value={text}
                     onChange={e => setText(e.target.value)}
                     />
-                    <button>update</button>
-                    <button onClick={() => setEdditing(false)}>cancel</button>
+                    <div className='cancel-submit-edit-comment-div'>
+                        <button className='submit-edit-comment-button'><i className="fa-solid fa-paper-plane"></i></button>
+                        <button className='cancel-edit-comment-button'onClick={() => setEditing(false)}><i className="fa-solid fa-ban"></i></button>
+                    </div>
                 </form>
-            </>
+            </div>
         )
     }
 
     return (
         <>
-            <li key={comment.id} style={{listStyleType: 'none', marginBottom: '5px'}}>
+            <li key={comment.id} className ="single-comment">
                 <span style={{fontWeight: 'bold'}}>{comment.user.firstName} </span>
                 <span>{comment.text}</span>
                 {comment.user.id === user?.id &&
-                    <div>
+                    <div className='edit-delete-comment-div'>
                         <button
-                        onClick={() => setEdditing(true)}
+                        className='edit-comment-button'
+                        onClick={() => setEditing(true)}
                         ><i className="fa-solid fa-pen-to-square"></i></button>
-                        <button onClick={() => handleDelete(comment.id)}><i className="fa-solid fa-trash-can"></i></button>
-
+                        <button
+                        className='delete-comment-button'
+                        onClick={() => handleDelete(comment.id)}><i className="fa-solid fa-trash-can"></i></button>
                     </div>
                 }
             </li>

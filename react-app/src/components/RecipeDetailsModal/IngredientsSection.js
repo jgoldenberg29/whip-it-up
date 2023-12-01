@@ -15,7 +15,7 @@ export default function Ingredients({ recipeId }) {
             </div>
             {showIngredients && <div>
                 <h4>Refridgerated</h4>
-                <ul className="detials-ingredient-list">
+                <ul className="details-ingredient-list">
                     {recipe.ingredients.map(ingredient => {
                         if (ingredient.refridgerated) {
                             return (
@@ -27,7 +27,7 @@ export default function Ingredients({ recipeId }) {
                     })}
                 </ul>
                 <h4>Pantry</h4>
-                <ul className="detials-ingredient-list">
+                <ul className="details-ingredient-list">
                     {recipe.ingredients.map(ingredient => {
                         if (!ingredient.refridgerated) {
                             return (
