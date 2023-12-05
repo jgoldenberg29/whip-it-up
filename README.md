@@ -1,7 +1,6 @@
 # Whip it up
 ### Share your favorite recipes with the world
 
-#Description
 _Whip it up_ is a full stack web application for sharing discovering recipes. When a user visits the home page they will find recipes for any occasion or pallet. Inspired by pinterest, upon signing or logging in, a user can additionally share recipes, save recipes to their profile, and comment on recipes shared by others.
 
 ## Overview
