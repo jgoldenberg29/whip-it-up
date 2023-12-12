@@ -5,6 +5,7 @@ from .ingredients_seeder_dev import seed_ingredients, undo_ingredients
 from .saves_seeder_dev import seed_saves, undo_saves
 from .instrcutions_seeder_dev import seed_instructions, undo_instructions
 from .comments_seeder import seed_comments, undo_comments
+from .ratings_seeder import seed_ratings, undo_ratings
 
 from app.models.db import db, environment, SCHEMA
 
@@ -22,6 +23,7 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
         undo_saves()
+        undo_ratings()
         undo_comments()
         undo_instructions()
         undo_ingredients()
@@ -32,6 +34,7 @@ def seed():
     seed_ingredients()
     seed_instructions()
     seed_comments()
+    seed_ratings()
     seed_saves()
     # Add other seed functions here
 
@@ -40,6 +43,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_saves()
+    undo_ratings()
     undo_comments()
     undo_instructions()
     undo_ingredients()
