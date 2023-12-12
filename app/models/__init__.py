@@ -6,3 +6,4 @@ from .ingredients import Ingredient
 from .saves import saves
 from .instructions import Instruction
 from .comments import Comment
+from .ratings import Rating
