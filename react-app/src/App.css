@@ -246,20 +246,6 @@ button {
     max-height: 825px;
 }
 
-/* .search-div {
-    display: flex;
-    width: 72%;
-    background-color:rgb(255, 246, 207);
-    border-radius: 25px;
-    height: 45px;
-    align-items: center;
-    padding-left: 10px;
-    column-gap: 5px;
-    font-size: 18px;
-    margin-right: 10px;
-    margin-left: 10px;
-} */
-
 /* modals */
 
 #modal {
@@ -297,7 +283,8 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 20px; /* gutter size offset */
-    width: auto;
+    margin-right: 20px;
+    width: 97vw;
   }
   .my-masonry-grid_column {
     padding: 6px; /* gutter size */
