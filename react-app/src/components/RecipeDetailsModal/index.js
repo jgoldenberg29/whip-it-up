@@ -29,6 +29,8 @@ export default function RecipeDetailsModal({ recipeId }) {
         }
     }
 
+    const saveButtonClass = user ? 'details-save-unsave' : 'details-save-unsave-hidden'
+
 
     return (
         <div className="details-main-container">
@@ -37,8 +39,8 @@ export default function RecipeDetailsModal({ recipeId }) {
             </div>
             <div className="details-info-container">
                     {user?.savedRecipes.indexOf(recipeId) !== -1 ? <button
-                    style={{backgroundColor: '#f9c54d',}} className='details-save-unsave' onClick={e => handleUnsave(recipeId)}>unsave</button> : <button
-                    style={{backgroundColor: '#f9c54d',}} className='details-save-unsave' onClick={e => handleSave(recipeId)}>save</button>}
+                    style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleUnsave(recipeId)}>unsave</button> : <button
+                    style={{backgroundColor: '#f9c54d',}} className={saveButtonClass} onClick={e => handleSave(recipeId)}>save</button>}
                 <div>
                     {/* <p>{recipe.recipeURL}</p> */}
                     <h2>{recipe.title}</h2>
