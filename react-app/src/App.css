@@ -571,6 +571,39 @@ button {
     cursor: pointer;
 }
 
+/* star rating */
+.rating-times-container {
+    display: flex;
+}
+
+.stars-container {
+    display: flex;
+    margin-right: 2px;
+}
+
+.empty-star {
+    display: flex;
+    position: relative;
+    left: 0;
+    font-family: FontAwesome;
+}
+.empty-star:before {
+    content: "\f006";
+}
+.full-star {
+    position: absolute;
+    overflow: hidden;
+    white-space: no-wrap;
+}
+.full-star:before {
+    content: "\f005";
+    color: #f9c54d;
+
+}
+.hidden-star {
+    display: none;
+}
+
 /* signup form */
 
 .signup-modal-container{
