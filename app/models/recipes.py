@@ -42,7 +42,7 @@ class Recipe(db.Model):
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
             'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step']),
             'comments': [comment.to_dict() for comment in self.recipe_comments],
-            'avg_rating': self.avg_rating()
+            'avgRating': self.avg_rating()
         }
 
 
@@ -58,6 +58,6 @@ class Recipe(db.Model):
             all_ratings = [rating.stars for rating in self.recipe_ratings]
             rating_sum = sum(all_ratings)
             avg = rating_sum / len(all_ratings)
-            return round(avg)
+            return round(avg, 1)
         else:
             return None

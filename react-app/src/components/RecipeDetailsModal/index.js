@@ -6,6 +6,7 @@ import Comments from '../comments'
 import PostComment from '../comments/PostComment'
 import { thunkSaveRecipe, thunkUnsaveRecipe } from '../../store/session'
 import { useState } from 'react'
+import Rating from './Ratings'
 
 
 export default function RecipeDetailsModal({ recipeId }) {
@@ -44,7 +45,7 @@ export default function RecipeDetailsModal({ recipeId }) {
                 <div>
                     {/* <p>{recipe.recipeURL}</p> */}
                     <h2>{recipe.title}</h2>
-                    <p>{recipe.totalTime} • {recipe.servings} servings</p>
+                    <p className="rating-times-container"><Rating recipeId={recipeId}/> {recipe.avgRating} • {recipe.totalTime} • {recipe.servings} servings</p>
                     <p className='details-description'>{recipe.description}</p>
                     {/* <p style={{fontWeight: 'bold'}}>{recipe.author}</p> */}
                     <Ingredients recipeId={recipeId}/>
