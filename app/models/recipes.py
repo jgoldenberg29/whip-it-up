@@ -23,6 +23,7 @@ class Recipe(db.Model):
     recipe_ingredients = db.relationship('Ingredient', back_populates='used_in')
     recipe_instructions = db.relationship('Instruction', back_populates = 'instructions_for')
     recipe_comments = db.relationship('Comment', back_populates='recipe')
+    recipe_ratings = db.relationship('Rating', back_populates='recipe')
 
 
     def to_dict(self):
@@ -40,7 +41,8 @@ class Recipe(db.Model):
             'author': self.author.first_name,
             'ingredients': [ingredient.to_dict() for ingredient in self.recipe_ingredients],
             'instructions': sorted([instruction.to_dict() for instruction in self.recipe_instructions], key=lambda instruction: instruction['step']),
-            'comments': [comment.to_dict() for comment in self.recipe_comments]
+            'comments': [comment.to_dict() for comment in self.recipe_comments],
+            'avg_rating': self.avg_rating()
         }
 
 
@@ -50,3 +52,12 @@ class Recipe(db.Model):
         total_min = total % 60
         string = f'{f"{total_hours}hr " if total_hours > 0 else ""}{total_min}min'
         return string
+
+    def avg_rating(self):
+        if len(self.recipe_ratings):
+            all_ratings = [rating.stars for rating in self.recipe_ratings]
+            rating_sum = sum(all_ratings)
+            avg = rating_sum / len(all_ratings)
+            return round(avg)
+        else:
+            return None
