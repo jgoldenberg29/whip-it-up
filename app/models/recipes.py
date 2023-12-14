@@ -54,7 +54,10 @@ class Recipe(db.Model):
         return string
 
     def avg_rating(self):
-        all_ratings = [rating.stars for rating in self.recipe_ratings]
-        rating_sum = sum(all_ratings)
-        avg = rating_sum / len(all_ratings)
-        return round(avg, 1)
+        if len(self.recipe_ratings):
+            all_ratings = [rating.stars for rating in self.recipe_ratings]
+            rating_sum = sum(all_ratings)
+            avg = rating_sum / len(all_ratings)
+            return round(avg)
+        else:
+            return None
