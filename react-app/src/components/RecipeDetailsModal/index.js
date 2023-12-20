@@ -7,6 +7,8 @@ import PostComment from '../comments/PostComment'
 import { thunkSaveRecipe, thunkUnsaveRecipe } from '../../store/session'
 import { useState } from 'react'
 import Rating from './Ratings'
+import OpenNestedModalButton from '../OpenNestedModalButton'
+import RateRecipe from '../RateRecipe'
 
 
 export default function RecipeDetailsModal({ recipeId }) {
@@ -45,7 +47,15 @@ export default function RecipeDetailsModal({ recipeId }) {
                 <div>
                     {/* <p>{recipe.recipeURL}</p> */}
                     <h2>{recipe.title}</h2>
-                    <p className="rating-times-container"><Rating recipeId={recipeId}/> {recipe.avgRating} • {recipe.totalTime} • {recipe.servings} servings</p>
+                    <p className="rating-times-container">
+                        <OpenNestedModalButton
+                            buttonText={<i class="fa-solid fa-star"></i>}
+                            nestedModalComponent={<RateRecipe />}
+                        />
+
+                        <Rating recipeId={recipeId}/>
+                         {recipe.avgRating} • {recipe.totalTime} • {recipe.servings} servings
+                    </p>
                     <p className='details-description'>{recipe.description}</p>
                     {/* <p style={{fontWeight: 'bold'}}>{recipe.author}</p> */}
                     <Ingredients recipeId={recipeId}/>

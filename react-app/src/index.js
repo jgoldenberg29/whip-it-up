@@ -10,6 +10,7 @@ import App from "./App";
 
 import "./index.css";
 import { SearchProvider } from "./context/Search";
+import { NestedModalProvider } from "./context/NestedModal";
 
 const store = configureStore();
 
@@ -24,14 +25,16 @@ if (process.env.NODE_ENV !== "production") {
 function Root() {
 	return (
 		<SearchProvider>
-			<ModalProvider>
-				<Provider store={store}>
-					<BrowserRouter>
-						<App />
-						<Modal />
-					</BrowserRouter>
-				</Provider>
-			</ModalProvider>
+			<NestedModalProvider>
+				<ModalProvider>
+					<Provider store={store}>
+						<BrowserRouter>
+							<App />
+							<Modal />
+						</BrowserRouter>
+					</Provider>
+				</ModalProvider>
+			</NestedModalProvider>
 		</SearchProvider>
 	);
 }
